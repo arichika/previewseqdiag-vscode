@@ -1,0 +1,134 @@
+{
+    "name": "previewseqdiag-vscode",
+    "displayName": "Preview Sequence Diagrams",
+    "description": "An extension for vscode specialized for the preview function of mscgen and mermaid.",
+    "version": "0.0.1",
+    "publisher": "arichika",
+    "author": "arichika.taniguchi @arichika",
+    "license": "GPL-3.0",
+
+    "galleryBanner": {
+        "color": "#ffffff",
+        "theme": "light"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/arichika/previewseqdiag-vscode"
+    },
+    "homepage": "https://github.com/arichika/previewseqdiag-vscode",
+    "bugs": {
+        "url": "https://github.com/arichika/previewseqdiag-vscode/issues"
+    },
+    "categories": [
+        "Formatters",
+        "Languages",
+        "Snippets"
+    ],
+    "keywords": [
+        "Mermaid",
+        "Mmd",
+        "MscGen",
+        "Xù",
+        "MsGenny"
+    ],
+
+    "engines": {
+        "vscode": "^1.12.0"
+    },
+    
+    "activationEvents": [
+        "onCommand:previewSeqDiag.showPreview",
+        "onLanguage:mscgen",
+        "onLanguage:msgenny",
+        "onLanguage:xu",
+        "onLanguage:mermaid"
+    ],
+    "main": "./out/src/extension",
+    "contributes": {
+        "languages": [{
+            "id": "mermaid",
+            "aliases": [
+                "Mermaid"
+            ],
+            "extensions": [
+                ".mmd",
+                ".mermaid"
+            ]
+        }],        
+        "commands": [{
+            "command": "previewSeqDiag.showPreview",
+            "title": "Show Preview",
+            "category": "Preview Sequence Diagrams"
+        }],
+		"menus": {
+			"editor/title": [
+				{
+					"command": "previewSeqDiag.showPreview",
+                    "group":"navigation",
+                    "when": "resourceLangId == mscgen"
+                },
+				{
+					"command": "previewSeqDiag.showPreview",
+                    "group":"navigation",
+                    "when": "resourceLangId == msgenny"
+                },
+				{
+					"command": "previewSeqDiag.showPreview",
+                    "group":"navigation",
+                    "when": "resourceLangId == xu"
+                },
+				{
+					"command": "previewSeqDiag.showPreview",
+                    "group":"navigation",
+                    "when": "resourceLangId == mermaid"
+                }
+            ],
+            "editor/context": [
+				{
+					"command": "previewSeqDiag.showPreview",
+                    "group":"navigation",
+                    "when": "resourceLangId == mscgen"
+                },
+				{
+					"command": "previewSeqDiag.showPreview",
+                    "group":"navigation",
+                    "when": "resourceLangId == msgenny"
+                },
+				{
+					"command": "previewSeqDiag.showPreview",
+                    "group":"navigation",
+                    "when": "resourceLangId == xu"
+                },
+				{
+					"command": "previewSeqDiag.showPreview",
+                    "group":"navigation",
+                    "when": "resourceLangId == mermaid"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "tsc -p ./",
+        "compile": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "dependencies": {
+        "rx":"^4.1.0",
+        "mscgenjs": "^1.12.1",
+        "mscgenjs-inpage": "^1.12.1",
+        "mermaid": "^7.0.0"
+    },
+    "devDependencies": {
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0",
+        "mocha": "^2.3.3",
+        "@types/node": "^6.0.40",
+        "@types/mocha": "^2.2.32"
+    }
+    ,
+    "extensionDependencies": [
+        "mscgenjs.vscode-mscgen"
+  ]
+}
+
