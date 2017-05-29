@@ -44,6 +44,22 @@
         "onLanguage:mermaid"
     ],
     "main": "./out/src/extension",
+    "configuration": {
+        "type": "object",
+        "title": "TypeScript configuration",
+        "properties": {
+            "previewSeqDiag.mscgen.fixedNamedStyle": {
+                "type": ["string", "null"],
+                "default": null,
+                "description": "Setting to force usage for Mscgen, MsGenny, xu's preview. lazy, classic, cygne, pegasse, fountainpen or null(=cygne)"
+            },
+            "previewSeqDiag.mermaid.fixedStyle": {
+                "type": ["string", "null"],
+                "default": null,
+                "description": "Setting to force usage for Mermaid's preview. dark, forest, \"\" or null(=Switch according to the theme of VSCode) "
+            }
+        }
+    },
     "contributes": {
         "languages": [{
             "id": "mermaid",

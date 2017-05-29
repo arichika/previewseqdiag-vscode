@@ -6,12 +6,26 @@ import { CodeSnippetInterface } from './codeSnippetInterface';
 import { Misc } from './misc';
 
 
+class ConfigMscgen
+{
+    public fixedNamedStyle: string = "cygne";
+}
+
 export class MscgenCodeSnippet implements CodeSnippetInterface
 {
     private static _instance:MscgenCodeSnippet;
 
+    private _configMscgen: ConfigMscgen;
+
     private constructor()
-    { }
+    {
+        this._configMscgen = new ConfigMscgen();
+
+        var config = vscode.workspace.getConfiguration('previewSeqDiag');
+
+        if(!!config && !!config.mscgen)
+            this._configMscgen.fixedNamedStyle = !(config.mscgen.fixedNamedStyle == null) ? config.mscgen.fixedNamedStyle: "cygne";
+    }
 
     public static get instance():MscgenCodeSnippet
     {
@@ -47,11 +61,10 @@ export class MscgenCodeSnippet implements CodeSnippetInterface
             <script src='${Misc.getExtensionRootPath()}/node_modules/mscgenjs-inpage/dist/mscgen-inpage.js'></script>
             `,`
             <hr color='#999' />
-            <!-- lazy, classic, cygne, pegasse, fountainpen -->
             <script 
                 style='color:transparent;' 
                 type='text/x-${languageId}' 
-                data-named-style='cygne' 
+                data-named-style='${this._configMscgen.fixedNamedStyle}' 
                 data-regular-arc-text-vertical-alignment='above'>
                 ${payLoad}
             </script>

@@ -22,7 +22,16 @@ Preview Sequence Diagrams is an extension for vscode specialized for the preview
 
 This extension contributes the following settings:
 
-* _(TBD)_ `previewSeqDiag.mscgen.defaultNamedStyle`: set `lazy`, `classic`, `cygne`, `pegasse` or  `fountainpen`.(see [Name Style](https://mscgen.js.org/embed.html#named-styles))
+* `previewSeqDiag.mscgen.fixedNamedStyle`: Setting to force usage for Mscgen, MsGenny, xu's preview.
+  * Set `lazy`, `classic`, `cygne`, `pegasse`, `fountainpen` or `null`(=cygne). (see [Name Style](https://mscgen.js.org/embed.html#named-styles))
+* `previewSeqDiag.mermaid.fixedStyle`: Setting to force usage for Mermaid's preview. 
+  * Set `dark`, `forest`, `""` or `null`(=Switch according to the theme of VSCode)
+
+e.g.
+```
+    "previewSeqDiag.mscgen.fixedNamedStyle": "pegasse",
+    "previewSeqDiag.mermaid.fixedStyle": "",
+```
 
 ## Known Issues
 
