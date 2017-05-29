@@ -48,10 +48,11 @@ export class MscgenCodeSnippet implements CodeSnippetInterface
             `,`
             <hr color='#999' />
             <!-- lazy, classic, cygne, pegasse, fountainpen -->
-            <script
-                 type='text/x-${languageId}'
-                 data-named-style='cygne'
-                 data-regular-arc-text-vertical-alignment='above'>
+            <script 
+                style='color:transparent;' 
+                type='text/x-${languageId}' 
+                data-named-style='cygne' 
+                data-regular-arc-text-vertical-alignment='above'>
                 ${payLoad}
             </script>
             `);

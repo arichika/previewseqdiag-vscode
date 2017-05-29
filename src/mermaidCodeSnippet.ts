@@ -55,7 +55,8 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
                 }
             </script>
             <hr color="#999" />
-            <div class="mermaid">
+            <div class="mermaid"
+                style='color:transparent;'>
                 ${payLoad}
             </div>
             `);
