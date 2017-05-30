@@ -1,13 +1,28 @@
-# Preview Sequence Diagrams (previewseqdiag-vscode) README
+# Preview Sequence Diagrams 
 
-Preview Sequence Diagrams is an extension for vscode specialized for the preview function of mscgen and mermaid.
+## README
 
-![eye-catch](images/eye-catch.png)
+Preview Sequence Diagrams (previewseqdiag-vscode) is an extension for vscode specialized for the preview function of mscgen and mermaid.
+
+![eye-catch](assets/eye-catch.png)
 
 ## Features
 
 * Support to preview of Mermaid format.
 * Support to preview of MscGen, MsGenny format.
+* Support to automatically change the style according to the theme of VSCode. (Only Mermaid)
+
+## Release Notes
+
+### 0.0.1
+
+Initial release.
+
+## Known Issues
+
+* In the current release, I only consider the Windows platform and develop it.　So, There should be something wrong.
+* SVG or PNG downloading is not supported. If you want to download by SVG or PNG, It is good to use lang's official websites. see, [Appendix](#Appendix)
+
 
 ## Requirements
 
@@ -29,28 +44,23 @@ This extension contributes the following settings:
 * `previewSeqDiag.mscgen.fixedNamedStyle`: Setting to force usage for Mscgen, MsGenny, xu's preview's rendering style.
   * Set `lazy`, `classic`, `cygne`, `pegasse`, `fountainpen` or `null` (= cygne). (see [Name Style](https://mscgen.js.org/embed.html#named-styles))
 
-e.g.
+e.g. 
 ```
     "previewSeqDiag.mermaid.fixedStyle":"forest",
     "previewSeqDiag.mermaid.fixedBackgroundColor":"#ffffff",
-    "previewSeqDiag.mscgen.fixedNamedStyle": "pegasse",
+    "previewSeqDiag.mscgen.fixedNamedStyle": "fountainpen",
 ```
 
-## Known Issues
+this is.
 
-* In the current release, I only consider the Windows platform and develop it.　So, There should be something wrong.
-* SVG or PNG downloading is not supported. If you want to download by SVG or PNG, It is good to use lang's official websites.
+![mermaid-forest-white](assets/mermaid-forest-white.png)  
+![mscgen-fountainpen.png](assets/mscgen-fountainpen.png)
 
-## Release Notes
-
-### 0.0.1
-
-Initial **alpha** release.
 
 
 ----
 
-## Appndeix
+## Appendix
 
 ### Great thanks to
 
@@ -65,4 +75,13 @@ Initial **alpha** release.
 * [Mscgen](http://www.mcternan.me.uk/mscgen/)
 * [mscgen_js](https://mscgen.js.org/) you can download by SVG or PNG.
 
+### samples
 
+Mermaid, graph, forest, with light theme.
+![graph](assets/mermaid-forest-default-graph.png)
+
+Mermaid, gantt, dark, with dark theme.
+![graph](assets/mermaid-dark-default-gantt.png)
+
+MscGen, msc, cygne, with dark theme.
+![graph](assets/mscgen-cygne.png)
