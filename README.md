@@ -14,6 +14,8 @@ Preview Sequence Diagrams (previewseqdiag-vscode) is an extension for vscode spe
 
 ## Release Notes
 
+[CHANGELOG.md](CHANGELOG.md)
+
 ### 0.0.1
 
 Initial release.
