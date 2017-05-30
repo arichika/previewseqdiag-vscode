@@ -91,11 +91,12 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
             </script>
             `,
             styleSwitchScript + `
-            <hr color="#999" />
             <div class="mermaid"
                 style='color:transparent; background-color:${this._configMermaid.fixedBackgroundColor}'>
                 ${payLoad}
             </div>
+            <hr color="#999" />
+            <a href="https://knsv.github.io/mermaid/live_editor/" style="color:#999999;">If you want to download by SVG, It is good to use this official website.</a>
             `);
     }
 }

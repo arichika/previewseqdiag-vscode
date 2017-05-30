@@ -1,7 +1,7 @@
 {
     "name": "previewseqdiag-vscode",
     "displayName": "Preview Sequence Diagrams",
-    "description": "An extension for vscode specialized for the preview function of mscgen and mermaid.",
+    "description": "An extension for vscode specialized for the preview function of mermaid, mscgen and other.",
     "version": "0.0.1",
     "publisher": "arichika",
     "author": "arichika.taniguchi @arichika",
@@ -28,8 +28,8 @@
         "Mermaid",
         "Mmd",
         "MscGen",
-        "Xù",
-        "MsGenny"
+        "MsGenny",
+        "Xù"
     ],
 
     "engines": {
@@ -38,21 +38,16 @@
     
     "activationEvents": [
         "onCommand:previewSeqDiag.showPreview",
+        "onLanguage:mermaid",
         "onLanguage:mscgen",
         "onLanguage:msgenny",
-        "onLanguage:xu",
-        "onLanguage:mermaid"
+        "onLanguage:xu"
     ],
     "main": "./out/src/extension",
     "configuration": {
         "type": "object",
         "title": "TypeScript configuration",
         "properties": {
-            "previewSeqDiag.mscgen.fixedNamedStyle": {
-                "type": ["string", "null"],
-                "default": null,
-                "description": "Setting to force usage for Mscgen's rendering style, MsGenny, xu's preview. lazy, classic, cygne, pegasse, fountainpen or null(=cygne)"
-            },
             "previewSeqDiag.mermaid.fixedStyle": {
                 "type": ["string", "null"],
                 "default": null,
@@ -62,6 +57,11 @@
                 "type": ["string", "null"],
                 "default": null,
                 "description": "Setting to force usage for Mermaid's rendering background color. #rrggbb, transparent or null(=Depends on VSCode's Theme) "
+            },
+            "previewSeqDiag.mscgen.fixedNamedStyle": {
+                "type": ["string", "null"],
+                "default": null,
+                "description": "Setting to force usage for Mscgen's rendering style, MsGenny, xu's preview. lazy, classic, cygne, pegasse, fountainpen or null(=cygne)"
             }
         }
     },
@@ -86,6 +86,11 @@
 				{
 					"command": "previewSeqDiag.showPreview",
                     "group":"navigation",
+                    "when": "resourceLangId == mermaid"
+                },
+				{
+					"command": "previewSeqDiag.showPreview",
+                    "group":"navigation",
                     "when": "resourceLangId == mscgen"
                 },
 				{
@@ -97,17 +102,17 @@
 					"command": "previewSeqDiag.showPreview",
                     "group":"navigation",
                     "when": "resourceLangId == xu"
-                },
-				{
-					"command": "previewSeqDiag.showPreview",
-                    "group":"navigation",
-                    "when": "resourceLangId == mermaid"
                 }
             ],
             "editor/context": [
 				{
 					"command": "previewSeqDiag.showPreview",
                     "group":"navigation",
+                    "when": "resourceLangId == mermaid"
+                },
+				{
+					"command": "previewSeqDiag.showPreview",
+                    "group":"navigation",
                     "when": "resourceLangId == mscgen"
                 },
 				{
@@ -119,11 +124,6 @@
 					"command": "previewSeqDiag.showPreview",
                     "group":"navigation",
                     "when": "resourceLangId == xu"
-                },
-				{
-					"command": "previewSeqDiag.showPreview",
-                    "group":"navigation",
-                    "when": "resourceLangId == mermaid"
                 }
             ]
         }
@@ -136,9 +136,9 @@
     },
     "dependencies": {
         "rx":"^4.1.0",
+        "mermaid": "^7.0.0",
         "mscgenjs": "^1.12.1",
-        "mscgenjs-inpage": "^1.12.1",
-        "mermaid": "^7.0.0"
+        "mscgenjs-inpage": "^1.12.1"
     },
     "devDependencies": {
         "typescript": "^2.0.3",

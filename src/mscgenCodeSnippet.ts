@@ -60,7 +60,6 @@ export class MscgenCodeSnippet implements CodeSnippetInterface
             </script>
             <script src='${Misc.getExtensionRootPath()}/node_modules/mscgenjs-inpage/dist/mscgen-inpage.js'></script>
             `,`
-            <hr color='#999' />
             <script 
                 style='color:transparent;' 
                 type='text/x-${languageId}' 
@@ -68,6 +67,8 @@ export class MscgenCodeSnippet implements CodeSnippetInterface
                 data-regular-arc-text-vertical-alignment='above'>
                 ${payLoad}
             </script>
+            <hr color='#999' />
+            <a href="https://mscgen.js.org/" style="color:#999999;">If you want to download by SVG or PNG, It is good to use this official website.</a>
             `);
     }
 }
