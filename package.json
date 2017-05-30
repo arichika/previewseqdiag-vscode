@@ -8,7 +8,7 @@
     "license": "GPL-3.0",
 
     "galleryBanner": {
-        "color": "#ffffff",
+        "color": "#f0f0f0",
         "theme": "light"
     },
     "repository": {
@@ -51,12 +51,17 @@
             "previewSeqDiag.mscgen.fixedNamedStyle": {
                 "type": ["string", "null"],
                 "default": null,
-                "description": "Setting to force usage for Mscgen, MsGenny, xu's preview. lazy, classic, cygne, pegasse, fountainpen or null(=cygne)"
+                "description": "Setting to force usage for Mscgen's rendering style, MsGenny, xu's preview. lazy, classic, cygne, pegasse, fountainpen or null(=cygne)"
             },
             "previewSeqDiag.mermaid.fixedStyle": {
                 "type": ["string", "null"],
                 "default": null,
-                "description": "Setting to force usage for Mermaid's preview. dark, forest, \"\" or null(=Switch according to the theme of VSCode) "
+                "description": "Setting to force usage for Mermaid's rendering style. dark, forest, \"\" or null(=Switch according to the theme of VSCode) "
+            },
+            "previewSeqDiag.mermaid.fixedBackgroundColor": {
+                "type": ["string", "null"],
+                "default": null,
+                "description": "Setting to force usage for Mermaid's rendering background color. #rrggbb, transparent or null(=Depends on VSCode's Theme) "
             }
         }
     },
@@ -73,7 +78,7 @@
         }],        
         "commands": [{
             "command": "previewSeqDiag.showPreview",
-            "title": "Show Preview",
+            "title": "Preview",
             "category": "Preview Sequence Diagrams"
         }],
 		"menus": {

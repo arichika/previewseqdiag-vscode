@@ -9,6 +9,7 @@ import { Misc } from './misc';
 class ConfigMermaid
 {
     public fixedStyle: string = null;
+    public fixedBackgroundColor: string = null;
 }
 
 
@@ -25,6 +26,8 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
         var config = vscode.workspace.getConfiguration('previewSeqDiag');
         if(!!config && !!config.mermaid)
             this._configMermaid.fixedStyle = !(config.mermaid.fixedStyle == null) ? config.mermaid.fixedStyle : null;
+        if(!!config && !!config.mermaid)
+            this._configMermaid.fixedBackgroundColor = !(config.mermaid.fixedBackgroundColor == null) ? config.mermaid.fixedBackgroundColor : null;
     }
 
     public static get instance():MermaidCodeSnippet
@@ -90,7 +93,7 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
             styleSwitchScript + `
             <hr color="#999" />
             <div class="mermaid"
-                style='color:transparent;'>
+                style='color:transparent; background-color:${this._configMermaid.fixedBackgroundColor}'>
                 ${payLoad}
             </div>
             `);
