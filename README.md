@@ -23,7 +23,7 @@ Initial release.
 ## Known Issues
 
 * In the current release, I only consider the Windows platform and develop it.　So, There should be something wrong.
-* SVG or PNG downloading is not supported. If you want to download by SVG or PNG, It is good to use lang's official websites. see, [Appendix](#Appendix)
+* SVG or PNG downloading is not supported. If you want to download by SVG or PNG, It is good to use lang's official websites. see, [Appendix](#appendix)
 
 
 ## Requirements
