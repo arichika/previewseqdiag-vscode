@@ -2,7 +2,7 @@
     "name": "previewseqdiag-vscode",
     "displayName": "Preview Sequence Diagrams",
     "description": "An extension for vscode specialized for the preview function of mermaid, mscgen and other.",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "publisher": "arichika",
     "author": "arichika.taniguchi @arichika",
     "license": "GPL-3.0",
@@ -47,21 +47,21 @@
     "main": "./out/src/extension",
     "configuration": {
         "type": "object",
-        "title": "TypeScript configuration",
+        "title": "Preview Sequence Diagrams configuration",
         "properties": {
             "previewSeqDiag.mermaid.fixedStyle": {
-                "type": ["string", "null"],
-                "default": null,
+                "type": ["string"],
+                "default": "forest",
                 "description": "Setting to force usage for Mermaid's rendering style. dark, forest, \"\" or null(=Switch according to the theme of VSCode) "
             },
             "previewSeqDiag.mermaid.fixedBackgroundColor": {
-                "type": ["string", "null"],
-                "default": null,
+                "type": ["string"],
+                "default": "#fafaf0",
                 "description": "Setting to force usage for Mermaid's rendering background color. #rrggbb, transparent or null(=Depends on VSCode's Theme) "
             },
             "previewSeqDiag.mscgen.fixedNamedStyle": {
-                "type": ["string", "null"],
-                "default": null,
+                "type": ["string"],
+                "default": "cygne",
                 "description": "Setting to force usage for Mscgen's rendering style, MsGenny, xu's preview. lazy, classic, cygne, pegasse, fountainpen or null(=cygne)"
             }
         }
@@ -137,7 +137,7 @@
     },
     "dependencies": {
         "rx":"^4.1.0",
-        "mermaid": "^7.0.0",
+        "mermaid": "^7.0.3",
         "mscgenjs": "^1.12.1",
         "mscgenjs-inpage": "^1.12.1"
     },

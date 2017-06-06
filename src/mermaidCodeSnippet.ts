@@ -8,8 +8,8 @@ import { Misc } from './misc';
 
 class ConfigMermaid
 {
-    public fixedStyle: string = null;
-    public fixedBackgroundColor: string = null;
+    public fixedStyle: string = "forest";
+    public fixedBackgroundColor: string = "#fafaf0";
 }
 
 
@@ -24,10 +24,10 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
         this._configMermaid = new ConfigMermaid();
 
         var config = vscode.workspace.getConfiguration('previewSeqDiag');
-        if(!!config && !!config.mermaid)
-            this._configMermaid.fixedStyle = !(config.mermaid.fixedStyle == null) ? config.mermaid.fixedStyle : null;
-        if(!!config && !!config.mermaid)
-            this._configMermaid.fixedBackgroundColor = !(config.mermaid.fixedBackgroundColor == null) ? config.mermaid.fixedBackgroundColor : null;
+        if(!!config && !!config.mermaid && config.mermaid.fixedStyle != null)
+            this._configMermaid.fixedStyle = config.mermaid.fixedStyle;
+        if(!!config && !!config.mermaid && config.mermaid.fixedBackgroundColor != null)
+            this._configMermaid.fixedBackgroundColor = config.mermaid.fixedBackgroundColor;
     }
 
     public static get instance():MermaidCodeSnippet
@@ -57,45 +57,31 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
 
     private async previewSnippet(payLoad: string): Promise<string>
     {
-        var styleSwitchScript = null;
+        var styleSwitch = null;
         switch(this._configMermaid.fixedStyle)
         {
             case "dark":
             case "forest":
-                styleSwitchScript = `
-                    <script type="text/javascript">
-                            document.getElementById('baseCss').href = "${Misc.getExtensionRootPath()}/node_modules/mermaid/dist/mermaid.${this._configMermaid.fixedStyle}.css";
-                    </script>`;
-                break;
-
-            case null:
-                styleSwitchScript = `
-                    <script type="text/javascript">
-                        if(document.body.className === 'vscode-dark') {
-                            document.getElementById('baseCss').href = "${Misc.getExtensionRootPath()}/node_modules/mermaid/dist/mermaid.dark.css";
-                        } else if(document.body.className === 'vscode-light') {
-                            document.getElementById('baseCss').href = "${Misc.getExtensionRootPath()}/node_modules/mermaid/dist/mermaid.forest.css";
-                        }
-                    </script>`;
+            case "neutral":
+                styleSwitch = "." + this._configMermaid.fixedStyle;
                 break;
 
             default:
-                styleSwitchScript = ``;
+                styleSwitch = "";
         }
 
-        return Misc.getFormattedHtml(`
-            <link href="${Misc.getExtensionRootPath()}/node_modules/mermaid/dist/mermaid.css" rel="stylesheet" id="baseCss">
+        return Misc.getFormattedHtml(
+            `
+            <link href="${Misc.getExtensionRootPath()}/node_modules/mermaid/dist/mermaid${styleSwitch}.min.css" rel="stylesheet" type="text/css">
             <script src="${Misc.getExtensionRootPath()}/node_modules/mermaid/dist/mermaid.min.js">
             <script type="text/javascript">
                 mermaid.initialize({startOnLoad:true});
             </script>
             `,
-            styleSwitchScript + `
-            <div class="mermaid"
-                style='color:transparent; background-color:${this._configMermaid.fixedBackgroundColor}'>
-                ${payLoad}
+            `
+            <div style='color:transparent; background-color:${this._configMermaid.fixedBackgroundColor}'>
+                <div class="mermaid">${payLoad}</div>
             </div>
-            <hr color="#999" />
             <a href="https://knsv.github.io/mermaid/live_editor/" style="color:#999999;">If you want to download by SVG, It is good to use this official website.</a>
             `);
     }

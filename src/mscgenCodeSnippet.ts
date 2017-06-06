@@ -23,8 +23,8 @@ export class MscgenCodeSnippet implements CodeSnippetInterface
 
         var config = vscode.workspace.getConfiguration('previewSeqDiag');
 
-        if(!!config && !!config.mscgen)
-            this._configMscgen.fixedNamedStyle = !(config.mscgen.fixedNamedStyle == null) ? config.mscgen.fixedNamedStyle: "cygne";
+        if(!!config && !!config.mscgen && config.mscgen.fixedNamedStyle != null)
+            this._configMscgen.fixedNamedStyle = config.mscgen.fixedNamedStyle;
     }
 
     public static get instance():MscgenCodeSnippet
@@ -55,8 +55,8 @@ export class MscgenCodeSnippet implements CodeSnippetInterface
     private async previewSnippet(languageId: string,payLoad: string): Promise<string>
     {
         return Misc.getFormattedHtml(`
-            <script>
-                var mscgen_js_config = {}
+            <script type="text/javascript">
+                var mscgen_js_config = {};
             </script>
             <script src='${Misc.getExtensionRootPath()}/node_modules/mscgenjs-inpage/dist/mscgen-inpage.js'></script>
             `,`
@@ -67,7 +67,6 @@ export class MscgenCodeSnippet implements CodeSnippetInterface
                 data-regular-arc-text-vertical-alignment='above'>
                 ${payLoad}
             </script>
-            <hr color='#999' />
             <a href="https://mscgen.js.org/" style="color:#999999;">If you want to download by SVG or PNG, It is good to use this official website.</a>
             `);
     }
