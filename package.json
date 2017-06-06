@@ -45,27 +45,6 @@
         "onLanguage:xu"
     ],
     "main": "./out/src/extension",
-    "configuration": {
-        "type": "object",
-        "title": "Preview Sequence Diagrams configuration",
-        "properties": {
-            "previewSeqDiag.mermaid.fixedStyle": {
-                "type": ["string"],
-                "default": "forest",
-                "description": "Setting to force usage for Mermaid's rendering style. dark, forest, \"\" or null(=Switch according to the theme of VSCode) "
-            },
-            "previewSeqDiag.mermaid.fixedBackgroundColor": {
-                "type": ["string"],
-                "default": "#fafaf0",
-                "description": "Setting to force usage for Mermaid's rendering background color. #rrggbb, transparent or null(=Depends on VSCode's Theme) "
-            },
-            "previewSeqDiag.mscgen.fixedNamedStyle": {
-                "type": ["string"],
-                "default": "cygne",
-                "description": "Setting to force usage for Mscgen's rendering style, MsGenny, xu's preview. lazy, classic, cygne, pegasse, fountainpen or null(=cygne)"
-            }
-        }
-    },
     "contributes": {
         "languages": [{
             "id": "mermaid",
@@ -127,6 +106,49 @@
                     "when": "resourceLangId == xu"
                 }
             ]
+        },
+        "configuration": {
+            "title": "Preview Sequence Diagrams configuration",
+            "properties": {
+                "previewSeqDiag": {
+                    "type": "object",
+                    "description": "Preview Sequence Diagrams configuration",
+                    "properties": {
+                        "mermaid": {
+                            "type": "object",
+                            "description": "Preview styles for Mermaid",
+                            "properties": {
+                                "fixedStyle": {
+                                    "type": "string",
+                                    "default": "forest",
+                                    "description": "Setting to force usage for Mermaid's rendering style. 'dark', 'forest', 'neutral'."
+                                },
+                                "fixedBackgroundColor": {
+                                    "type": "string",
+                                    "default": "#fafaf0",
+                                    "description": "Setting to force usage for Mermaid's rendering background color. '#rrggbb', 'transparent'."
+                                }
+                            }
+                        },
+                        "mscgen": {
+                            "type": "object",
+                            "description": "Preview styles for MscGen",
+                            "properties": {
+                                "fixedNamedStyle": {
+                                    "type": "string",
+                                    "default": "cygne",
+                                    "description": "Setting to force usage for Mscgen's rendering style, MsGenny, xu's preview. 'lazy', 'classic', 'cygne', 'pegasse', 'fountainpen'."
+                                },
+                                "horizontalAlignment": {
+                                    "type": "string",
+                                    "default": "stretch",
+                                    "description": "Setting to force usage for Mscgen's rendering style. Indicates where an element should be displayed on the horizontal axis relative to the allocated layout slot of the peview window. 'stretch' or 'fixed'."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "scripts": {

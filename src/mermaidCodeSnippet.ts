@@ -6,10 +6,19 @@ import { CodeSnippetInterface } from './codeSnippetInterface';
 import { Misc } from './misc';
 
 
+type StyleName = "dark" | "forest" | "neutral";
+namespace StyleName{
+    export const Dark = "dark"
+    export const Forest = "forest"
+    export const Neutral = "neutral"
+}
+
+const BackgroundColorDefault = "#fafaf6";
+
 class ConfigMermaid
 {
-    public fixedStyle: string = "forest";
-    public fixedBackgroundColor: string = "#fafaf0";
+    public fixedStyle: StyleName;
+    public fixedBackgroundColor: string;
 }
 
 
@@ -23,11 +32,30 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
     { 
         this._configMermaid = new ConfigMermaid();
 
+        // defaults
+        this._configMermaid.fixedStyle = StyleName.Forest;
+        this._configMermaid.fixedBackgroundColor = BackgroundColorDefault;
+
         var config = vscode.workspace.getConfiguration('previewSeqDiag');
-        if(!!config && !!config.mermaid && config.mermaid.fixedStyle != null)
-            this._configMermaid.fixedStyle = config.mermaid.fixedStyle;
-        if(!!config && !!config.mermaid && config.mermaid.fixedBackgroundColor != null)
-            this._configMermaid.fixedBackgroundColor = config.mermaid.fixedBackgroundColor;
+        if(!!config && !!config.mermaid)
+        {
+            // fixedStyle
+            switch(config.mermaid.fixedStyle)
+            {
+                case StyleName.Dark:
+                case StyleName.Forest:
+                case StyleName.Neutral:
+                    this._configMermaid.fixedStyle = config.mscgen.fixedNamedStyle;
+                    break;
+
+                default:
+                    break;
+            }
+
+            // fixedBackgroundColor
+            if(config.mermaid.fixedBackgroundColor != null)
+                this._configMermaid.fixedBackgroundColor = config.mermaid.fixedBackgroundColor;
+        }
     }
 
     public static get instance():MermaidCodeSnippet
@@ -57,22 +85,9 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
 
     private async previewSnippet(payLoad: string): Promise<string>
     {
-        var styleSwitch = null;
-        switch(this._configMermaid.fixedStyle)
-        {
-            case "dark":
-            case "forest":
-            case "neutral":
-                styleSwitch = "." + this._configMermaid.fixedStyle;
-                break;
-
-            default:
-                styleSwitch = "";
-        }
-
         return Misc.getFormattedHtml(
             `
-            <link href="${Misc.getExtensionRootPath()}/node_modules/mermaid/dist/mermaid${styleSwitch}.min.css" rel="stylesheet" type="text/css">
+            <link href="${Misc.getExtensionRootPath()}/node_modules/mermaid/dist/mermaid.${this._configMermaid.fixedStyle}.min.css" rel="stylesheet" type="text/css">
             <script src="${Misc.getExtensionRootPath()}/node_modules/mermaid/dist/mermaid.min.js">
             <script type="text/javascript">
                 mermaid.initialize({startOnLoad:true});
