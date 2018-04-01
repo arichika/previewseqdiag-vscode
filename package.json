@@ -159,7 +159,7 @@
     },
     "dependencies": {
         "rx":"^4.1.0",
-        "mermaid": "^7.0.3",
+        "mermaid": "^8.0.0-rc.6",
         "mscgenjs": "^1.12.1",
         "mscgenjs-inpage": "^1.12.1"
     },
