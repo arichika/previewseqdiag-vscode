@@ -1,4 +1,4 @@
-# Preview Sequence Diagrams 
+# Preview Sequence Diagrams
 
 ## README
 
@@ -10,6 +10,14 @@ Preview Sequence Diagrams (previewseqdiag-vscode) is an extension for vscode spe
 
 * Support to preview of Mermaid format.
 * Support to preview of MscGen, MsGenny format.
+
+## Special feature
+
+* In you `.mmd` file, you can this following to import an other file inside:
+```
+%% import: my-file.md
+```
+This is usefull to avoid multipicate the same code on many files.
 
 ## Release Notes
 
@@ -39,15 +47,15 @@ Preview Sequence Diagrams (previewseqdiag-vscode) is an extension for vscode spe
 
 This extension contributes the following User Settings:
 
-* `previewSeqDiag.mermaid.fixedStyle`: Setting to force usage for Mermaid's preview's rendering style. 
-  * Set `dark`, `forest` or `neutral` (default is `forest`, is force recommended. The dark or neutral theme of Mermaid 7.0.3 does incomplete rendering.) 
-* `previewSeqDiag.mermaid.fixedBackgroundColor`: Setting to force usage for Mermaid's preview's  background colo. 
-  * Set `#rrggbb` e.g. #ffffff, `transparent` (default is `#fafaf6`) 
+* `previewSeqDiag.mermaid.fixedStyle`: Setting to force usage for Mermaid's preview's rendering style.
+  * Set `dark`, `forest` or `neutral` (default is `forest`, is force recommended. The dark or neutral theme of Mermaid 7.0.3 does incomplete rendering.)
+* `previewSeqDiag.mermaid.fixedBackgroundColor`: Setting to force usage for Mermaid's preview's  background colo.
+  * Set `#rrggbb` e.g. #ffffff, `transparent` (default is `#fafaf6`)
 
 * `previewSeqDiag.mscgen.fixedNamedStyle`: Setting to force usage for Mscgen, MsGenny, xu's preview's rendering style.
-  * Set `lazy`, `classic`, `cygne`, `pegasse`or `fountainpen` (default is `cygne`). (see [Name Style](https://mscgen.js.org/embed.html#named-styles)) 
-* `previewSeqDiag.mscgen.horizontalAlignment`: Setting to force usage for Mscgen's rendering style. Indicates where an element should be displayed on the horizontal axis relative to the allocated layout slot of the peview window.  
-  * Set `fixed`or `stretch`(default is `stretch`)  
+  * Set `lazy`, `classic`, `cygne`, `pegasse`or `fountainpen` (default is `cygne`). (see [Name Style](https://mscgen.js.org/embed.html#named-styles))
+* `previewSeqDiag.mscgen.horizontalAlignment`: Setting to force usage for Mscgen's rendering style. Indicates where an element should be displayed on the horizontal axis relative to the allocated layout slot of the peview window.
+  * Set `fixed`or `stretch`(default is `stretch`)
 
 e.g.  add to User Settings,
 
@@ -66,7 +74,7 @@ e.g.  add to User Settings,
 
 result is.
 
-![mermaid-forest-white](assets/mermaid-dark-f6f6ff.png)  
+![mermaid-forest-white](assets/mermaid-dark-f6f6ff.png)
 
 ![mscgen-fountainpen.png](assets/mscgen-fountainpen-fixed.png)
 
