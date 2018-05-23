@@ -2,11 +2,10 @@
     "name": "previewseqdiag-vscode",
     "displayName": "Preview Sequence Diagrams",
     "description": "An extension for vscode specialized for the preview function of mermaid, mscgen and other.",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "publisher": "arichika",
     "author": "arichika.taniguchi @arichika",
     "license": "GPL-3.0",
-
     "icon": "assets/icon.png",
     "galleryBanner": {
         "color": "#f0f0f0",
@@ -32,11 +31,9 @@
         "MsGenny",
         "Xù"
     ],
-
     "engines": {
         "vscode": "^1.12.0"
     },
-    
     "activationEvents": [
         "onCommand:previewSeqDiag.showPreview",
         "onLanguage:mermaid",
@@ -46,63 +43,67 @@
     ],
     "main": "./out/src/extension",
     "contributes": {
-        "languages": [{
-            "id": "mermaid",
-            "aliases": [
-                "Mermaid"
-            ],
-            "extensions": [
-                ".mmd",
-                ".mermaid"
-            ]
-        }],        
-        "commands": [{
-            "command": "previewSeqDiag.showPreview",
-            "title": "Preview",
-            "category": "Preview Sequence Diagrams"
-        }],
-		"menus": {
-			"editor/title": [
-				{
-					"command": "previewSeqDiag.showPreview",
-                    "group":"navigation",
+        "languages": [
+            {
+                "id": "mermaid",
+                "aliases": [
+                    "Mermaid"
+                ],
+                "extensions": [
+                    ".mmd",
+                    ".mermaid"
+                ]
+            }
+        ],
+        "commands": [
+            {
+                "command": "previewSeqDiag.showPreview",
+                "title": "Preview",
+                "category": "Preview Sequence Diagrams"
+            }
+        ],
+        "menus": {
+            "editor/title": [
+                {
+                    "command": "previewSeqDiag.showPreview",
+                    "group": "navigation",
                     "when": "resourceLangId == mermaid"
                 },
-				{
-					"command": "previewSeqDiag.showPreview",
-                    "group":"navigation",
+                {
+                    "command": "previewSeqDiag.showPreview",
+                    "group": "navigation",
                     "when": "resourceLangId == mscgen"
                 },
-				{
-					"command": "previewSeqDiag.showPreview",
-                    "group":"navigation",
+                {
+                    "command": "previewSeqDiag.showPreview",
+                    "group": "navigation",
                     "when": "resourceLangId == msgenny"
                 },
-				{
-					"command": "previewSeqDiag.showPreview",
-                    "group":"navigation",
+                {
+                    "command": "previewSeqDiag.showPreview",
+                    "group": "navigation",
                     "when": "resourceLangId == xu"
                 }
             ],
             "editor/context": [
-				{
-					"command": "previewSeqDiag.showPreview",
-                    "group":"navigation",
+                {
+                    "command": "previewSeqDiag.showPreview",
+                    "group": "navigation",
                     "when": "resourceLangId == mermaid"
                 },
-				{
-					"command": "previewSeqDiag.showPreview",
-                    "group":"navigation",
+                {
+                    "command": "previewSeqDiag.showPreview",
+                    "group": "navigation",
                     "when": "resourceLangId == mscgen"
                 },
-				{
-					"command": "previewSeqDiag.showPreview",
-                    "group":"navigation",
+                {
+                    "command": "previewSeqDiag.showPreview",
+                    "group": "navigation",
                     "when": "resourceLangId == msgenny"
                 },
-				{
-					"command": "previewSeqDiag.showPreview",
-                    "group":"navigation",
+                {
+                    "command": "previewSeqDiag.showPreview",
+                    "group": "navigation",
                     "when": "resourceLangId == xu"
                 }
             ]
@@ -158,8 +159,8 @@
         "test": "node ./node_modules/vscode/bin/test"
     },
     "dependencies": {
-        "rx":"^4.1.0",
-        "mermaid": "^7.0.3",
+        "rx": "^4.1.0",
+        "mermaid": "^8.0.0-rc.6",
         "mscgenjs": "^1.12.1",
         "mscgenjs-inpage": "^1.12.1"
     },
@@ -169,10 +170,8 @@
         "mocha": "^2.3.3",
         "@types/node": "^6.0.40",
         "@types/mocha": "^2.2.32"
-    }
-    ,
+    },
     "extensionDependencies": [
         "mscgenjs.vscode-mscgen"
-  ]
+    ]
 }
-
