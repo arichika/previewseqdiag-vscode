@@ -14,14 +14,23 @@ Preview Sequence Diagrams (previewseqdiag-vscode) is an extension for vscode spe
 ## Special feature
 
 * In you `.mmd` file, you can this following to import an other file inside:
-```
+
+```text
 %% import: my-file.md
 ```
+
 This is usefull to avoid multipicate the same code on many files.
 
 ## Release Notes
 
 [CHANGELOG.md](CHANGELOG.md)
+
+### 0.1.1
+
+* Add Special feature.
+  * In the `.mmd` file, it corresponds to the special notation of importing external files.
+* Update latest modules.
+  * `mermaid 8.0.0-rc.8`, `mscgenjs 1.15.2`, `mscgenjs-inpage 1.13.1` .
 
 ### 0.1.0
 
@@ -39,7 +48,6 @@ This is usefull to avoid multipicate the same code on many files.
 
 * SVG or PNG downloading is not supported. If you want to download by SVG or PNG, It is good to use lang's official websites. see, [Appendix](#appendix)
 * In the preview of Mermaid's Dark and Neutral style, some displays become black.
-
 
 ## Requirements
 
@@ -59,7 +67,7 @@ This extension contributes the following User Settings:
 
 e.g.  add to User Settings,
 
-```
+```json
   "previewSeqDiag": {
     "mermaid": {
       "fixedBackgroundColor": "#f6f6ff",
@@ -81,8 +89,8 @@ result is.
 ### Dependencies
 
 * npm rx ^4.1.0
-* npm mermaid ^7.0.3
-* npm mscgenjs ^1.12.1 / mscgenjs-inpage ^1.12.1
+* npm mermaid ^8.0.0-rc.8
+* npm mscgenjs ^1.15.2 / mscgenjs-inpage ^1.13.1
 * vscode extention mscgenjs.vscode-mscgen
 
 ----
@@ -92,13 +100,17 @@ result is.
 ### Great thanks to
 
 * [searKing/preview-vscode](https://github.com/searKing/preview-vscode)
+* [@XavierBoubert](https://github.com/XavierBoubert)
+  * Thanks [PR](https://github.com/arichika/previewseqdiag-vscode/pull/8) for Great Special feature
 
 ### mermaid
+
 * [knsv/mermaid](https://github.com/knsv/mermaid)
 * [mermaid docs](https://knsv.github.io/mermaid/)
 * [mermaid live editor](https://knsv.github.io/mermaid/live_editor/) you can download by SVG.
 
 ### mscgen
+
 * [Mscgen](http://www.mcternan.me.uk/mscgen/)
 * [mscgen_js](https://mscgen.js.org/) you can download by SVG or PNG.
 
