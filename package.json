@@ -6,7 +6,7 @@
     "publisher": "arichika",
     "author": "arichika.taniguchi @arichika",
     "license": "GPL-3.0",
-    "icon": "assets/icon.png",
+    "icon": "https://github.com/arichika/previewseqdiag-vscode/blob/master/assets/icon.png",
     "galleryBanner": {
         "color": "#f0f0f0",
         "theme": "light"
@@ -21,7 +21,7 @@
     },
     "categories": [
         "Formatters",
-        "Languages",
+        "Programming Languages",
         "Snippets"
     ],
     "keywords": [
@@ -160,16 +160,16 @@
     },
     "dependencies": {
         "rx": "^4.1.0",
-        "mermaid": "^8.0.0-rc.6",
-        "mscgenjs": "^1.12.1",
-        "mscgenjs-inpage": "^1.12.1"
+        "mermaid": "^8.0.0-rc.8",
+        "mscgenjs": "^1.15.2",
+        "mscgenjs-inpage": "^1.13.1"
     },
     "devDependencies": {
-        "typescript": "^2.0.3",
+        "typescript": "^2.8.3",
         "vscode": "^1.0.0",
-        "mocha": "^2.3.3",
-        "@types/node": "^6.0.40",
-        "@types/mocha": "^2.2.32"
+        "mocha": "^5.2.0",
+        "@types/node": "^8.11.2",
+        "@types/mocha": "^5.2.0"
     },
     "extensionDependencies": [
         "mscgenjs.vscode-mscgen"
