@@ -2,5 +2,5 @@
 
 export interface CodeSnippetInterface
 {
-    createCodeSnippet(languageId:string): Promise<string>;
+    createCodeSnippet(languageId:string, extentiponPath:string): Promise<string>;
 }

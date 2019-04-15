@@ -81,16 +81,16 @@ export class MscgenCodeSnippet implements CodeSnippetInterface
         return this._instance;
     }
     
-    public async createCodeSnippet(languageId: string): Promise<string>
+    public async createCodeSnippet(languageId: string, extentiponPath:string): Promise<string>
     {
-        return this.extractSnippet(languageId);
+        return this.extractSnippet(languageId, extentiponPath);
     }
 
-    private async extractSnippet(languageId: string): Promise<string>
+    private async extractSnippet(languageId: string, extentiponPath:string): Promise<string>
     {
         let editor = vscode.window.activeTextEditor;
         let text = editor.document.getText();
-        return this.previewSnippet(languageId, text);
+        return this.previewSnippet(languageId,extentiponPath, text);
     }
 
     private async errorSnippet(error: string): Promise<string>
@@ -98,14 +98,14 @@ export class MscgenCodeSnippet implements CodeSnippetInterface
         return Misc.getFormattedHtml("",error);
     }
 
-    private async previewSnippet(languageId: string,payLoad: string): Promise<string>
+    private async previewSnippet(languageId: string, extentiponPath:string, payLoad: string): Promise<string>
     {
         return Misc.getFormattedHtml(
             `
             <script type="text/javascript">
                 var mscgen_js_config = {};
             </script>
-            <script src='${Misc.getExtensionRootPath()}/node_modules/mscgenjs-inpage/dist/mscgen-inpage.js'></script>
+            <script src='vscode-resource:${extentiponPath}/node_modules/mscgenjs-inpage/dist/mscgen-inpage.js'></script>
             `
             + ((this._configMscgen.horizontalAlignment===Alignment.Stretch) ? `<style type="text/css"> svg {width:100%;} </style>` : ``)
             ,
