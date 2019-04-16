@@ -25,6 +25,11 @@ This is usefull to avoid multipicate the same code on many files.
 
 [CHANGELOG.md](CHANGELOG.md)
 
+## 0.2.0
+
+* Support vscode ^1.33.0
+* Update dependencies.
+
 ### 0.1.1
 
 * Add Special feature.
@@ -85,13 +90,6 @@ result is.
 ![mermaid-forest-white](assets/mermaid-dark-f6f6ff.png)
 
 ![mscgen-fountainpen.png](assets/mscgen-fountainpen-fixed.png)
-
-### Dependencies
-
-* npm rx ^4.1.0
-* npm mermaid ^8.0.0-rc.8
-* npm mscgenjs ^1.15.2 / mscgenjs-inpage ^1.13.1
-* vscode extention mscgenjs.vscode-mscgen
 
 ----
 

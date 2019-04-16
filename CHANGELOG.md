@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.2.0
+
+* Support vscode ^1.33.0
+* Update dependencies.
+
 ## 0.1.1
 
 * Add Special feature.
