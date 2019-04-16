@@ -2,7 +2,7 @@
     "name": "previewseqdiag-vscode",
     "displayName": "Preview Sequence Diagrams",
     "description": "An extension for vscode specialized for the preview function of mermaid, mscgen and other.",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "publisher": "arichika",
     "author": "arichika.taniguchi @arichika",
     "license": "GPL-3.0",
@@ -32,7 +32,7 @@
         "Xù"
     ],
     "engines": {
-        "vscode": "^1.12.0"
+        "vscode": "^1.25.0"
     },
     "activationEvents": [
         "onCommand:previewSeqDiag.showPreview",
@@ -159,17 +159,19 @@
         "test": "node ./node_modules/vscode/bin/test"
     },
     "dependencies": {
-        "rx": "^4.1.0",
-        "mermaid": "^8.0.0-rc.8",
-        "mscgenjs": "^1.15.2",
-        "mscgenjs-inpage": "^1.13.1"
+        "d3": "^4.13.0",
+        "dagre-d3-renderer": "^0.5.8",
+        "mermaid": "^8.0.0",
+        "mscgenjs": "^3.0.0",
+        "mscgenjs-inpage": "^2.0.0",
+        "rx": "^4.1.0"
     },
     "devDependencies": {
-        "typescript": "^2.8.3",
-        "vscode": "^1.0.0",
-        "mocha": "^5.2.0",
+        "@types/mocha": "^5.2.0",
         "@types/node": "^8.10.17",
-        "@types/mocha": "^5.2.0"
+        "mocha": "^5.2.0",
+        "typescript": "^2.8.3",
+        "vscode": "^1.1.25"
     },
     "extensionDependencies": [
         "mscgenjs.vscode-mscgen"

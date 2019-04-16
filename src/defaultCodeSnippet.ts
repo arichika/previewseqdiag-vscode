@@ -1,7 +1,6 @@
 'use strict';
 
 import * as vscode from 'vscode';
-import { workspace, window, commands, ExtensionContext } from 'vscode';
 import { CodeSnippetInterface } from './codeSnippetInterface';
 import { Misc } from './misc';
 
@@ -21,16 +20,16 @@ export class DefaultCodeSnippet implements CodeSnippetInterface
         return this._instance;
     }
 
-    public async createCodeSnippet(): Promise<string>
+    public async createCodeSnippet(languageId: string, extentiponPath:string): Promise<string>
     {
-        return this.extractSnippet();
+        return this.extractSnippet(languageId, extentiponPath);
     }
 
-    private async extractSnippet(): Promise<string>
+    private async extractSnippet(languageId: string, extentiponPath:string): Promise<string>
     {
         let editor = vscode.window.activeTextEditor;
         let text = editor.document.getText();
-        return this.previewSnippet(text);
+        return this.previewSnippet(languageId, extentiponPath, text);
     }
 
     private async errorSnippet(error: string): Promise<string>
@@ -38,7 +37,7 @@ export class DefaultCodeSnippet implements CodeSnippetInterface
         return Misc.getFormattedHtml("",error);
     }
 
-    private async previewSnippet(payLoad: string): Promise<string>
+    private async previewSnippet(languageId: string, extentiponPath:string, payLoad: string): Promise<string>
     {
         return Misc.getFormattedHtml(`
             `,`

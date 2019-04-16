@@ -68,34 +68,26 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
         return this._instance;
     }
     
-    public async createCodeSnippet(): Promise<string>
+    public async createCodeSnippet(languageId: string, extentiponPath:string): Promise<string>
     {
-        return this.extractSnippet();
+        return this.extractSnippet(languageId, extentiponPath);
     }
 
-    private async extractSnippet(): Promise<string>
+    private async extractSnippet(languageId: string, extentiponPath:string): Promise<string>
     {
         let editor = vscode.window.activeTextEditor;
         let text = editor.document.getText();
 
         try {
             text = text.replace(/%%[ \t]+import[ \t]?:[ \t]?(.+)/g, (match, subsequenceFile) => {
-                console.log(editor.document.uri.fsPath);
-                
                 let dirname = editor.document.uri.fsPath
                     .toString()
                     .split(Path.sep);
-                
                 dirname.pop();
-
                 const fileName = dirname.join(Path.sep) + Path.sep + subsequenceFile.trim();
-
-                console.log(fileName);
-
                 const importSequence = fs
                     .readFileSync(fileName, 'utf8')
                     .replace(/sequenceDiagram/g, '');
-
                 return importSequence;
             });
         }
@@ -103,10 +95,7 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
             console.error(err);
         }
 
-        console.log('-----------');
-        console.log(text);
-
-        return this.previewSnippet(text);
+        return this.previewSnippet(languageId, extentiponPath, text);
     }
 
     private async errorSnippet(error: string): Promise<string>
@@ -114,12 +103,12 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
         return Misc.getFormattedHtml("",error);
     }
 
-    private async previewSnippet(payLoad: string): Promise<string>
+    private async previewSnippet(languageId: string, extentiponPath:string, payLoad: string): Promise<string>
     {
         return Misc.getFormattedHtml(
             `
-            <link href="${Misc.getExtensionRootPath()}/node_modules/mermaid/dist/mermaid.${this._configMermaid.fixedStyle}.min.css" rel="stylesheet" type="text/css">
-            <script src="${Misc.getExtensionRootPath()}/node_modules/mermaid/dist/mermaid.min.js">
+            <link href="vscode-resource:${extentiponPath}/node_modules/mermaid/dist/mermaid.${this._configMermaid.fixedStyle}.min.css" rel="stylesheet" type="text/css">
+            <script src="vscode-resource:${extentiponPath}/node_modules/mermaid/dist/mermaid.min.js">
             <script type="text/javascript">
                 mermaid.initialize({startOnLoad:true});
             </script>
@@ -128,7 +117,9 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
             <div style='color:transparent; background-color:${this._configMermaid.fixedBackgroundColor}'>
                 <div class="mermaid">${payLoad}</div>
             </div>
-            <a href="https://knsv.github.io/mermaid/live_editor/" style="color:#999999;">If you want to download by SVG, It is good to use this official website.</a>
+            <div>
+                <a href="https://knsv.github.io/mermaid/live_editor/" style="color:#999999;">mermaid Official site.</a>
+            </div>
             `);
     }
 }
