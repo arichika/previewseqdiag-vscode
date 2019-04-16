@@ -28,8 +28,7 @@
         "Mermaid",
         "Mmd",
         "MscGen",
-        "MsGenny",
-        "XÃ¹"
+        "MsGenny"
     ],
     "engines": {
         "vscode": "^1.25.0"
