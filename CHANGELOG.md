@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.1
+
+* Update document. only...
+
 ## 0.2.0
 
 * Support vscode ^1.33.0

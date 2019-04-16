@@ -25,7 +25,11 @@ This is usefull to avoid multipicate the same code on many files.
 
 [CHANGELOG.md](CHANGELOG.md)
 
-## 0.2.0
+### 0.2.1
+
+* Update document. only...
+
+### 0.2.0
 
 * Support vscode ^1.33.0
 * Update dependencies.
