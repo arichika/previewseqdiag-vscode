@@ -110,14 +110,18 @@ export class MscgenCodeSnippet implements CodeSnippetInterface
             + ((this._configMscgen.horizontalAlignment === Alignment.Stretch) ? `<style type="text/css"> svg {width:100%;} </style>` : ``)
             ,
             `
-            <script
-                style='color:transparent;' 
-                type='text/x-${languageId}' 
-                data-named-style='${this._configMscgen.fixedNamedStyle}' 
-                data-regular-arc-text-vertical-alignment='above'>
-                ${payLoad}
-            </script>
-            <a href="https://mscgen.js.org/" style="color:#999999;">If you want to download by SVG or PNG, It is good to use this official website.</a>
+            <div>
+                <script
+                    style='color:transparent;' 
+                    type='text/x-${languageId}' 
+                    data-named-style='${this._configMscgen.fixedNamedStyle}' 
+                    data-regular-arc-text-vertical-alignment='above'>
+                    ${payLoad}
+                </script>
+            </div>
+            <div>
+                <a href="https://mscgen.js.org/" style="color:#999999;">mscgen.js Official site.</a>
+            </div>
             `);
     }
 }

@@ -128,7 +128,9 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
             <div style='color:transparent; background-color:${this._configMermaid.fixedBackgroundColor}'>
                 <div class="mermaid">${payLoad}</div>
             </div>
-            <a href="https://knsv.github.io/mermaid/live_editor/" style="color:#999999;">If you want to download by SVG, It is good to use this official website.</a>
+            <div>
+                <a href="https://knsv.github.io/mermaid/live_editor/" style="color:#999999;">mermaid Official site.</a>
+            </div>
             `);
     }
 }
