@@ -65,8 +65,9 @@ export class PreviewSeqDiagDocumentContentProvider implements vscode.TextDocumen
         .createCodeSnippet(editor.document.languageId, extentionPath)
         .then(result=>{
             latestSnippetResultBuffer = result;
-            if(webViewPanel)
+            if(webViewPanel && webViewPanel.webview)
                 webViewPanel.webview.html = result;
-        });
+        })
+        .catch();
     }
 }
