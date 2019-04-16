@@ -6,7 +6,7 @@
     "publisher": "arichika",
     "author": "arichika.taniguchi @arichika",
     "license": "GPL-3.0",
-    "icon": "https://github.com/arichika/previewseqdiag-vscode/blob/master/assets/icon.png",
+    "icon": "assets/icon.png",
     "galleryBanner": {
         "color": "#f0f0f0",
         "theme": "light"
@@ -159,7 +159,8 @@
         "test": "node ./node_modules/vscode/bin/test"
     },
     "dependencies": {
-        "d3": "^5.0.0",
+        "d3": "^4.13.0",
+        "dagre-d3-renderer": "^0.5.8",
         "mermaid": "^8.0.0",
         "mscgenjs": "^3.0.0",
         "mscgenjs-inpage": "^2.0.0",
