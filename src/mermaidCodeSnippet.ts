@@ -80,31 +80,20 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
 
         try {
             text = text.replace(/%%[ \t]+import[ \t]?:[ \t]?(.+)/g, (match, subsequenceFile) => {
-                console.log(editor.document.uri.fsPath);
-                
                 let dirname = editor.document.uri.fsPath
                     .toString()
                     .split(Path.sep);
-                
                 dirname.pop();
-
                 const fileName = dirname.join(Path.sep) + Path.sep + subsequenceFile.trim();
-
-                console.log(fileName);
-
                 const importSequence = fs
                     .readFileSync(fileName, 'utf8')
                     .replace(/sequenceDiagram/g, '');
-
                 return importSequence;
             });
         }
         catch (err) {
             console.error(err);
         }
-
-        console.log('-----------');
-        console.log(text);
 
         return this.previewSnippet(languageId, extentiponPath, text);
     }
