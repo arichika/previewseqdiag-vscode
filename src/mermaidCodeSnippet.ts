@@ -118,7 +118,7 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
                 <div class="mermaid">${payLoad}</div>
             </div>
             <div>
-                <a href="https://knsv.github.io/mermaid/live_editor/" style="color:#999999;">mermaid Official site.</a>
+                <a href="https://mermaid-js.github.io/mermaid-live-editor/" style="color:#999999;">mermaid Official site.</a>
             </div>
             `);
     }
