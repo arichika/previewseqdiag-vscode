@@ -105,7 +105,7 @@ export class MscgenCodeSnippet implements CodeSnippetInterface
             <script type="text/javascript">
                 var mscgen_js_config = {};
             </script>
-            <script src='vscode-resource:${extentiponPath}/node_modules/mscgenjs-inpage/dist/mscgen-inpage.js' defer></script>
+            <script src='vscode-resource:${extentiponPath}/dist/mscgenjs-inpage/mscgen-inpage.js' defer></script>
             `
             + ((this._configMscgen.horizontalAlignment === Alignment.Stretch) ? `<style type="text/css"> svg {width:100%;} </style>` : ``)
             ,

@@ -107,8 +107,8 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
     {
         return Misc.getFormattedHtml(
             `
-            <link href="vscode-resource:${extentiponPath}/node_modules/mermaid/dist/mermaid.${this._configMermaid.fixedStyle}.min.css" rel="stylesheet" type="text/css">
-            <script src="vscode-resource:${extentiponPath}/node_modules/mermaid/dist/mermaid.min.js">
+            <link href="vscode-resource:${extentiponPath}/dist/mermaid/mermaid.${this._configMermaid.fixedStyle}.min.css" rel="stylesheet" type="text/css">
+            <script src="vscode-resource:${extentiponPath}/dist/mermaid/mermaid.min.js">
             <script type="text/javascript">
                 mermaid.initialize({startOnLoad:true});
             </script>

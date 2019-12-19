@@ -25,6 +25,10 @@ This is usefull to avoid multipicate the same code on many files.
 
 [CHANGELOG.md](CHANGELOG.md)
 
+### 0.2.3
+
+* Bugfix: Webpack support was broken and fixed from 0.2.2.
+
 ### 0.2.2
 
 * Change of link to official mermaid site.
