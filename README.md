@@ -4,7 +4,7 @@
 
 Preview Sequence Diagrams (previewseqdiag-vscode) is an extension for vscode specialized for the preview function of mscgen and mermaid.
 
-![eye-catch](assets/eye-catch.png)
+<img src="./assets/eye-catch.png" alt="eye-catch" width="480" />
 
 ## Features
 
@@ -24,6 +24,14 @@ This is usefull to avoid multipicate the same code on many files.
 ## Release Notes
 
 [CHANGELOG.md](CHANGELOG.md)
+
+### 0.2.2
+
+* Change of link to official mermaid site.
+  * Thank you for PR, https://github.com/silenti0 
+  * https://github.com/arichika/previewseqdiag-vscode/pull/16
+* Update dependencies to latest.
+  * `mermaid 8.4.4`, `mscgenjs 4.0.2`, `mscgenjs-inpage 2.0.12` .
 
 ### 0.2.1
 
@@ -91,9 +99,9 @@ e.g.  add to User Settings,
 
 result is.
 
-![mermaid-forest-white](assets/mermaid-dark-f6f6ff.png)
+<img src="./assets/mermaid-dark-f6f6ff.png" alt="mermaid-forest-white" width="480" />
 
-![mscgen-fountainpen.png](assets/mscgen-fountainpen-fixed.png)
+<img src="./assets/mscgen-fountainpen-fixed.png" alt="mscgen-fountainpen.png" width="480" />
 
 ----
 
@@ -104,6 +112,8 @@ result is.
 * [searKing/preview-vscode](https://github.com/searKing/preview-vscode)
 * [@XavierBoubert](https://github.com/XavierBoubert)
   * Thanks [PR](https://github.com/arichika/previewseqdiag-vscode/pull/8) for Great Special feature
+* [@silenti0](https://github.com/silenti0)
+  * Thanks [PR](https://github.com/arichika/previewseqdiag-vscode/pull/16) for Updates
 
 ### mermaid
 
@@ -118,11 +128,11 @@ result is.
 
 ### samples
 
-MscGen, msc, cygne, with dark theme.
-![graph](assets/mscgen-cygne.png)
+MscGen, msc, cygne, with dark theme.  
+<img src="./assets/mscgen-cygne.png" alt="graph" width="480" />
 
-Mermaid, graph.
-![mermaid-graph](assets/mermaid-graph.png)
+Mermaid, graph.  
+<img src="./assets/mermaid-graph.png" alt="mermaid-graph" width="480" />
 
-Mermaid, gantt.
-![mermaid-gantt](assets/mermaid-gantt.png)
+Mermaid, gantt.  
+<img src="./assets/mermaid-gantt.png" alt="mermaid-gantt" width="480" />
