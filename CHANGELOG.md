@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.2.2
+
+* Change of link to official mermaid site.
+  * Thank you for PR, https://github.com/silenti0 
+  * https://github.com/arichika/previewseqdiag-vscode/pull/16
+* Update dependencies to latest.
+  * `mermaid 8.4.4`, `mscgenjs 4.0.2`, `mscgenjs-inpage 2.0.12` .
+
 ## 0.2.1
 
 * Update document. only...
