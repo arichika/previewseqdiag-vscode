@@ -3,6 +3,8 @@
 'use strict';
 
 const path = require('path');
+const copyFilePlugin = require('copy-webpack-plugin');
+const writeFilePlugin  = require('write-file-webpack-plugin');
 
 /**@type {import('webpack').Configuration}*/
 const config = {
@@ -36,6 +38,24 @@ const config = {
         ]
       }
     ]
-  }
+  },
+  plugins: [
+    new copyFilePlugin(
+      [
+        {
+            context: "node_modules/mscgenjs-inpage/dist/",
+            from: "**/*.js",
+            to: path.resolve(__dirname, "dist/mscgenjs-inpage")
+        },
+        {
+          context: "node_modules/mermaid/dist/",
+          from: "**/*.*",
+          to: path.resolve(__dirname, "dist/mermaid")
+        }
+      ],
+      { copyUnmodified: true }
+  ),
+  new writeFilePlugin()
+  ]
 };
 module.exports = config;

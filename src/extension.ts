@@ -50,8 +50,8 @@ export function activate(context: vscode.ExtensionContext) {
 			{
 				enableScripts: true,
 				localResourceRoots: [
-					vscode.Uri.file(path.join(context.extensionPath, 'node_modules/mermaid/dist')),
-					vscode.Uri.file(path.join(context.extensionPath, 'node_modules/mscgenjs-inpage/dist')),
+					vscode.Uri.file(path.join(context.extensionPath, 'dist/mermaid')),
+					vscode.Uri.file(path.join(context.extensionPath, 'dist/mscgenjs-inpage')),
 				]
 			}
 		);
