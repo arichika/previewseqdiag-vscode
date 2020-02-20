@@ -164,7 +164,7 @@
     "dependencies": {
         "d3": "^4.13.0",
         "dagre-d3-renderer": "^0.5.8",
-        "mermaid": "^8.4.4",
+        "mermaid": "^8.4.7",
         "mscgenjs": "^4.0.2",
         "mscgenjs-inpage": "^2.0.12",
         "rx": "^4.1.0"
