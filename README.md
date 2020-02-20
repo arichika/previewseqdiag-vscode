@@ -25,6 +25,13 @@ This is usefull to avoid multipicate the same code on many files.
 
 [CHANGELOG.md](CHANGELOG.md)
 
+## 0.2.4
+
+* Update dependencies.
+  * mermaid `^8.4.7` from `^8.4.4`
+  * Thank you for PR, https://github.com/XavierBoubert
+  * https://github.com/arichika/previewseqdiag-vscode/pull/22
+
 ### 0.2.3
 
 * Bugfix: Webpack support was broken and fixed from 0.2.2.
