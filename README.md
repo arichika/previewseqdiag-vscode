@@ -4,7 +4,7 @@
 
 Preview Sequence Diagrams (previewseqdiag-vscode) is an extension for vscode specialized for the preview function of mscgen and mermaid.
 
-<img src="./assets/eye-catch.png" alt="eye-catch" width="480" />
+<img src="https://github.com/arichika/previewseqdiag-vscode/raw/main/assets/eye-catch.png" alt="eye-catch" width="480" />
 
 ## Features
 
@@ -119,9 +119,9 @@ e.g.  add to User Settings,
 
 result is.
 
-<img src="./assets/mermaid-dark-f6f6ff.png" alt="mermaid-forest-white" width="480" />
+<img src="https://github.com/arichika/previewseqdiag-vscode/raw/main/assets/mermaid-dark-f6f6ff.png" alt="mermaid-forest-white" width="480" />
 
-<img src="./assets/mscgen-fountainpen-fixed.png" alt="mscgen-fountainpen.png" width="480" />
+<img src="https://github.com/arichika/previewseqdiag-vscode/raw/main/assets/mscgen-fountainpen-fixed.png" alt="mscgen-fountainpen.png" width="480" />
 
 ----
 
@@ -149,10 +149,10 @@ result is.
 ### samples
 
 MscGen, msc, cygne, with dark theme.  
-<img src="./assets/mscgen-cygne.png" alt="graph" width="480" />
+<img src="https://github.com/arichika/previewseqdiag-vscode/raw/main/assets/mscgen-cygne.png" alt="graph" width="480" />
 
 Mermaid, graph.  
-<img src="./assets/mermaid-graph.png" alt="mermaid-graph" width="480" />
+<img src="https://github.com/arichika/previewseqdiag-vscode/raw/main/assets/mermaid-graph.png" alt="mermaid-graph" width="480" />
 
 Mermaid, gantt.  
-<img src="./assets/mermaid-gantt.png" alt="mermaid-gantt" width="480" />
+<img src="https://github.com/arichika/previewseqdiag-vscode/raw/main/assets/mermaid-gantt.png" alt="mermaid-gantt" width="480" />
