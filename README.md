@@ -25,10 +25,19 @@ This is usefull to avoid multipicate the same code on many files.
 
 [CHANGELOG.md](CHANGELOG.md)
 
+## 0.3.0
+
+* Bugfix: Support vscode ^1.55.0
+* Refactoring: A great many things...
+* Update dependencies.
+  * mermaid `8.9.2` from `8.4.7`
+  * mscgenjs `5.0.4` from `4.0.2`
+  * etc.
+
 ## 0.2.4
 
 * Update dependencies.
-  * mermaid `^8.4.7` from `^8.4.4`
+  * mermaid `8.4.7` from `8.4.4`
   * Thank you for PR, https://github.com/XavierBoubert
   * https://github.com/arichika/previewseqdiag-vscode/pull/22
 
