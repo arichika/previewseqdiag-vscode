@@ -14,34 +14,35 @@ export class DefaultCodeSnippet implements CodeSnippetInterface
 
     public static get instance():DefaultCodeSnippet
     {
-        if (!this._instance)
+        if (!this._instance){
             this._instance = new DefaultCodeSnippet();
+        }
             
         return this._instance;
     }
 
-    public async createCodeSnippet(languageId: string, extentiponPath:string): Promise<string>
+    public async createCodeSnippet(languageId: string, extentiponPath:string, webview: vscode.Webview): Promise<string>
     {
-        return this.extractSnippet(languageId, extentiponPath);
+        return this.extractSnippet(languageId, extentiponPath,webview);
     }
 
-    private async extractSnippet(languageId: string, extentiponPath:string): Promise<string>
+    private async extractSnippet(languageId: string, extentiponPath:string, webview: vscode.Webview): Promise<string>
     {
         let editor = vscode.window.activeTextEditor;
-        let text = editor.document.getText();
-        return this.previewSnippet(languageId, extentiponPath, text);
+        let text = editor?.document.getText();
+        return this.previewSnippet(languageId, extentiponPath, text||"",webview);
     }
 
-    private async errorSnippet(error: string): Promise<string>
+    private async errorSnippet(error: string, webview: vscode.Webview): Promise<string>
     {
-        return Misc.getFormattedHtml("",error);
+        return Misc.getFormattedHtml("",error,webview);
     }
 
-    private async previewSnippet(languageId: string, extentiponPath:string, payLoad: string): Promise<string>
+    private async previewSnippet(languageId: string, extentiponPath:string, payLoad: string, webview: vscode.Webview): Promise<string>
     {
-        return Misc.getFormattedHtml(`
-            `,`
-            ${payLoad}
-            `);
+        return Misc.getFormattedHtml(
+            ``
+            ,`${payLoad}`,
+            webview);
     }
 }
