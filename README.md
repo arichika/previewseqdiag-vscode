@@ -27,7 +27,7 @@ This is usefull to avoid multipicate the same code on many files.
 
 ## 0.3.0
 
-* Bugfix: Support vscode ^1.55.0
+* Bugfix: Support vscode ^1.54.0
 * Refactoring: A great many things...
 * Update dependencies.
   * mermaid `8.9.2` from `8.4.7`
