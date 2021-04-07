@@ -27,7 +27,7 @@
         "Xù"
     ],
     "engines": {
-        "vscode": "^1.55.0"
+        "vscode": "^1.54.0"
     },
     "categories": [
         "Other"
@@ -162,7 +162,7 @@
         "test": "node ./out/test/runTest.js"
     },
     "devDependencies": {
-        "@types/vscode": "^1.55.0",
+        "@types/vscode": "^1.54.0",
         "@types/glob": "^7.1.3",
         "@types/mocha": "^8.0.4",
         "@types/node": "^12.11.7",
