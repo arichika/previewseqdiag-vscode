@@ -1,9 +1,18 @@
 # Change Log
 
+## 0.3.0
+
+* Bugfix: Support vscode ^1.54.0
+* Refactoring: A great many things...
+* Update dependencies.
+  * mermaid `8.9.2` from `8.4.7`
+  * mscgenjs `5.0.4` from `4.0.2`
+  * etc.
+
 ## 0.2.4
 
 * Update dependencies.
-  * mermaid `^8.4.7` from `^8.4.4`
+  * mermaid `8.4.7` from `8.4.4`
   * Thank you for PR, https://github.com/XavierBoubert
   * https://github.com/arichika/previewseqdiag-vscode/pull/22
 
@@ -14,8 +23,8 @@
 ## 0.2.2
 
 * Change of link to official mermaid site.
-  * Thank you for PR, https://github.com/silenti0 
-  * https://github.com/arichika/previewseqdiag-vscode/pull/16
+  * Thank you for PR, https://github.com/silenti0  
+  * https://github.com/arichika/previewseqdiag-vscode/pull/16  
 * Update dependencies to latest.
   * `mermaid 8.4.4`, `mscgenjs 4.0.2`, `mscgenjs-inpage 2.0.12` .
 
@@ -44,4 +53,4 @@
 
 ## 0.0.1
 
-* Initial release
+* Initial release  

@@ -4,7 +4,7 @@
 
 Preview Sequence Diagrams (previewseqdiag-vscode) is an extension for vscode specialized for the preview function of mscgen and mermaid.
 
-<img src="./assets/eye-catch.png" alt="eye-catch" width="480" />
+<img src="https://github.com/arichika/previewseqdiag-vscode/raw/main/assets/eye-catch.png" alt="eye-catch" width="480" />
 
 ## Features
 
@@ -25,10 +25,19 @@ This is usefull to avoid multipicate the same code on many files.
 
 [CHANGELOG.md](CHANGELOG.md)
 
+## 0.3.0
+
+* Bugfix: Support vscode ^1.54.0
+* Refactoring: A great many things...
+* Update dependencies.
+  * mermaid `8.9.2` from `8.4.7`
+  * mscgenjs `5.0.4` from `4.0.2`
+  * etc.
+
 ## 0.2.4
 
 * Update dependencies.
-  * mermaid `^8.4.7` from `^8.4.4`
+  * mermaid `8.4.7` from `8.4.4`
   * Thank you for PR, https://github.com/XavierBoubert
   * https://github.com/arichika/previewseqdiag-vscode/pull/22
 
@@ -110,9 +119,9 @@ e.g.  add to User Settings,
 
 result is.
 
-<img src="./assets/mermaid-dark-f6f6ff.png" alt="mermaid-forest-white" width="480" />
+<img src="https://github.com/arichika/previewseqdiag-vscode/raw/main/assets/mermaid-dark-f6f6ff.png" alt="mermaid-forest-white" width="480" />
 
-<img src="./assets/mscgen-fountainpen-fixed.png" alt="mscgen-fountainpen.png" width="480" />
+<img src="https://github.com/arichika/previewseqdiag-vscode/raw/main/assets/mscgen-fountainpen-fixed.png" alt="mscgen-fountainpen.png" width="480" />
 
 ----
 
@@ -140,10 +149,10 @@ result is.
 ### samples
 
 MscGen, msc, cygne, with dark theme.  
-<img src="./assets/mscgen-cygne.png" alt="graph" width="480" />
+<img src="https://github.com/arichika/previewseqdiag-vscode/raw/main/assets/mscgen-cygne.png" alt="graph" width="480" />
 
 Mermaid, graph.  
-<img src="./assets/mermaid-graph.png" alt="mermaid-graph" width="480" />
+<img src="https://github.com/arichika/previewseqdiag-vscode/raw/main/assets/mermaid-graph.png" alt="mermaid-graph" width="480" />
 
 Mermaid, gantt.  
-<img src="./assets/mermaid-gantt.png" alt="mermaid-gantt" width="480" />
+<img src="https://github.com/arichika/previewseqdiag-vscode/raw/main/assets/mermaid-gantt.png" alt="mermaid-gantt" width="480" />

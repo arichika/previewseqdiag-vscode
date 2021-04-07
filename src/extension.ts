@@ -8,41 +8,11 @@ import { EventEmitter } from 'events';
 import { Misc } from './misc';
 import { PreviewSeqDiagDocumentContentProvider } from './previewSeqDiagDocumentContentProvider';
 
-
 export function activate(context: vscode.ExtensionContext) {
+
 	const provider = new PreviewSeqDiagDocumentContentProvider();
 
-	const emitter = new EventEmitter();
-	const handler = Rx.Observable
-		.fromEvent(emitter, 'update')
-		.debounce(500 /* ms */)
-		.subscribe(
-			(e: vscode.TextDocumentChangeEvent) => {
-				provider.update(Misc.previewUri);
-			}
-		);
-	
-	window.onDidChangeActiveTextEditor(
-		(e: vscode.TextEditor) => {
-			if (!!e && !!e.document && (e === window.activeTextEditor)) {
-				provider.update(Misc.previewUri);
-			}
-		}
-	);
-
-	workspace.onDidChangeTextDocument(
-		(e: vscode.TextDocumentChangeEvent) => {
-			if (e.document === vscode.window.activeTextEditor.document) {
-				emitter.emit('update', e);
-			}
-		}
-	);
-
-	context.subscriptions.push(
-		vscode.workspace.registerTextDocumentContentProvider(Misc.previewUri.scheme, provider)
-	);
-
-	vscode.commands.registerCommand('previewSeqDiag.showPreview', () => {
+	let showPreview = vscode.commands.registerCommand('previewSeqDiag.showPreview', () => {
 		const panel = vscode.window.createWebviewPanel(
 			'previewSeqDiag',
 			'Preview Sequence Diagrams',
@@ -59,7 +29,39 @@ export function activate(context: vscode.ExtensionContext) {
 		provider.setCurrentWebViewPanel(panel);
 		provider.update(Misc.previewUri);
 	});
+
+	context.subscriptions.push(showPreview);
+
+	const emitter = new EventEmitter();
+	const _ = Rx.Observable
+		.fromEvent(emitter, 'update')
+		.debounce(500 /* ms */)
+		.subscribe(
+			(_) => {
+				provider.update(Misc.previewUri);
+			}
+		);
+	
+	window.onDidChangeActiveTextEditor(
+		(e) => {
+			if (!!e && !!e.document && (e === window.activeTextEditor)) {
+				provider.update(Misc.previewUri);
+			}
+		}
+	);
+
+	workspace.onDidChangeTextDocument(
+		(e) => {
+			if (e.document === vscode.window.activeTextEditor?.document) {
+				emitter.emit('update', e);
+			}
+		}
+	);
+
+	context.subscriptions.push(
+		vscode.workspace.registerTextDocumentContentProvider(Misc.previewUri.scheme, provider)
+	);
 }
 
-
-export function deactivate() { }
+// this method is called when your extension is deactivated
+export function deactivate() {}
