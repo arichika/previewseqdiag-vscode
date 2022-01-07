@@ -2,7 +2,7 @@
     "name": "previewseqdiag-vscode",
     "displayName": "Preview Sequence Diagrams",
     "description": "An extension for vscode specialized for the preview function of mermaid, mscgen and other.",
-    "version": "0.3.0",
+    "version": "0.3.2",
     "publisher": "arichika",
     "author": "arichika.taniguchi @arichika",
     "license": "GPL-3.0",
@@ -182,8 +182,8 @@
         "write-file-webpack-plugin": "^4.5.1",
         "@types/write-file-webpack-plugin": "^4.5.1",
         "mermaid": "^8.13.8",
-        "mscgenjs": "^5.0.4",
-        "mscgenjs-inpage": "^3.0.3",
+        "mscgenjs": "^6.0.1",
+        "mscgenjs-inpage": "^4.0.4",
         "rx": "^4.1.0"
     },
     "extensionDependencies": [

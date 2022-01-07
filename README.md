@@ -25,6 +25,13 @@ This is usefull to avoid multipicate the same code on many files.
 
 [CHANGELOG.md](CHANGELOG.md)
 
+## 0.3.2
+
+* Update dependencies.
+  * mermaid `8.13.8` from `8.9.2`
+  * mscgenjs `6.0.1` from `5.0.4`
+  * mscgenjs-inpage `4.0.4` from `3.0.3`
+
 ## 0.3.0
 
 * Bugfix: Support vscode ^1.54.0
