@@ -9,7 +9,7 @@ export class Misc
 
     public static getFormattedHtml(head: string, body: string, webview: vscode.Webview): string
     {
-        var fileName = vscode.window.activeTextEditor?.document.fileName || "";
+        var fileName = vscode.window.activeTextEditor?.document.fileName || "PreviewSeqDiagImage";
         fileName = fileName.substring(fileName.lastIndexOf("\\")+1).substring(fileName.lastIndexOf("/")+1);
 
         return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">`
@@ -34,12 +34,13 @@ export class Misc
             </style>`
             + `</head><body>`
             + `<div style="margin:1px 0 3px 0; padding:0;">
-            <a class="psd-button" onclick="SaveImageAs('png');">Save As PNG</a>
-            <a class="psd-button" onclick="SaveImageAs('jpeg');">Save As JPEG</a>
-            <a class="psd-button" onclick="SaveImageAs('svg');">Save As SVG</a>
+            <a class="psd-button" onclick="SaveImageAs('png',0);" title="Save image as PNG. (Raw data)">PNG</a>
+            <a class="psd-button" onclick="SaveImageAs('png',1);" title="Save image as PNG. As you see it.">PNG*</a>
+            <a class="psd-button" onclick="SaveImageAs('jpg',0);" title="Save image as JPEG. (Raw data)">JPEG</a>
+            <a class="psd-button" onclick="SaveImageAs('svg',0);" title="Save image as PNG. (Raw data)">SVG</a>
             </div>`
             + `<script>
-            function SaveImageAs(fileType){
+            function SaveImageAs(fileType, mode){
                 var svg = document.querySelector("svg");
                 var svgData = new XMLSerializer().serializeToString(svg);
                 if(fileType==="svg")
@@ -59,10 +60,12 @@ export class Misc
                 var ctx = canvas.getContext("2d");
                 var image = new Image;
                 image.onload = function(){
-                    ctx.beginPath();
-                    ctx.fillStyle = svgBc;
-                    ctx.fillRect(0, 0, canvas.width, canvas.height);
-                    ctx.closePath();
+                    if(mode===1){
+                        ctx.beginPath();
+                        ctx.fillStyle = svgBc;
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                        ctx.closePath();
+                    }
                     ctx.drawImage( image, 0, 0 );
                     var a = document.createElement("a");
                     a.href = canvas.toDataURL("image/" + fileType);

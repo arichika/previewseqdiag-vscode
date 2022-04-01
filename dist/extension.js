@@ -13244,7 +13244,7 @@ const vscode = __webpack_require__(1);
 class Misc {
     static getFormattedHtml(head, body, webview) {
         var _a;
-        var fileName = ((_a = vscode.window.activeTextEditor) === null || _a === void 0 ? void 0 : _a.document.fileName) || "";
+        var fileName = ((_a = vscode.window.activeTextEditor) === null || _a === void 0 ? void 0 : _a.document.fileName) || "PreviewSeqDiagImage";
         fileName = fileName.substring(fileName.lastIndexOf("\\") + 1).substring(fileName.lastIndexOf("/") + 1);
         return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">`
             + `<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data: blob: ${webview.cspSource} https:; script-src 'self' 'unsafe-inline' ${webview.cspSource} vscode-resource:; style-src 'self' 'unsafe-inline' ${webview.cspSource} vscode-resource: https:;" />`
@@ -13268,12 +13268,13 @@ class Misc {
             </style>`
             + `</head><body>`
             + `<div style="margin:1px 0 3px 0; padding:0;">
-            <a class="psd-button" onclick="SaveImageAs('png');">Save As PNG</a>
-            <a class="psd-button" onclick="SaveImageAs('jpeg');">Save As JPEG</a>
-            <a class="psd-button" onclick="SaveImageAs('svg');">Save As SVG</a>
+            <a class="psd-button" onclick="SaveImageAs('png',0);" title="Save image as PNG. (Raw data)">PNG</a>
+            <a class="psd-button" onclick="SaveImageAs('png',1);" title="Save image as PNG. As you see it.">PNG*</a>
+            <a class="psd-button" onclick="SaveImageAs('jpg',0);" title="Save image as JPEG. (Raw data)">JPEG</a>
+            <a class="psd-button" onclick="SaveImageAs('svg',0);" title="Save image as PNG. (Raw data)">SVG</a>
             </div>`
             + `<script>
-            function SaveImageAs(fileType){
+            function SaveImageAs(fileType, mode){
                 var svg = document.querySelector("svg");
                 var svgData = new XMLSerializer().serializeToString(svg);
                 if(fileType==="svg")
@@ -13293,10 +13294,12 @@ class Misc {
                 var ctx = canvas.getContext("2d");
                 var image = new Image;
                 image.onload = function(){
-                    ctx.beginPath();
-                    ctx.fillStyle = svgBc;
-                    ctx.fillRect(0, 0, canvas.width, canvas.height);
-                    ctx.closePath();
+                    if(mode===1){
+                        ctx.beginPath();
+                        ctx.fillStyle = svgBc;
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                        ctx.closePath();
+                    }
                     ctx.drawImage( image, 0, 0 );
                     var a = document.createElement("a");
                     a.href = canvas.toDataURL("image/" + fileType);
