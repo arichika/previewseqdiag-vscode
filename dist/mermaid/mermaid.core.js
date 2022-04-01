@@ -989,12 +989,12 @@ if ( true && __webpack_require__.c[__webpack_require__.s] === module) {
   }
 */
 var parser = (function(){
-var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,2],$V1=[1,5],$V2=[6,9,11,23,40],$V3=[1,17],$V4=[1,20],$V5=[1,25],$V6=[1,26],$V7=[1,27],$V8=[1,28],$V9=[1,37],$Va=[23,37,38],$Vb=[4,6,9,11,23,40],$Vc=[33,34,35,36],$Vd=[22,29];
+var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,2],$V1=[1,5],$V2=[6,9,11,23,41],$V3=[1,17],$V4=[1,20],$V5=[1,25],$V6=[1,26],$V7=[1,27],$V8=[1,28],$V9=[1,37],$Va=[23,38,39],$Vb=[4,6,9,11,23,41],$Vc=[34,35,36,37],$Vd=[22,29],$Ve=[1,55];
 var parser = {trace: function trace () { },
 yy: {},
-symbols_: {"error":2,"start":3,"ER_DIAGRAM":4,"document":5,"EOF":6,"directive":7,"line":8,"SPACE":9,"statement":10,"NEWLINE":11,"openDirective":12,"typeDirective":13,"closeDirective":14,":":15,"argDirective":16,"entityName":17,"relSpec":18,"role":19,"BLOCK_START":20,"attributes":21,"BLOCK_STOP":22,"ALPHANUM":23,"attribute":24,"attributeType":25,"attributeName":26,"attributeKeyType":27,"COMMENT":28,"ATTRIBUTE_WORD":29,"ATTRIBUTE_KEY":30,"cardinality":31,"relType":32,"ZERO_OR_ONE":33,"ZERO_OR_MORE":34,"ONE_OR_MORE":35,"ONLY_ONE":36,"NON_IDENTIFYING":37,"IDENTIFYING":38,"WORD":39,"open_directive":40,"type_directive":41,"arg_directive":42,"close_directive":43,"$accept":0,"$end":1},
-terminals_: {2:"error",4:"ER_DIAGRAM",6:"EOF",9:"SPACE",11:"NEWLINE",15:":",20:"BLOCK_START",22:"BLOCK_STOP",23:"ALPHANUM",28:"COMMENT",29:"ATTRIBUTE_WORD",30:"ATTRIBUTE_KEY",33:"ZERO_OR_ONE",34:"ZERO_OR_MORE",35:"ONE_OR_MORE",36:"ONLY_ONE",37:"NON_IDENTIFYING",38:"IDENTIFYING",39:"WORD",40:"open_directive",41:"type_directive",42:"arg_directive",43:"close_directive"},
-productions_: [0,[3,3],[3,2],[5,0],[5,2],[8,2],[8,1],[8,1],[8,1],[7,4],[7,6],[10,1],[10,5],[10,4],[10,3],[10,1],[17,1],[21,1],[21,2],[24,2],[24,3],[24,3],[24,4],[25,1],[26,1],[27,1],[18,3],[31,1],[31,1],[31,1],[31,1],[32,1],[32,1],[19,1],[19,1],[12,1],[13,1],[16,1],[14,1]],
+symbols_: {"error":2,"start":3,"ER_DIAGRAM":4,"document":5,"EOF":6,"directive":7,"line":8,"SPACE":9,"statement":10,"NEWLINE":11,"openDirective":12,"typeDirective":13,"closeDirective":14,":":15,"argDirective":16,"entityName":17,"relSpec":18,"role":19,"BLOCK_START":20,"attributes":21,"BLOCK_STOP":22,"ALPHANUM":23,"attribute":24,"attributeType":25,"attributeName":26,"attributeKeyType":27,"attributeComment":28,"ATTRIBUTE_WORD":29,"ATTRIBUTE_KEY":30,"COMMENT":31,"cardinality":32,"relType":33,"ZERO_OR_ONE":34,"ZERO_OR_MORE":35,"ONE_OR_MORE":36,"ONLY_ONE":37,"NON_IDENTIFYING":38,"IDENTIFYING":39,"WORD":40,"open_directive":41,"type_directive":42,"arg_directive":43,"close_directive":44,"$accept":0,"$end":1},
+terminals_: {2:"error",4:"ER_DIAGRAM",6:"EOF",9:"SPACE",11:"NEWLINE",15:":",20:"BLOCK_START",22:"BLOCK_STOP",23:"ALPHANUM",29:"ATTRIBUTE_WORD",30:"ATTRIBUTE_KEY",31:"COMMENT",34:"ZERO_OR_ONE",35:"ZERO_OR_MORE",36:"ONE_OR_MORE",37:"ONLY_ONE",38:"NON_IDENTIFYING",39:"IDENTIFYING",40:"WORD",41:"open_directive",42:"type_directive",43:"arg_directive",44:"close_directive"},
+productions_: [0,[3,3],[3,2],[5,0],[5,2],[8,2],[8,1],[8,1],[8,1],[7,4],[7,6],[10,1],[10,5],[10,4],[10,3],[10,1],[17,1],[21,1],[21,2],[24,2],[24,3],[24,3],[24,4],[25,1],[26,1],[27,1],[28,1],[18,3],[32,1],[32,1],[32,1],[32,1],[33,1],[33,1],[19,1],[19,1],[12,1],[13,1],[16,1],[14,1]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
 
@@ -1062,51 +1062,54 @@ case 23: case 24: case 25:
  this.$=$$[$0]; 
 break;
 case 26:
+ this.$=$$[$0].replace(/"/g, ''); 
+break;
+case 27:
 
         this.$ = { cardA: $$[$0], relType: $$[$0-1], cardB: $$[$0-2] };
         /*console.log('relSpec: ' + $$[$0] + $$[$0-1] + $$[$0-2]);*/
       
 break;
-case 27:
+case 28:
  this.$ = yy.Cardinality.ZERO_OR_ONE; 
 break;
-case 28:
+case 29:
  this.$ = yy.Cardinality.ZERO_OR_MORE; 
 break;
-case 29:
+case 30:
  this.$ = yy.Cardinality.ONE_OR_MORE; 
 break;
-case 30:
+case 31:
  this.$ = yy.Cardinality.ONLY_ONE; 
 break;
-case 31:
+case 32:
  this.$ = yy.Identification.NON_IDENTIFYING;  
 break;
-case 32:
+case 33:
  this.$ = yy.Identification.IDENTIFYING; 
 break;
-case 33:
+case 34:
  this.$ = $$[$0].replace(/"/g, ''); 
 break;
-case 34:
+case 35:
  this.$ = $$[$0]; 
 break;
-case 35:
+case 36:
  yy.parseDirective('%%{', 'open_directive'); 
 break;
-case 36:
+case 37:
  yy.parseDirective($$[$0], 'type_directive'); 
 break;
-case 37:
+case 38:
  $$[$0] = $$[$0].trim().replace(/'/g, '"'); yy.parseDirective($$[$0], 'arg_directive'); 
 break;
-case 38:
+case 39:
  yy.parseDirective('}%%', 'close_directive', 'er'); 
 break;
 }
 },
-table: [{3:1,4:$V0,7:3,12:4,40:$V1},{1:[3]},o($V2,[2,3],{5:6}),{3:7,4:$V0,7:3,12:4,40:$V1},{13:8,41:[1,9]},{41:[2,35]},{6:[1,10],7:15,8:11,9:[1,12],10:13,11:[1,14],12:4,17:16,23:$V3,40:$V1},{1:[2,2]},{14:18,15:[1,19],43:$V4},o([15,43],[2,36]),o($V2,[2,8],{1:[2,1]}),o($V2,[2,4]),{7:15,10:21,12:4,17:16,23:$V3,40:$V1},o($V2,[2,6]),o($V2,[2,7]),o($V2,[2,11]),o($V2,[2,15],{18:22,31:24,20:[1,23],33:$V5,34:$V6,35:$V7,36:$V8}),o([6,9,11,15,20,23,33,34,35,36,40],[2,16]),{11:[1,29]},{16:30,42:[1,31]},{11:[2,38]},o($V2,[2,5]),{17:32,23:$V3},{21:33,22:[1,34],24:35,25:36,29:$V9},{32:38,37:[1,39],38:[1,40]},o($Va,[2,27]),o($Va,[2,28]),o($Va,[2,29]),o($Va,[2,30]),o($Vb,[2,9]),{14:41,43:$V4},{43:[2,37]},{15:[1,42]},{22:[1,43]},o($V2,[2,14]),{21:44,22:[2,17],24:35,25:36,29:$V9},{26:45,29:[1,46]},{29:[2,23]},{31:47,33:$V5,34:$V6,35:$V7,36:$V8},o($Vc,[2,31]),o($Vc,[2,32]),{11:[1,48]},{19:49,23:[1,51],39:[1,50]},o($V2,[2,13]),{22:[2,18]},o($Vd,[2,19],{27:52,28:[1,53],30:[1,54]}),o([22,28,29,30],[2,24]),{23:[2,26]},o($Vb,[2,10]),o($V2,[2,12]),o($V2,[2,33]),o($V2,[2,34]),o($Vd,[2,20],{28:[1,55]}),o($Vd,[2,21]),o([22,28,29],[2,25]),o($Vd,[2,22])],
-defaultActions: {5:[2,35],7:[2,2],20:[2,38],31:[2,37],37:[2,23],44:[2,18],47:[2,26]},
+table: [{3:1,4:$V0,7:3,12:4,41:$V1},{1:[3]},o($V2,[2,3],{5:6}),{3:7,4:$V0,7:3,12:4,41:$V1},{13:8,42:[1,9]},{42:[2,36]},{6:[1,10],7:15,8:11,9:[1,12],10:13,11:[1,14],12:4,17:16,23:$V3,41:$V1},{1:[2,2]},{14:18,15:[1,19],44:$V4},o([15,44],[2,37]),o($V2,[2,8],{1:[2,1]}),o($V2,[2,4]),{7:15,10:21,12:4,17:16,23:$V3,41:$V1},o($V2,[2,6]),o($V2,[2,7]),o($V2,[2,11]),o($V2,[2,15],{18:22,32:24,20:[1,23],34:$V5,35:$V6,36:$V7,37:$V8}),o([6,9,11,15,20,23,34,35,36,37,41],[2,16]),{11:[1,29]},{16:30,43:[1,31]},{11:[2,39]},o($V2,[2,5]),{17:32,23:$V3},{21:33,22:[1,34],24:35,25:36,29:$V9},{33:38,38:[1,39],39:[1,40]},o($Va,[2,28]),o($Va,[2,29]),o($Va,[2,30]),o($Va,[2,31]),o($Vb,[2,9]),{14:41,44:$V4},{44:[2,38]},{15:[1,42]},{22:[1,43]},o($V2,[2,14]),{21:44,22:[2,17],24:35,25:36,29:$V9},{26:45,29:[1,46]},{29:[2,23]},{32:47,34:$V5,35:$V6,36:$V7,37:$V8},o($Vc,[2,32]),o($Vc,[2,33]),{11:[1,48]},{19:49,23:[1,51],40:[1,50]},o($V2,[2,13]),{22:[2,18]},o($Vd,[2,19],{27:52,28:53,30:[1,54],31:$Ve}),o([22,29,30,31],[2,24]),{23:[2,27]},o($Vb,[2,10]),o($V2,[2,12]),o($V2,[2,34]),o($V2,[2,35]),o($Vd,[2,20],{28:56,31:$Ve}),o($Vd,[2,21]),o([22,29,31],[2,25]),o($Vd,[2,26]),o($Vd,[2,22])],
+defaultActions: {5:[2,36],7:[2,2],20:[2,39],31:[2,38],37:[2,23],44:[2,18],47:[2,27]},
 parseError: function parseError (str, hash) {
     if (hash.recoverable) {
         this.trace(str);
@@ -1585,15 +1588,15 @@ options: {"case-insensitive":true},
 performAction: function anonymous(yy,yy_,$avoiding_name_collisions,YY_START) {
 var YYSTATE=YY_START;
 switch($avoiding_name_collisions) {
-case 0: this.begin('open_directive'); return 40; 
+case 0: this.begin('open_directive'); return 41; 
 break;
-case 1: this.begin('type_directive'); return 41; 
+case 1: this.begin('type_directive'); return 42; 
 break;
 case 2: this.popState(); this.begin('arg_directive'); return 15; 
 break;
-case 3: this.popState(); this.popState(); return 43; 
+case 3: this.popState(); this.popState(); return 44; 
 break;
-case 4:return 42;
+case 4:return 43;
 break;
 case 5:/* skip comments */
 break;
@@ -1605,7 +1608,7 @@ case 8:/* skip whitespace */
 break;
 case 9:return 9;
 break;
-case 10:return 39;
+case 10:return 40;
 break;
 case 11:return 4;
 break;
@@ -1617,7 +1620,7 @@ case 14:return 30
 break;
 case 15:return 29
 break;
-case 16:return 28;
+case 16:return 31;
 break;
 case 17:/* nothing */
 break;
@@ -1625,27 +1628,27 @@ case 18: this.popState(); return 22;
 break;
 case 19:return yy_.yytext[0];
 break;
-case 20:return 33;
+case 20:return 34;
 break;
-case 21:return 34;
+case 21:return 35;
 break;
-case 22:return 35;
+case 22:return 36;
 break;
-case 23:return 36;
+case 23:return 37;
 break;
-case 24:return 33;
+case 24:return 34;
 break;
-case 25:return 34;
+case 25:return 35;
 break;
-case 26:return 35;
+case 26:return 36;
 break;
-case 27:return 37;
+case 27:return 38;
 break;
-case 28:return 38;
+case 28:return 39;
 break;
-case 29:return 37;
+case 29:return 38;
 break;
-case 30:return 37;
+case 30:return 38;
 break;
 case 31:return 23;
 break;
@@ -9209,10 +9212,15 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 
 
 
+
+var sanitizeTxt = function sanitizeTxt(txt) {
+  return (0,_diagrams_common_common__WEBPACK_IMPORTED_MODULE_1__.sanitizeText)(txt, (0,_config__WEBPACK_IMPORTED_MODULE_2__.getConfig)());
+};
 /**
  * @param dom
  * @param styleFn
  */
+
 
 function applyStyle(dom, styleFn) {
   if (styleFn) {
@@ -10988,14 +10996,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ "d3");
 /* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(d3__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../logger */ "./src/logger.js");
-/* harmony import */ var _shapes_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./shapes/util */ "./src/dagre-wrapper/shapes/util.js");
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../config */ "./src/config.js");
-/* harmony import */ var _intersect_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./intersect/index.js */ "./src/dagre-wrapper/intersect/index.js");
-/* harmony import */ var _createLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./createLabel */ "./src/dagre-wrapper/createLabel.js");
+/* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../logger */ "./src/logger.js");
+/* harmony import */ var _shapes_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./shapes/util */ "./src/dagre-wrapper/shapes/util.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config */ "./src/config.js");
+/* harmony import */ var _intersect_index_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./intersect/index.js */ "./src/dagre-wrapper/intersect/index.js");
+/* harmony import */ var _createLabel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./createLabel */ "./src/dagre-wrapper/createLabel.js");
 /* harmony import */ var _shapes_note__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./shapes/note */ "./src/dagre-wrapper/shapes/note.js");
 /* harmony import */ var _diagrams_class_svgDraw__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../diagrams/class/svgDraw */ "./src/diagrams/class/svgDraw.js");
-/* harmony import */ var _diagrams_common_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../diagrams/common/common */ "./src/diagrams/common/common.js");
+/* harmony import */ var _diagrams_common_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../diagrams/common/common */ "./src/diagrams/common/common.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 
@@ -11009,8 +11017,12 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 
 
 
+var sanitizeText = function sanitizeText(txt) {
+  return (0,_diagrams_common_common__WEBPACK_IMPORTED_MODULE_1__.sanitizeText)(txt, (0,_config__WEBPACK_IMPORTED_MODULE_2__.getConfig)());
+};
+
 var question = function question(parent, node) {
-  var _labelHelper = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.labelHelper)(parent, node, undefined, true),
+  var _labelHelper = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.labelHelper)(parent, node, undefined, true),
       shapeSvg = _labelHelper.shapeSvg,
       bbox = _labelHelper.bbox;
 
@@ -11030,14 +11042,14 @@ var question = function question(parent, node) {
     x: 0,
     y: -s / 2
   }];
-  _logger__WEBPACK_IMPORTED_MODULE_2__.log.info('Question main (Circle)');
-  var questionElem = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.insertPolygonShape)(shapeSvg, s, s, points);
+  _logger__WEBPACK_IMPORTED_MODULE_4__.log.info('Question main (Circle)');
+  var questionElem = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.insertPolygonShape)(shapeSvg, s, s, points);
   questionElem.attr('style', node.style);
-  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.updateNodeBounds)(node, questionElem);
+  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.updateNodeBounds)(node, questionElem);
 
   node.intersect = function (point) {
-    _logger__WEBPACK_IMPORTED_MODULE_2__.log.warn('Intersect called');
-    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].polygon(node, points, point);
+    _logger__WEBPACK_IMPORTED_MODULE_4__.log.warn('Intersect called');
+    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_5__["default"].polygon(node, points, point);
   };
 
   return shapeSvg;
@@ -11068,14 +11080,14 @@ var choice = function choice(parent, node) {
   node.height = 28;
 
   node.intersect = function (point) {
-    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].circle(node, 14, point);
+    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_5__["default"].circle(node, 14, point);
   };
 
   return shapeSvg;
 };
 
 var hexagon = function hexagon(parent, node) {
-  var _labelHelper2 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.labelHelper)(parent, node, undefined, true),
+  var _labelHelper2 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.labelHelper)(parent, node, undefined, true),
       shapeSvg = _labelHelper2.shapeSvg,
       bbox = _labelHelper2.bbox;
 
@@ -11102,19 +11114,19 @@ var hexagon = function hexagon(parent, node) {
     x: 0,
     y: -h / 2
   }];
-  var hex = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.insertPolygonShape)(shapeSvg, w, h, points);
+  var hex = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.insertPolygonShape)(shapeSvg, w, h, points);
   hex.attr('style', node.style);
-  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.updateNodeBounds)(node, hex);
+  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.updateNodeBounds)(node, hex);
 
   node.intersect = function (point) {
-    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].polygon(node, points, point);
+    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_5__["default"].polygon(node, points, point);
   };
 
   return shapeSvg;
 };
 
 var rect_left_inv_arrow = function rect_left_inv_arrow(parent, node) {
-  var _labelHelper3 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.labelHelper)(parent, node, undefined, true),
+  var _labelHelper3 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.labelHelper)(parent, node, undefined, true),
       shapeSvg = _labelHelper3.shapeSvg,
       bbox = _labelHelper3.bbox;
 
@@ -11136,20 +11148,20 @@ var rect_left_inv_arrow = function rect_left_inv_arrow(parent, node) {
     x: 0,
     y: -h / 2
   }];
-  var el = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.insertPolygonShape)(shapeSvg, w, h, points);
+  var el = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.insertPolygonShape)(shapeSvg, w, h, points);
   el.attr('style', node.style);
   node.width = w + h;
   node.height = h;
 
   node.intersect = function (point) {
-    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].polygon(node, points, point);
+    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_5__["default"].polygon(node, points, point);
   };
 
   return shapeSvg;
 };
 
 var lean_right = function lean_right(parent, node) {
-  var _labelHelper4 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.labelHelper)(parent, node, undefined, true),
+  var _labelHelper4 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.labelHelper)(parent, node, undefined, true),
       shapeSvg = _labelHelper4.shapeSvg,
       bbox = _labelHelper4.bbox;
 
@@ -11168,19 +11180,19 @@ var lean_right = function lean_right(parent, node) {
     x: h / 6,
     y: -h
   }];
-  var el = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.insertPolygonShape)(shapeSvg, w, h, points);
+  var el = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.insertPolygonShape)(shapeSvg, w, h, points);
   el.attr('style', node.style);
-  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.updateNodeBounds)(node, el);
+  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.updateNodeBounds)(node, el);
 
   node.intersect = function (point) {
-    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].polygon(node, points, point);
+    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_5__["default"].polygon(node, points, point);
   };
 
   return shapeSvg;
 };
 
 var lean_left = function lean_left(parent, node) {
-  var _labelHelper5 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.labelHelper)(parent, node, undefined, true),
+  var _labelHelper5 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.labelHelper)(parent, node, undefined, true),
       shapeSvg = _labelHelper5.shapeSvg,
       bbox = _labelHelper5.bbox;
 
@@ -11199,19 +11211,19 @@ var lean_left = function lean_left(parent, node) {
     x: -h / 6,
     y: -h
   }];
-  var el = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.insertPolygonShape)(shapeSvg, w, h, points);
+  var el = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.insertPolygonShape)(shapeSvg, w, h, points);
   el.attr('style', node.style);
-  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.updateNodeBounds)(node, el);
+  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.updateNodeBounds)(node, el);
 
   node.intersect = function (point) {
-    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].polygon(node, points, point);
+    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_5__["default"].polygon(node, points, point);
   };
 
   return shapeSvg;
 };
 
 var trapezoid = function trapezoid(parent, node) {
-  var _labelHelper6 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.labelHelper)(parent, node, undefined, true),
+  var _labelHelper6 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.labelHelper)(parent, node, undefined, true),
       shapeSvg = _labelHelper6.shapeSvg,
       bbox = _labelHelper6.bbox;
 
@@ -11230,19 +11242,19 @@ var trapezoid = function trapezoid(parent, node) {
     x: h / 6,
     y: -h
   }];
-  var el = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.insertPolygonShape)(shapeSvg, w, h, points);
+  var el = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.insertPolygonShape)(shapeSvg, w, h, points);
   el.attr('style', node.style);
-  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.updateNodeBounds)(node, el);
+  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.updateNodeBounds)(node, el);
 
   node.intersect = function (point) {
-    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].polygon(node, points, point);
+    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_5__["default"].polygon(node, points, point);
   };
 
   return shapeSvg;
 };
 
 var inv_trapezoid = function inv_trapezoid(parent, node) {
-  var _labelHelper7 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.labelHelper)(parent, node, undefined, true),
+  var _labelHelper7 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.labelHelper)(parent, node, undefined, true),
       shapeSvg = _labelHelper7.shapeSvg,
       bbox = _labelHelper7.bbox;
 
@@ -11261,19 +11273,19 @@ var inv_trapezoid = function inv_trapezoid(parent, node) {
     x: -2 * h / 6,
     y: -h
   }];
-  var el = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.insertPolygonShape)(shapeSvg, w, h, points);
+  var el = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.insertPolygonShape)(shapeSvg, w, h, points);
   el.attr('style', node.style);
-  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.updateNodeBounds)(node, el);
+  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.updateNodeBounds)(node, el);
 
   node.intersect = function (point) {
-    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].polygon(node, points, point);
+    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_5__["default"].polygon(node, points, point);
   };
 
   return shapeSvg;
 };
 
 var rect_right_inv_arrow = function rect_right_inv_arrow(parent, node) {
-  var _labelHelper8 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.labelHelper)(parent, node, undefined, true),
+  var _labelHelper8 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.labelHelper)(parent, node, undefined, true),
       shapeSvg = _labelHelper8.shapeSvg,
       bbox = _labelHelper8.bbox;
 
@@ -11295,19 +11307,19 @@ var rect_right_inv_arrow = function rect_right_inv_arrow(parent, node) {
     x: 0,
     y: -h
   }];
-  var el = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.insertPolygonShape)(shapeSvg, w, h, points);
+  var el = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.insertPolygonShape)(shapeSvg, w, h, points);
   el.attr('style', node.style);
-  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.updateNodeBounds)(node, el);
+  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.updateNodeBounds)(node, el);
 
   node.intersect = function (point) {
-    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].polygon(node, points, point);
+    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_5__["default"].polygon(node, points, point);
   };
 
   return shapeSvg;
 };
 
 var cylinder = function cylinder(parent, node) {
-  var _labelHelper9 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.labelHelper)(parent, node, undefined, true),
+  var _labelHelper9 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.labelHelper)(parent, node, undefined, true),
       shapeSvg = _labelHelper9.shapeSvg,
       bbox = _labelHelper9.bbox;
 
@@ -11317,10 +11329,10 @@ var cylinder = function cylinder(parent, node) {
   var h = bbox.height + ry + node.padding;
   var shape = 'M 0,' + ry + ' a ' + rx + ',' + ry + ' 0,0,0 ' + w + ' 0 a ' + rx + ',' + ry + ' 0,0,0 ' + -w + ' 0 l 0,' + h + ' a ' + rx + ',' + ry + ' 0,0,0 ' + w + ' 0 l 0,' + -h;
   var el = shapeSvg.attr('label-offset-y', ry).insert('path', ':first-child').attr('style', node.style).attr('d', shape).attr('transform', 'translate(' + -w / 2 + ',' + -(h / 2 + ry) + ')');
-  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.updateNodeBounds)(node, el);
+  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.updateNodeBounds)(node, el);
 
   node.intersect = function (point) {
-    var pos = _intersect_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].rect(node, point);
+    var pos = _intersect_index_js__WEBPACK_IMPORTED_MODULE_5__["default"].rect(node, point);
     var x = pos.x - node.x;
 
     if (rx != 0 && (Math.abs(x) < node.width / 2 || Math.abs(x) == node.width / 2 && Math.abs(pos.y - node.y) > node.height / 2 - ry)) {
@@ -11340,12 +11352,12 @@ var cylinder = function cylinder(parent, node) {
 };
 
 var rect = function rect(parent, node) {
-  var _labelHelper10 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.labelHelper)(parent, node, 'node ' + node.classes, true),
+  var _labelHelper10 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.labelHelper)(parent, node, 'node ' + node.classes, true),
       shapeSvg = _labelHelper10.shapeSvg,
       bbox = _labelHelper10.bbox,
       halfPadding = _labelHelper10.halfPadding;
 
-  _logger__WEBPACK_IMPORTED_MODULE_2__.log.trace('Classes = ', node.classes); // add the rect
+  _logger__WEBPACK_IMPORTED_MODULE_4__.log.trace('Classes = ', node.classes); // add the rect
 
   var rect = shapeSvg.insert('rect', ':first-child');
   var totalWidth = bbox.width + node.padding;
@@ -11361,14 +11373,14 @@ var rect = function rect(parent, node) {
     }
 
     propKeys.forEach(function (propKey) {
-      _logger__WEBPACK_IMPORTED_MODULE_2__.log.warn("Unknown node property ".concat(propKey));
+      _logger__WEBPACK_IMPORTED_MODULE_4__.log.warn("Unknown node property ".concat(propKey));
     });
   }
 
-  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.updateNodeBounds)(node, rect);
+  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.updateNodeBounds)(node, rect);
 
   node.intersect = function (point) {
-    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].rect(node, point);
+    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_5__["default"].rect(node, point);
   };
 
   return shapeSvg;
@@ -11395,28 +11407,28 @@ function applyNodePropertyBorders(rect, borders, totalWidth, totalHeight) {
   };
 
   if (borders.includes('t')) {
-    _logger__WEBPACK_IMPORTED_MODULE_2__.log.debug('add top border');
+    _logger__WEBPACK_IMPORTED_MODULE_4__.log.debug('add top border');
     addBorder(totalWidth);
   } else {
     skipBorder(totalWidth);
   }
 
   if (borders.includes('r')) {
-    _logger__WEBPACK_IMPORTED_MODULE_2__.log.debug('add right border');
+    _logger__WEBPACK_IMPORTED_MODULE_4__.log.debug('add right border');
     addBorder(totalHeight);
   } else {
     skipBorder(totalHeight);
   }
 
   if (borders.includes('b')) {
-    _logger__WEBPACK_IMPORTED_MODULE_2__.log.debug('add bottom border');
+    _logger__WEBPACK_IMPORTED_MODULE_4__.log.debug('add bottom border');
     addBorder(totalWidth);
   } else {
     skipBorder(totalWidth);
   }
 
   if (borders.includes('l')) {
-    _logger__WEBPACK_IMPORTED_MODULE_2__.log.debug('add left border');
+    _logger__WEBPACK_IMPORTED_MODULE_4__.log.debug('add left border');
     addBorder(totalHeight);
   } else {
     skipBorder(totalHeight);
@@ -11452,14 +11464,14 @@ var rectWithTitle = function rectWithTitle(parent, node) {
     title = text2;
   }
 
-  _logger__WEBPACK_IMPORTED_MODULE_2__.log.info('Label text abc79', title, text2, _typeof(text2) === 'object');
-  var text = label.node().appendChild((0,_createLabel__WEBPACK_IMPORTED_MODULE_4__["default"])(title, node.labelStyle, true, true));
+  _logger__WEBPACK_IMPORTED_MODULE_4__.log.info('Label text abc79', title, text2, _typeof(text2) === 'object');
+  var text = label.node().appendChild((0,_createLabel__WEBPACK_IMPORTED_MODULE_6__["default"])(title, node.labelStyle, true, true));
   var bbox = {
     width: 0,
     height: 0
   };
 
-  if ((0,_diagrams_common_common__WEBPACK_IMPORTED_MODULE_5__.evaluate)((0,_config__WEBPACK_IMPORTED_MODULE_6__.getConfig)().flowchart.htmlLabels)) {
+  if ((0,_diagrams_common_common__WEBPACK_IMPORTED_MODULE_1__.evaluate)((0,_config__WEBPACK_IMPORTED_MODULE_2__.getConfig)().flowchart.htmlLabels)) {
     var div = text.children[0];
     var dv = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(text);
     bbox = div.getBoundingClientRect();
@@ -11467,12 +11479,12 @@ var rectWithTitle = function rectWithTitle(parent, node) {
     dv.attr('height', bbox.height);
   }
 
-  _logger__WEBPACK_IMPORTED_MODULE_2__.log.info('Text 2', text2);
+  _logger__WEBPACK_IMPORTED_MODULE_4__.log.info('Text 2', text2);
   var textRows = text2.slice(1, text2.length);
   var titleBox = text.getBBox();
-  var descr = label.node().appendChild((0,_createLabel__WEBPACK_IMPORTED_MODULE_4__["default"])(textRows.join ? textRows.join('<br/>') : textRows, node.labelStyle, true, true));
+  var descr = label.node().appendChild((0,_createLabel__WEBPACK_IMPORTED_MODULE_6__["default"])(textRows.join ? textRows.join('<br/>') : textRows, node.labelStyle, true, true));
 
-  if ((0,_diagrams_common_common__WEBPACK_IMPORTED_MODULE_5__.evaluate)((0,_config__WEBPACK_IMPORTED_MODULE_6__.getConfig)().flowchart.htmlLabels)) {
+  if ((0,_diagrams_common_common__WEBPACK_IMPORTED_MODULE_1__.evaluate)((0,_config__WEBPACK_IMPORTED_MODULE_2__.getConfig)().flowchart.htmlLabels)) {
     var _div = descr.children[0];
 
     var _dv = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(descr);
@@ -11498,17 +11510,17 @@ var rectWithTitle = function rectWithTitle(parent, node) {
   label.attr('transform', 'translate(' + -bbox.width / 2 + ', ' + (-bbox.height / 2 - halfPadding + 3) + ')');
   rect.attr('class', 'outer title-state').attr('x', -bbox.width / 2 - halfPadding).attr('y', -bbox.height / 2 - halfPadding).attr('width', bbox.width + node.padding).attr('height', bbox.height + node.padding);
   innerLine.attr('class', 'divider').attr('x1', -bbox.width / 2 - halfPadding).attr('x2', bbox.width / 2 + halfPadding).attr('y1', -bbox.height / 2 - halfPadding + titleBox.height + halfPadding).attr('y2', -bbox.height / 2 - halfPadding + titleBox.height + halfPadding);
-  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.updateNodeBounds)(node, rect);
+  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.updateNodeBounds)(node, rect);
 
   node.intersect = function (point) {
-    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].rect(node, point);
+    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_5__["default"].rect(node, point);
   };
 
   return shapeSvg;
 };
 
 var stadium = function stadium(parent, node) {
-  var _labelHelper11 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.labelHelper)(parent, node, undefined, true),
+  var _labelHelper11 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.labelHelper)(parent, node, undefined, true),
       shapeSvg = _labelHelper11.shapeSvg,
       bbox = _labelHelper11.bbox;
 
@@ -11516,17 +11528,17 @@ var stadium = function stadium(parent, node) {
   var w = bbox.width + h / 4 + node.padding; // add the rect
 
   var rect = shapeSvg.insert('rect', ':first-child').attr('style', node.style).attr('rx', h / 2).attr('ry', h / 2).attr('x', -w / 2).attr('y', -h / 2).attr('width', w).attr('height', h);
-  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.updateNodeBounds)(node, rect);
+  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.updateNodeBounds)(node, rect);
 
   node.intersect = function (point) {
-    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].rect(node, point);
+    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_5__["default"].rect(node, point);
   };
 
   return shapeSvg;
 };
 
 var circle = function circle(parent, node) {
-  var _labelHelper12 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.labelHelper)(parent, node, undefined, true),
+  var _labelHelper12 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.labelHelper)(parent, node, undefined, true),
       shapeSvg = _labelHelper12.shapeSvg,
       bbox = _labelHelper12.bbox,
       halfPadding = _labelHelper12.halfPadding;
@@ -11534,19 +11546,19 @@ var circle = function circle(parent, node) {
   var circle = shapeSvg.insert('circle', ':first-child'); // center the circle around its coordinate
 
   circle.attr('style', node.style).attr('rx', node.rx).attr('ry', node.ry).attr('r', bbox.width / 2 + halfPadding).attr('width', bbox.width + node.padding).attr('height', bbox.height + node.padding);
-  _logger__WEBPACK_IMPORTED_MODULE_2__.log.info('Circle main');
-  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.updateNodeBounds)(node, circle);
+  _logger__WEBPACK_IMPORTED_MODULE_4__.log.info('Circle main');
+  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.updateNodeBounds)(node, circle);
 
   node.intersect = function (point) {
-    _logger__WEBPACK_IMPORTED_MODULE_2__.log.info('Circle intersect', node, bbox.width / 2 + halfPadding, point);
-    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].circle(node, bbox.width / 2 + halfPadding, point);
+    _logger__WEBPACK_IMPORTED_MODULE_4__.log.info('Circle intersect', node, bbox.width / 2 + halfPadding, point);
+    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_5__["default"].circle(node, bbox.width / 2 + halfPadding, point);
   };
 
   return shapeSvg;
 };
 
 var subroutine = function subroutine(parent, node) {
-  var _labelHelper13 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.labelHelper)(parent, node, undefined, true),
+  var _labelHelper13 = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.labelHelper)(parent, node, undefined, true),
       shapeSvg = _labelHelper13.shapeSvg,
       bbox = _labelHelper13.bbox;
 
@@ -11583,12 +11595,12 @@ var subroutine = function subroutine(parent, node) {
     x: -8,
     y: 0
   }];
-  var el = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.insertPolygonShape)(shapeSvg, w, h, points);
+  var el = (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.insertPolygonShape)(shapeSvg, w, h, points);
   el.attr('style', node.style);
-  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.updateNodeBounds)(node, el);
+  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.updateNodeBounds)(node, el);
 
   node.intersect = function (point) {
-    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].polygon(node, points, point);
+    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_5__["default"].polygon(node, points, point);
   };
 
   return shapeSvg;
@@ -11599,10 +11611,10 @@ var start = function start(parent, node) {
   var circle = shapeSvg.insert('circle', ':first-child'); // center the circle around its coordinate
 
   circle.attr('class', 'state-start').attr('r', 7).attr('width', 14).attr('height', 14);
-  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.updateNodeBounds)(node, circle);
+  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.updateNodeBounds)(node, circle);
 
   node.intersect = function (point) {
-    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].circle(node, 7, point);
+    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_5__["default"].circle(node, 7, point);
   };
 
   return shapeSvg;
@@ -11619,12 +11631,12 @@ var forkJoin = function forkJoin(parent, node, dir) {
   }
 
   var shape = shapeSvg.append('rect').attr('x', -1 * width / 2).attr('y', -1 * height / 2).attr('width', width).attr('height', height).attr('class', 'fork-join');
-  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.updateNodeBounds)(node, shape);
+  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.updateNodeBounds)(node, shape);
   node.height = node.height + node.padding / 2;
   node.width = node.width + node.padding / 2;
 
   node.intersect = function (point) {
-    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].rect(node, point);
+    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_5__["default"].rect(node, point);
   };
 
   return shapeSvg;
@@ -11636,10 +11648,10 @@ var end = function end(parent, node) {
   var circle = shapeSvg.insert('circle', ':first-child');
   circle.attr('class', 'state-start').attr('r', 7).attr('width', 14).attr('height', 14);
   innerCircle.attr('class', 'state-end').attr('r', 5).attr('width', 10).attr('height', 10);
-  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.updateNodeBounds)(node, circle);
+  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.updateNodeBounds)(node, circle);
 
   node.intersect = function (point) {
-    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].circle(node, 7, point);
+    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_5__["default"].circle(node, 7, point);
   };
 
   return shapeSvg;
@@ -11670,10 +11682,10 @@ var class_box = function class_box(parent, node) {
   var hasInterface = node.classData.annotations && node.classData.annotations[0]; // 1. Create the labels
 
   var interfaceLabelText = node.classData.annotations[0] ? '«' + node.classData.annotations[0] + '»' : '';
-  var interfaceLabel = labelContainer.node().appendChild((0,_createLabel__WEBPACK_IMPORTED_MODULE_4__["default"])(interfaceLabelText, node.labelStyle, true, true));
+  var interfaceLabel = labelContainer.node().appendChild((0,_createLabel__WEBPACK_IMPORTED_MODULE_6__["default"])(interfaceLabelText, node.labelStyle, true, true));
   var interfaceBBox = interfaceLabel.getBBox();
 
-  if ((0,_diagrams_common_common__WEBPACK_IMPORTED_MODULE_5__.evaluate)((0,_config__WEBPACK_IMPORTED_MODULE_6__.getConfig)().flowchart.htmlLabels)) {
+  if ((0,_diagrams_common_common__WEBPACK_IMPORTED_MODULE_1__.evaluate)((0,_config__WEBPACK_IMPORTED_MODULE_2__.getConfig)().flowchart.htmlLabels)) {
     var div = interfaceLabel.children[0];
     var dv = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(interfaceLabel);
     interfaceBBox = div.getBoundingClientRect();
@@ -11689,18 +11701,18 @@ var class_box = function class_box(parent, node) {
   var classTitleString = node.classData.id;
 
   if (node.classData.type !== undefined && node.classData.type !== '') {
-    if ((0,_config__WEBPACK_IMPORTED_MODULE_6__.getConfig)().flowchart.htmlLabels) {
+    if ((0,_config__WEBPACK_IMPORTED_MODULE_2__.getConfig)().flowchart.htmlLabels) {
       classTitleString += '&lt;' + node.classData.type + '&gt;';
     } else {
       classTitleString += '<' + node.classData.type + '>';
     }
   }
 
-  var classTitleLabel = labelContainer.node().appendChild((0,_createLabel__WEBPACK_IMPORTED_MODULE_4__["default"])(classTitleString, node.labelStyle, true, true));
+  var classTitleLabel = labelContainer.node().appendChild((0,_createLabel__WEBPACK_IMPORTED_MODULE_6__["default"])(classTitleString, node.labelStyle, true, true));
   (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(classTitleLabel).attr('class', 'classTitle');
   var classTitleBBox = classTitleLabel.getBBox();
 
-  if ((0,_diagrams_common_common__WEBPACK_IMPORTED_MODULE_5__.evaluate)((0,_config__WEBPACK_IMPORTED_MODULE_6__.getConfig)().flowchart.htmlLabels)) {
+  if ((0,_diagrams_common_common__WEBPACK_IMPORTED_MODULE_1__.evaluate)((0,_config__WEBPACK_IMPORTED_MODULE_2__.getConfig)().flowchart.htmlLabels)) {
     var _div2 = classTitleLabel.children[0];
 
     var _dv2 = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(classTitleLabel);
@@ -11723,14 +11735,14 @@ var class_box = function class_box(parent, node) {
     var parsedInfo = (0,_diagrams_class_svgDraw__WEBPACK_IMPORTED_MODULE_7__.parseMember)(str);
     var parsedText = parsedInfo.displayText;
 
-    if ((0,_config__WEBPACK_IMPORTED_MODULE_6__.getConfig)().flowchart.htmlLabels) {
+    if ((0,_config__WEBPACK_IMPORTED_MODULE_2__.getConfig)().flowchart.htmlLabels) {
       parsedText = parsedText.replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
 
-    var lbl = labelContainer.node().appendChild((0,_createLabel__WEBPACK_IMPORTED_MODULE_4__["default"])(parsedText, parsedInfo.cssStyle ? parsedInfo.cssStyle : node.labelStyle, true, true));
+    var lbl = labelContainer.node().appendChild((0,_createLabel__WEBPACK_IMPORTED_MODULE_6__["default"])(parsedText, parsedInfo.cssStyle ? parsedInfo.cssStyle : node.labelStyle, true, true));
     var bbox = lbl.getBBox();
 
-    if ((0,_diagrams_common_common__WEBPACK_IMPORTED_MODULE_5__.evaluate)((0,_config__WEBPACK_IMPORTED_MODULE_6__.getConfig)().flowchart.htmlLabels)) {
+    if ((0,_diagrams_common_common__WEBPACK_IMPORTED_MODULE_1__.evaluate)((0,_config__WEBPACK_IMPORTED_MODULE_2__.getConfig)().flowchart.htmlLabels)) {
       var _div3 = lbl.children[0];
 
       var _dv3 = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(lbl);
@@ -11755,14 +11767,14 @@ var class_box = function class_box(parent, node) {
     var parsedInfo = (0,_diagrams_class_svgDraw__WEBPACK_IMPORTED_MODULE_7__.parseMember)(str);
     var displayText = parsedInfo.displayText;
 
-    if ((0,_config__WEBPACK_IMPORTED_MODULE_6__.getConfig)().flowchart.htmlLabels) {
+    if ((0,_config__WEBPACK_IMPORTED_MODULE_2__.getConfig)().flowchart.htmlLabels) {
       displayText = displayText.replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
 
-    var lbl = labelContainer.node().appendChild((0,_createLabel__WEBPACK_IMPORTED_MODULE_4__["default"])(displayText, parsedInfo.cssStyle ? parsedInfo.cssStyle : node.labelStyle, true, true));
+    var lbl = labelContainer.node().appendChild((0,_createLabel__WEBPACK_IMPORTED_MODULE_6__["default"])(displayText, parsedInfo.cssStyle ? parsedInfo.cssStyle : node.labelStyle, true, true));
     var bbox = lbl.getBBox();
 
-    if ((0,_diagrams_common_common__WEBPACK_IMPORTED_MODULE_5__.evaluate)((0,_config__WEBPACK_IMPORTED_MODULE_6__.getConfig)().flowchart.htmlLabels)) {
+    if ((0,_diagrams_common_common__WEBPACK_IMPORTED_MODULE_1__.evaluate)((0,_config__WEBPACK_IMPORTED_MODULE_2__.getConfig)().flowchart.htmlLabels)) {
       var _div4 = lbl.children[0];
 
       var _dv4 = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(lbl);
@@ -11866,10 +11878,10 @@ var class_box = function class_box(parent, node) {
   //   .attr('y1', -bbox.height / 2 - halfPadding + titleBox.height + halfPadding)
   //   .attr('y2', -bbox.height / 2 - halfPadding + titleBox.height + halfPadding);
 
-  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_1__.updateNodeBounds)(node, rect);
+  (0,_shapes_util__WEBPACK_IMPORTED_MODULE_3__.updateNodeBounds)(node, rect);
 
   node.intersect = function (point) {
-    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].rect(node, point);
+    return _intersect_index_js__WEBPACK_IMPORTED_MODULE_5__["default"].rect(node, point);
   };
 
   return shapeSvg;
@@ -11904,7 +11916,15 @@ var insertNode = function insertNode(elem, node, dir) {
   var el; // Add link when appropriate
 
   if (node.link) {
-    newEl = elem.insert('svg:a').attr('xlink:href', node.link).attr('target', node.linkTarget || '_blank');
+    var target;
+
+    if ((0,_config__WEBPACK_IMPORTED_MODULE_2__.getConfig)().securityLevel === 'sandbox') {
+      target = '_top';
+    } else if (node.linkTarget) {
+      target = node.linkTarget || '_blank';
+    }
+
+    newEl = elem.insert('svg:a').attr('xlink:href', node.link).attr('target', target);
     el = shapes[node.shape](newEl, node, dir);
   } else {
     el = shapes[node.shape](elem, node, dir);
@@ -11933,7 +11953,7 @@ var clear = function clear() {
 };
 var positionNode = function positionNode(node) {
   var el = nodeElems[node.id];
-  _logger__WEBPACK_IMPORTED_MODULE_2__.log.trace('Transforming node', node.diff, node, 'translate(' + (node.x - node.width / 2 - 5) + ', ' + node.width / 2 + ')');
+  _logger__WEBPACK_IMPORTED_MODULE_4__.log.trace('Transforming node', node.diff, node, 'translate(' + (node.x - node.width / 2 - 5) + ', ' + node.width / 2 + ')');
   var padding = 8;
   var diff = node.diff || 0;
 
@@ -12136,7 +12156,7 @@ var config = {
   themeVariables: _themes__WEBPACK_IMPORTED_MODULE_0__["default"]["default"].getThemeVariables(),
   themeCSS: undefined,
 
-  /* **maxTextSize** - The maximum allowed size of the users text diamgram */
+  /* **maxTextSize** - The maximum allowed size of the users text diagram */
   maxTextSize: 50000,
   darkMode: false,
 
@@ -13216,10 +13236,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ "d3");
 /* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(d3__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../logger */ "./src/logger.js");
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../config */ "./src/config.js");
-/* harmony import */ var _common_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/common */ "./src/diagrams/common/common.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../config */ "./src/config.js");
+/* harmony import */ var _common_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/common */ "./src/diagrams/common/common.js");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
-/* harmony import */ var _mermaidAPI__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../mermaidAPI */ "./src/mermaidAPI.js");
+/* harmony import */ var _mermaidAPI__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../mermaidAPI */ "./src/mermaidAPI.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -13243,8 +13263,13 @@ var relations = [];
 var classes = {};
 var classCounter = 0;
 var funs = [];
+
+var sanitizeText = function sanitizeText(txt) {
+  return _common_common__WEBPACK_IMPORTED_MODULE_1__["default"].sanitizeText(txt, _config__WEBPACK_IMPORTED_MODULE_2__.getConfig());
+};
+
 var parseDirective = function parseDirective(statement, context, type) {
-  _mermaidAPI__WEBPACK_IMPORTED_MODULE_1__["default"].parseDirective(this, statement, context, type);
+  _mermaidAPI__WEBPACK_IMPORTED_MODULE_3__["default"].parseDirective(this, statement, context, type);
 };
 
 var splitClassNameAndType = function splitClassNameAndType(id) {
@@ -13254,7 +13279,7 @@ var splitClassNameAndType = function splitClassNameAndType(id) {
   if (id.indexOf('~') > 0) {
     var split = id.split('~');
     className = split[0];
-    genericType = _common_common__WEBPACK_IMPORTED_MODULE_2__["default"].sanitizeText(split[1], _config__WEBPACK_IMPORTED_MODULE_3__.getConfig());
+    genericType = _common_common__WEBPACK_IMPORTED_MODULE_1__["default"].sanitizeText(split[1], _config__WEBPACK_IMPORTED_MODULE_2__.getConfig());
   }
 
   return {
@@ -13322,6 +13347,8 @@ var addRelation = function addRelation(relation) {
   addClass(relation.id2);
   relation.id1 = splitClassNameAndType(relation.id1).className;
   relation.id2 = splitClassNameAndType(relation.id2).className;
+  relation.relationTitle1 = _common_common__WEBPACK_IMPORTED_MODULE_1__["default"].sanitizeText(relation.relationTitle1.trim(), _config__WEBPACK_IMPORTED_MODULE_2__.getConfig());
+  relation.relationTitle2 = _common_common__WEBPACK_IMPORTED_MODULE_1__["default"].sanitizeText(relation.relationTitle2.trim(), _config__WEBPACK_IMPORTED_MODULE_2__.getConfig());
   relations.push(relation);
 };
 /**
@@ -13357,11 +13384,12 @@ var addMember = function addMember(className, member) {
 
     if (memberString.startsWith('<<') && memberString.endsWith('>>')) {
       // Remove leading and trailing brackets
-      theClass.annotations.push(memberString.substring(2, memberString.length - 2));
+      // theClass.annotations.push(memberString.substring(2, memberString.length - 2));
+      theClass.annotations.push(sanitizeText(memberString.substring(2, memberString.length - 2)));
     } else if (memberString.indexOf(')') > 0) {
-      theClass.methods.push(memberString);
+      theClass.methods.push(sanitizeText(memberString));
     } else if (memberString) {
-      theClass.members.push(memberString);
+      theClass.members.push(sanitizeText(memberString));
     }
   }
 };
@@ -13375,9 +13403,9 @@ var addMembers = function addMembers(className, members) {
 };
 var cleanupLabel = function cleanupLabel(label) {
   if (label.substring(0, 1) === ':') {
-    return _common_common__WEBPACK_IMPORTED_MODULE_2__["default"].sanitizeText(label.substr(1).trim(), _config__WEBPACK_IMPORTED_MODULE_3__.getConfig());
+    return _common_common__WEBPACK_IMPORTED_MODULE_1__["default"].sanitizeText(label.substr(1).trim(), _config__WEBPACK_IMPORTED_MODULE_2__.getConfig());
   } else {
-    return label.trim();
+    return sanitizeText(label.trim());
   }
 };
 /**
@@ -13405,10 +13433,10 @@ var setCssClass = function setCssClass(ids, className) {
  */
 
 var setTooltip = function setTooltip(ids, tooltip) {
-  var config = _config__WEBPACK_IMPORTED_MODULE_3__.getConfig();
+  var config = _config__WEBPACK_IMPORTED_MODULE_2__.getConfig();
   ids.split(',').forEach(function (id) {
     if (typeof tooltip !== 'undefined') {
-      classes[id].tooltip = _common_common__WEBPACK_IMPORTED_MODULE_2__["default"].sanitizeText(tooltip, config);
+      classes[id].tooltip = _common_common__WEBPACK_IMPORTED_MODULE_1__["default"].sanitizeText(tooltip, config);
     }
   });
 };
@@ -13422,7 +13450,7 @@ var setTooltip = function setTooltip(ids, tooltip) {
 
 
 var setLink = function setLink(ids, linkStr, target) {
-  var config = _config__WEBPACK_IMPORTED_MODULE_3__.getConfig();
+  var config = _config__WEBPACK_IMPORTED_MODULE_2__.getConfig();
   ids.split(',').forEach(function (_id) {
     var id = _id;
     if (_id[0].match(/\d/)) id = MERMAID_DOM_ID_PREFIX + id;
@@ -13430,8 +13458,10 @@ var setLink = function setLink(ids, linkStr, target) {
     if (typeof classes[id] !== 'undefined') {
       classes[id].link = _utils__WEBPACK_IMPORTED_MODULE_5__["default"].formatUrl(linkStr, config);
 
-      if (typeof target === 'string') {
-        classes[id].linkTarget = target;
+      if (config.securityLevel === 'sandbox') {
+        classes[id].linkTarget = '_top';
+      } else if (typeof target === 'string') {
+        classes[id].linkTarget = sanitizeText(target);
       } else {
         classes[id].linkTarget = '_blank';
       }
@@ -13456,7 +13486,7 @@ var setClickEvent = function setClickEvent(ids, functionName, functionArgs) {
 };
 
 var setClickFunc = function setClickFunc(domId, functionName, functionArgs) {
-  var config = _config__WEBPACK_IMPORTED_MODULE_3__.getConfig();
+  var config = _config__WEBPACK_IMPORTED_MODULE_2__.getConfig();
   var id = domId;
   var elemId = lookUpDomId(id);
 
@@ -13565,7 +13595,7 @@ var setDirection = function setDirection(dir) {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   parseDirective: parseDirective,
   getConfig: function getConfig() {
-    return _config__WEBPACK_IMPORTED_MODULE_3__.getConfig().class;
+    return _config__WEBPACK_IMPORTED_MODULE_2__.getConfig().class;
   },
   addClass: addClass,
   bindFunctions: bindFunctions,
@@ -13603,7 +13633,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "addClasses": () => (/* binding */ addClasses),
 /* harmony export */   "addRelations": () => (/* binding */ addRelations),
 /* harmony export */   "setConf": () => (/* binding */ setConf),
-/* harmony export */   "drawOld": () => (/* binding */ drawOld),
 /* harmony export */   "draw": () => (/* binding */ draw),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
@@ -13613,15 +13642,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var dagre__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dagre__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var graphlib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphlib */ "graphlib");
 /* harmony import */ var graphlib__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphlib__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../logger */ "./src/logger.js");
+/* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../logger */ "./src/logger.js");
 /* harmony import */ var _classDb__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./classDb */ "./src/diagrams/class/classDb.js");
 /* harmony import */ var _parser_classDiagram__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./parser/classDiagram */ "./src/diagrams/class/parser/classDiagram.jison");
 /* harmony import */ var _parser_classDiagram__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_parser_classDiagram__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _svgDraw__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./svgDraw */ "./src/diagrams/class/svgDraw.js");
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../config */ "./src/config.js");
-/* harmony import */ var _dagre_wrapper_index_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../dagre-wrapper/index.js */ "./src/dagre-wrapper/index.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
-/* harmony import */ var _common_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/common */ "./src/diagrams/common/common.js");
+/* harmony import */ var _dagre_wrapper_index_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../dagre-wrapper/index.js */ "./src/dagre-wrapper/index.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
+/* harmony import */ var _common_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../common/common */ "./src/diagrams/common/common.js");
 
 
 
@@ -13638,6 +13666,11 @@ __webpack_require__.r(__webpack_exports__);
 _parser_classDiagram__WEBPACK_IMPORTED_MODULE_3__.parser.yy = _classDb__WEBPACK_IMPORTED_MODULE_4__["default"];
 var idCache = {};
 var padding = 20;
+
+var sanitizeText = function sanitizeText(txt) {
+  return _common_common__WEBPACK_IMPORTED_MODULE_5__["default"].sanitizeText(txt, (0,_config__WEBPACK_IMPORTED_MODULE_6__.getConfig)());
+};
+
 var conf = {
   dividerMargin: 10,
   padding: 5,
@@ -13657,8 +13690,8 @@ var conf = {
 var addClasses = function addClasses(classes, g) {
   // const svg = select(`[id="${svgId}"]`);
   var keys = Object.keys(classes);
-  _logger__WEBPACK_IMPORTED_MODULE_5__.log.info('keys:', keys);
-  _logger__WEBPACK_IMPORTED_MODULE_5__.log.info(classes); // Iterate through each item in the vertex object (containing all the vertices found) in the graph definition
+  _logger__WEBPACK_IMPORTED_MODULE_7__.log.info('keys:', keys);
+  _logger__WEBPACK_IMPORTED_MODULE_7__.log.info(classes); // Iterate through each item in the vertex object (containing all the vertices found) in the graph definition
 
   keys.forEach(function (id) {
     var vertex = classes[id];
@@ -13724,7 +13757,7 @@ var addClasses = function addClasses(classes, g) {
     g.setNode(vertex.id, {
       labelStyle: styles.labelStyle,
       shape: _shape,
-      labelText: vertexText,
+      labelText: sanitizeText(vertexText),
       classData: vertex,
       rx: radious,
       ry: radious,
@@ -13738,7 +13771,7 @@ var addClasses = function addClasses(classes, g) {
       type: vertex.type,
       padding: (0,_config__WEBPACK_IMPORTED_MODULE_6__.getConfig)().flowchart.padding
     });
-    _logger__WEBPACK_IMPORTED_MODULE_5__.log.info('setNode', {
+    _logger__WEBPACK_IMPORTED_MODULE_7__.log.info('setNode', {
       labelStyle: styles.labelStyle,
       shape: _shape,
       labelText: vertexText,
@@ -13783,7 +13816,7 @@ var addRelations = function addRelations(relations, g) {
       edgeData.arrowhead = 'normal';
     }
 
-    _logger__WEBPACK_IMPORTED_MODULE_5__.log.info(edgeData, edge); //Set edge extra labels
+    _logger__WEBPACK_IMPORTED_MODULE_7__.log.info(edgeData, edge); //Set edge extra labels
     //edgeData.startLabelLeft = edge.relationTitle1;
 
     edgeData.startLabelRight = edge.relationTitle1 === 'none' ? '' : edge.relationTitle1;
@@ -13796,7 +13829,7 @@ var addRelations = function addRelations(relations, g) {
     var labelStyle = '';
 
     if (typeof edge.style !== 'undefined') {
-      var styles = (0,_utils__WEBPACK_IMPORTED_MODULE_7__.getStylesFromArray)(edge.style);
+      var styles = (0,_utils__WEBPACK_IMPORTED_MODULE_8__.getStylesFromArray)(edge.style);
       style = styles.style;
       labelStyle = styles.labelStyle;
     } else {
@@ -13815,11 +13848,11 @@ var addRelations = function addRelations(relations, g) {
     edgeData.labelStyle = labelStyle;
 
     if (typeof edge.interpolate !== 'undefined') {
-      edgeData.curve = (0,_utils__WEBPACK_IMPORTED_MODULE_7__.interpolateToCurve)(edge.interpolate, d3__WEBPACK_IMPORTED_MODULE_0__.curveLinear);
+      edgeData.curve = (0,_utils__WEBPACK_IMPORTED_MODULE_8__.interpolateToCurve)(edge.interpolate, d3__WEBPACK_IMPORTED_MODULE_0__.curveLinear);
     } else if (typeof relations.defaultInterpolate !== 'undefined') {
-      edgeData.curve = (0,_utils__WEBPACK_IMPORTED_MODULE_7__.interpolateToCurve)(relations.defaultInterpolate, d3__WEBPACK_IMPORTED_MODULE_0__.curveLinear);
+      edgeData.curve = (0,_utils__WEBPACK_IMPORTED_MODULE_8__.interpolateToCurve)(relations.defaultInterpolate, d3__WEBPACK_IMPORTED_MODULE_0__.curveLinear);
     } else {
-      edgeData.curve = (0,_utils__WEBPACK_IMPORTED_MODULE_7__.interpolateToCurve)(conf.curve, d3__WEBPACK_IMPORTED_MODULE_0__.curveLinear);
+      edgeData.curve = (0,_utils__WEBPACK_IMPORTED_MODULE_8__.interpolateToCurve)(conf.curve, d3__WEBPACK_IMPORTED_MODULE_0__.curveLinear);
     }
 
     edge.text = edge.title;
@@ -13838,7 +13871,7 @@ var addRelations = function addRelations(relations, g) {
         edgeData.label = '<span class="edgeLabel">' + edge.text + '</span>';
       } else {
         edgeData.labelType = 'text';
-        edgeData.label = edge.text.replace(_common_common__WEBPACK_IMPORTED_MODULE_8__["default"].lineBreakRegex, '\n');
+        edgeData.label = edge.text.replace(_common_common__WEBPACK_IMPORTED_MODULE_5__["default"].lineBreakRegex, '\n');
 
         if (typeof edge.style === 'undefined') {
           edgeData.style = edgeData.style || 'stroke: #333; stroke-width: 1.5px;fill:none';
@@ -13888,74 +13921,8 @@ var setConf = function setConf(cnf) {
  * @param {string} id
  */
 
-var drawOld = function drawOld(text, id) {
-  idCache = {};
-  _parser_classDiagram__WEBPACK_IMPORTED_MODULE_3__.parser.yy.clear();
-  _parser_classDiagram__WEBPACK_IMPORTED_MODULE_3__.parser.parse(text);
-  _logger__WEBPACK_IMPORTED_MODULE_5__.log.info('Rendering diagram ' + text); // Fetch the default direction, use TD if none was found
-
-  var diagram = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)("[id='".concat(id, "']")); // insertMarkers(diagram);
-  // Layout graph, Create a new directed graph
-
-  var g = new (graphlib__WEBPACK_IMPORTED_MODULE_2___default().Graph)({
-    multigraph: true
-  }); // Set an object for the graph label
-
-  g.setGraph({
-    isMultiGraph: true
-  }); // Default to assigning a new object as a label for each new edge.
-
-  g.setDefaultEdgeLabel(function () {
-    return {};
-  });
-  var classes = _classDb__WEBPACK_IMPORTED_MODULE_4__["default"].getClasses();
-  _logger__WEBPACK_IMPORTED_MODULE_5__.log.info('classes:');
-  _logger__WEBPACK_IMPORTED_MODULE_5__.log.info(classes);
-  var keys = Object.keys(classes);
-
-  for (var i = 0; i < keys.length; i++) {
-    var classDef = classes[keys[i]];
-    var node = _svgDraw__WEBPACK_IMPORTED_MODULE_9__["default"].drawClass(diagram, classDef, conf);
-    idCache[node.id] = node; // Add nodes to the graph. The first argument is the node id. The second is
-    // metadata about the node. In this case we're going to add labels to each of
-    // our nodes.
-
-    g.setNode(node.id, node);
-    _logger__WEBPACK_IMPORTED_MODULE_5__.log.info('Org height: ' + node.height);
-  }
-
-  var relations = _classDb__WEBPACK_IMPORTED_MODULE_4__["default"].getRelations();
-  _logger__WEBPACK_IMPORTED_MODULE_5__.log.info('relations:', relations);
-  relations.forEach(function (relation) {
-    _logger__WEBPACK_IMPORTED_MODULE_5__.log.info('tjoho' + getGraphId(relation.id1) + getGraphId(relation.id2) + JSON.stringify(relation));
-    g.setEdge(getGraphId(relation.id1), getGraphId(relation.id2), {
-      relation: relation
-    }, relation.title || 'DEFAULT');
-  });
-  dagre__WEBPACK_IMPORTED_MODULE_1___default().layout(g);
-  g.nodes().forEach(function (v) {
-    if (typeof v !== 'undefined' && typeof g.node(v) !== 'undefined') {
-      _logger__WEBPACK_IMPORTED_MODULE_5__.log.debug('Node ' + v + ': ' + JSON.stringify(g.node(v)));
-      (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('#' + (0,_classDb__WEBPACK_IMPORTED_MODULE_4__.lookUpDomId)(v)).attr('transform', 'translate(' + (g.node(v).x - g.node(v).width / 2) + ',' + (g.node(v).y - g.node(v).height / 2) + ' )');
-    }
-  });
-  g.edges().forEach(function (e) {
-    if (typeof e !== 'undefined' && typeof g.edge(e) !== 'undefined') {
-      _logger__WEBPACK_IMPORTED_MODULE_5__.log.debug('Edge ' + e.v + ' -> ' + e.w + ': ' + JSON.stringify(g.edge(e)));
-      _svgDraw__WEBPACK_IMPORTED_MODULE_9__["default"].drawEdge(diagram, g.edge(e), g.edge(e).relation, conf);
-    }
-  });
-  var svgBounds = diagram.node().getBBox();
-  var width = svgBounds.width + padding * 2;
-  var height = svgBounds.height + padding * 2;
-  (0,_utils__WEBPACK_IMPORTED_MODULE_7__.configureSvgSize)(diagram, height, width, conf.useMaxWidth); // Ensure the viewBox includes the whole svgBounds area with extra space for padding
-
-  var vBox = "".concat(svgBounds.x - padding, " ").concat(svgBounds.y - padding, " ").concat(width, " ").concat(height);
-  _logger__WEBPACK_IMPORTED_MODULE_5__.log.debug("viewBox ".concat(vBox));
-  diagram.attr('viewBox', vBox);
-};
 var draw = function draw(text, id) {
-  _logger__WEBPACK_IMPORTED_MODULE_5__.log.info('Drawing class');
+  _logger__WEBPACK_IMPORTED_MODULE_7__.log.info('Drawing class - ', id);
   _classDb__WEBPACK_IMPORTED_MODULE_4__["default"].clear(); // const parser = classDb.parser;
   // parser.yy = classDb;
   // Parse the graph definition
@@ -13968,7 +13935,8 @@ var draw = function draw(text, id) {
   //let dir = 'TD';
 
   var conf = (0,_config__WEBPACK_IMPORTED_MODULE_6__.getConfig)().flowchart;
-  _logger__WEBPACK_IMPORTED_MODULE_5__.log.info('config:', conf);
+  var securityLevel = (0,_config__WEBPACK_IMPORTED_MODULE_6__.getConfig)().securityLevel;
+  _logger__WEBPACK_IMPORTED_MODULE_7__.log.info('config:', conf);
   var nodeSpacing = conf.nodeSpacing || 50;
   var rankSpacing = conf.rankSpacing || 50; // Create the input mermaid.graph
 
@@ -13995,7 +13963,7 @@ var draw = function draw(text, id) {
 
   var classes = _classDb__WEBPACK_IMPORTED_MODULE_4__["default"].getClasses();
   var relations = _classDb__WEBPACK_IMPORTED_MODULE_4__["default"].getRelations();
-  _logger__WEBPACK_IMPORTED_MODULE_5__.log.info(relations); // let i = 0;
+  _logger__WEBPACK_IMPORTED_MODULE_7__.log.info(relations); // let i = 0;
   // for (i = subGraphs.length - 1; i >= 0; i--) {
   //   subG = subGraphs[i];
   //   selectAll('cluster').append('text');
@@ -14009,11 +13977,18 @@ var draw = function draw(text, id) {
   // flowChartShapes.addToRenderV2(addShape);
   // Set up an SVG group so that we can translate the final graph.
 
-  var svg = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)("[id=\"".concat(id, "\"]"));
+  var sandboxElement;
+
+  if (securityLevel === 'sandbox') {
+    sandboxElement = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('#i' + id);
+  }
+
+  var root = securityLevel === 'sandbox' ? (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(sandboxElement.nodes()[0].contentDocument.body) : (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('body');
+  var svg = root.select("[id=\"".concat(id, "\"]"));
   svg.attr('xmlns:xlink', 'http://www.w3.org/1999/xlink'); // Run the renderer. This is what draws the final graph.
 
-  var element = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('#' + id + ' g');
-  (0,_dagre_wrapper_index_js__WEBPACK_IMPORTED_MODULE_10__.render)(element, g, ['aggregation', 'extension', 'composition', 'dependency'], 'classDiagram', id); // element.selectAll('g.node').attr('title', function() {
+  var element = root.select('#' + id + ' g');
+  (0,_dagre_wrapper_index_js__WEBPACK_IMPORTED_MODULE_9__.render)(element, g, ['aggregation', 'extension', 'composition', 'dependency'], 'classDiagram', id); // element.selectAll('g.node').attr('title', function() {
   //   return flowDb.getTooltip(this.id);
   // });
 
@@ -14021,21 +13996,22 @@ var draw = function draw(text, id) {
   var svgBounds = svg.node().getBBox();
   var width = svgBounds.width + padding * 2;
   var height = svgBounds.height + padding * 2;
-  _logger__WEBPACK_IMPORTED_MODULE_5__.log.debug("new ViewBox 0 0 ".concat(width, " ").concat(height), "translate(".concat(padding - g._label.marginx, ", ").concat(padding - g._label.marginy, ")"));
-  (0,_utils__WEBPACK_IMPORTED_MODULE_7__.configureSvgSize)(svg, height, width, conf.useMaxWidth);
+  _logger__WEBPACK_IMPORTED_MODULE_7__.log.debug("new ViewBox 0 0 ".concat(width, " ").concat(height), "translate(".concat(padding - g._label.marginx, ", ").concat(padding - g._label.marginy, ")"));
+  (0,_utils__WEBPACK_IMPORTED_MODULE_8__.configureSvgSize)(svg, height, width, conf.useMaxWidth);
   svg.attr('viewBox', "0 0 ".concat(width, " ").concat(height));
   svg.select('g').attr('transform', "translate(".concat(padding - g._label.marginx, ", ").concat(padding - svgBounds.y, ")")); // Index nodes
   // flowDb.indexNodes('subGraph' + i);
   // Add label rects for non html labels
 
   if (!conf.htmlLabels) {
-    var labels = document.querySelectorAll('[id="' + id + '"] .edgeLabel .label');
+    var doc = securityLevel === 'sandbox' ? sandboxElement.nodes()[0].contentDocument : document;
+    var labels = doc.querySelectorAll('[id="' + id + '"] .edgeLabel .label');
 
     for (var k = 0; k < labels.length; k++) {
       var label = labels[k]; // Get dimensions of label
 
       var dim = label.getBBox();
-      var rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      var rect = doc.createElementNS('http://www.w3.org/2000/svg', 'rect');
       rect.setAttribute('rx', 0);
       rect.setAttribute('ry', 0);
       rect.setAttribute('width', dim.width);
@@ -14138,8 +14114,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _classDb__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./classDb */ "./src/diagrams/class/classDb.js");
 /* harmony import */ var _parser_classDiagram__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./parser/classDiagram */ "./src/diagrams/class/parser/classDiagram.jison");
 /* harmony import */ var _parser_classDiagram__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_parser_classDiagram__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _svgDraw__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./svgDraw */ "./src/diagrams/class/svgDraw.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
+/* harmony import */ var _svgDraw__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./svgDraw */ "./src/diagrams/class/svgDraw.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../config */ "./src/config.js");
+
 
 
 
@@ -14214,9 +14192,19 @@ var draw = function draw(text, id) {
   idCache = {};
   _parser_classDiagram__WEBPACK_IMPORTED_MODULE_3__.parser.yy.clear();
   _parser_classDiagram__WEBPACK_IMPORTED_MODULE_3__.parser.parse(text);
-  _logger__WEBPACK_IMPORTED_MODULE_5__.log.info('Rendering diagram ' + text); // Fetch the default direction, use TD if none was found
+  _logger__WEBPACK_IMPORTED_MODULE_5__.log.info('Rendering diagram ' + text);
+  var securityLevel = (0,_config__WEBPACK_IMPORTED_MODULE_6__.getConfig)().securityLevel; // Handle root and ocument for when rendering in sanbox mode
 
-  var diagram = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)("[id='".concat(id, "']"));
+  var sandboxElement;
+
+  if (securityLevel === 'sandbox') {
+    sandboxElement = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('#i' + id);
+  }
+
+  var root = securityLevel === 'sandbox' ? (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(sandboxElement.nodes()[0].contentDocument.body) : (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('body');
+  var doc = securityLevel === 'sandbox' ? sandboxElement.nodes()[0].contentDocument : document; // Fetch the default direction, use TD if none was found
+
+  var diagram = root.select("[id='".concat(id, "']"));
   diagram.attr('xmlns:xlink', 'http://www.w3.org/1999/xlink');
   insertMarkers(diagram); // Layout graph, Create a new directed graph
 
@@ -14236,7 +14224,7 @@ var draw = function draw(text, id) {
 
   for (var i = 0; i < keys.length; i++) {
     var classDef = classes[keys[i]];
-    var node = _svgDraw__WEBPACK_IMPORTED_MODULE_6__["default"].drawClass(diagram, classDef, conf);
+    var node = _svgDraw__WEBPACK_IMPORTED_MODULE_7__["default"].drawClass(diagram, classDef, conf);
     idCache[node.id] = node; // Add nodes to the graph. The first argument is the node id. The second is
     // metadata about the node. In this case we're going to add labels to each of
     // our nodes.
@@ -14256,19 +14244,19 @@ var draw = function draw(text, id) {
   g.nodes().forEach(function (v) {
     if (typeof v !== 'undefined' && typeof g.node(v) !== 'undefined') {
       _logger__WEBPACK_IMPORTED_MODULE_5__.log.debug('Node ' + v + ': ' + JSON.stringify(g.node(v)));
-      (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('#' + (0,_classDb__WEBPACK_IMPORTED_MODULE_4__.lookUpDomId)(v)).attr('transform', 'translate(' + (g.node(v).x - g.node(v).width / 2) + ',' + (g.node(v).y - g.node(v).height / 2) + ' )');
+      root.select('#' + (0,_classDb__WEBPACK_IMPORTED_MODULE_4__.lookUpDomId)(v)).attr('transform', 'translate(' + (g.node(v).x - g.node(v).width / 2) + ',' + (g.node(v).y - g.node(v).height / 2) + ' )');
     }
   });
   g.edges().forEach(function (e) {
     if (typeof e !== 'undefined' && typeof g.edge(e) !== 'undefined') {
       _logger__WEBPACK_IMPORTED_MODULE_5__.log.debug('Edge ' + e.v + ' -> ' + e.w + ': ' + JSON.stringify(g.edge(e)));
-      _svgDraw__WEBPACK_IMPORTED_MODULE_6__["default"].drawEdge(diagram, g.edge(e), g.edge(e).relation, conf);
+      _svgDraw__WEBPACK_IMPORTED_MODULE_7__["default"].drawEdge(diagram, g.edge(e), g.edge(e).relation, conf);
     }
   });
   var svgBounds = diagram.node().getBBox();
   var width = svgBounds.width + padding * 2;
   var height = svgBounds.height + padding * 2;
-  (0,_utils__WEBPACK_IMPORTED_MODULE_7__.configureSvgSize)(diagram, height, width, conf.useMaxWidth); // Ensure the viewBox includes the whole svgBounds area with extra space for padding
+  (0,_utils__WEBPACK_IMPORTED_MODULE_8__.configureSvgSize)(diagram, height, width, conf.useMaxWidth); // Ensure the viewBox includes the whole svgBounds area with extra space for padding
 
   var vBox = "".concat(svgBounds.x - padding, " ").concat(svgBounds.y - padding, " ").concat(width, " ").concat(height);
   _logger__WEBPACK_IMPORTED_MODULE_5__.log.debug("viewBox ".concat(vBox));
@@ -14726,7 +14714,6 @@ var removeEscapes = function removeEscapes(text) {
   var newStr = text.replace(/\\u[\dA-F]{4}/gi, function (match) {
     return String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16));
   });
-  console.log(newStr);
   newStr = newStr.replace(/\\x([0-9a-f]{2})/gi, function (_, c) {
     return String.fromCharCode(parseInt(c, 16));
   });
@@ -15149,16 +15136,24 @@ var drawAttributes = function drawAttributes(groupNode, entityTextNode, attribut
 
   var hasKeyType = false;
   var hasComment = false;
-  var maxWidth = 0;
   var maxTypeWidth = 0;
   var maxNameWidth = 0;
   var maxKeyWidth = 0;
   var maxCommentWidth = 0;
   var cumulativeHeight = labelBBox.height + heightPadding * 2;
-  var attrNum = 1;
+  var attrNum = 1; // Check to see if any of the attributes has a key or a comment
+
+  attributes.forEach(function (item) {
+    if (item.attributeKeyType !== undefined) {
+      hasKeyType = true;
+    }
+
+    if (item.attributeComment !== undefined) {
+      hasComment = true;
+    }
+  });
   attributes.forEach(function (item) {
     var attrPrefix = "".concat(entityTextNode.node().id, "-attr-").concat(attrNum);
-    var nodeWidth = 0;
     var nodeHeight = 0; // Add a text node for the attribute type
 
     var typeNode = groupNode.append('text').attr('class', 'er entityLabel').attr('id', "".concat(attrPrefix, "-type")).attr('x', 0).attr('y', 0).attr('dominant-baseline', 'middle').attr('text-anchor', 'left').attr('style', 'font-family: ' + (0,_config__WEBPACK_IMPORTED_MODULE_3__.getConfig)().fontFamily + '; font-size: ' + attrFontSize + 'px').text(item.attributeType); // Add a text node for the attribute name
@@ -15171,47 +15166,51 @@ var drawAttributes = function drawAttributes(groupNode, entityTextNode, attribut
     var nameBBox = nameNode.node().getBBox();
     maxTypeWidth = Math.max(maxTypeWidth, typeBBox.width);
     maxNameWidth = Math.max(maxNameWidth, nameBBox.width);
-    nodeWidth += typeBBox.width;
-    nodeWidth += nameBBox.width;
     nodeHeight = Math.max(typeBBox.height, nameBBox.height);
 
-    if (hasKeyType || item.attributeKeyType !== undefined) {
-      var keyTypeNode = groupNode.append('text').attr('class', 'er entityLabel').attr('id', "".concat(attrPrefix, "-name")).attr('x', 0).attr('y', 0).attr('dominant-baseline', 'middle').attr('text-anchor', 'left').attr('style', 'font-family: ' + (0,_config__WEBPACK_IMPORTED_MODULE_3__.getConfig)().fontFamily + '; font-size: ' + attrFontSize + 'px').text(item.attributeKeyType || '');
+    if (hasKeyType) {
+      var keyTypeNode = groupNode.append('text').attr('class', 'er entityLabel').attr('id', "".concat(attrPrefix, "-key")).attr('x', 0).attr('y', 0).attr('dominant-baseline', 'middle').attr('text-anchor', 'left').attr('style', 'font-family: ' + (0,_config__WEBPACK_IMPORTED_MODULE_3__.getConfig)().fontFamily + '; font-size: ' + attrFontSize + 'px').text(item.attributeKeyType || '');
       attributeNode.kn = keyTypeNode;
       var keyTypeBBox = keyTypeNode.node().getBBox();
-      nodeWidth += keyTypeBBox.width;
-      maxKeyWidth = Math.max(maxKeyWidth, nodeWidth);
+      maxKeyWidth = Math.max(maxKeyWidth, keyTypeBBox.width);
       nodeHeight = Math.max(nodeHeight, keyTypeBBox.height);
-      hasKeyType = true;
     }
 
-    if (hasComment || item.attributeComment !== undefined) {
-      var commentNode = groupNode.append('text').attr('class', 'er entityLabel').attr('id', "".concat(attrPrefix, "-name")).attr('x', 0).attr('y', 0).attr('dominant-baseline', 'middle').attr('text-anchor', 'left').attr('style', 'font-family: ' + (0,_config__WEBPACK_IMPORTED_MODULE_3__.getConfig)().fontFamily + '; font-size: ' + attrFontSize + 'px').text(item.attributeComment || '');
+    if (hasComment) {
+      var commentNode = groupNode.append('text').attr('class', 'er entityLabel').attr('id', "".concat(attrPrefix, "-comment")).attr('x', 0).attr('y', 0).attr('dominant-baseline', 'middle').attr('text-anchor', 'left').attr('style', 'font-family: ' + (0,_config__WEBPACK_IMPORTED_MODULE_3__.getConfig)().fontFamily + '; font-size: ' + attrFontSize + 'px').text(item.attributeComment || '');
       attributeNode.cn = commentNode;
       var commentNodeBBox = commentNode.node().getBBox();
-      nodeWidth += commentNodeBBox.width;
-      maxCommentWidth = Math.max(nodeWidth, nameBBox.width);
+      maxCommentWidth = Math.max(maxCommentWidth, commentNodeBBox.width);
       nodeHeight = Math.max(nodeHeight, commentNodeBBox.height);
-      hasComment = true;
     }
 
     attributeNode.height = nodeHeight; // Keep a reference to the nodes so that we can iterate through them later
 
     attributeNodes.push(attributeNode);
-    maxWidth = Math.max(maxWidth, nodeWidth);
     cumulativeHeight += nodeHeight + heightPadding * 2;
     attrNum += 1;
-  }); // Calculate the new bounding box of the overall entity, now that attributes have been added
+  });
+  var widthPaddingFactor = 4;
+
+  if (hasKeyType) {
+    widthPaddingFactor += 2;
+  }
+
+  if (hasComment) {
+    widthPaddingFactor += 2;
+  }
+
+  var maxWidth = maxTypeWidth + maxNameWidth + maxKeyWidth + maxCommentWidth; // Calculate the new bounding box of the overall entity, now that attributes have been added
 
   var bBox = {
-    width: Math.max(conf.minEntityWidth, Math.max(labelBBox.width + conf.entityPadding * 2, maxWidth + widthPadding * 4)),
+    width: Math.max(conf.minEntityWidth, Math.max(labelBBox.width + conf.entityPadding * 2, maxWidth + widthPadding * widthPaddingFactor)),
     height: attributes.length > 0 ? cumulativeHeight : Math.max(conf.minEntityHeight, labelBBox.height + conf.entityPadding * 2)
-  }; // There might be some spare width for padding out attributes if the entity name is very long
-
-  var spareWidth = Math.max(0, bBox.width - maxWidth - widthPadding * 4);
+  };
 
   if (attributes.length > 0) {
-    // Position the entity label near the top of the entity bounding box
+    // There might be some spare width for padding out attributes if the entity name is very long
+    var spareColumnWidth = Math.max(0, (bBox.width - maxWidth - widthPadding * widthPaddingFactor) / (widthPaddingFactor / 2)); // Position the entity label near the top of the entity bounding box
+
     entityTextNode.attr('transform', 'translate(' + bBox.width / 2 + ',' + (heightPadding + labelBBox.height / 2) + ')'); // Add rectangular boxes for the attribute types/names
 
     var heightOffset = labelBBox.height + heightPadding * 2; // Start at the bottom of the entity label
@@ -15220,28 +15219,32 @@ var drawAttributes = function drawAttributes(groupNode, entityTextNode, attribut
 
     attributeNodes.forEach(function (attributeNode) {
       // Calculate the alignment y co-ordinate for the type/name of the attribute
-      var alignY = heightOffset + heightPadding + attributeNode.height / 2; // Position the type of the attribute
+      var alignY = heightOffset + heightPadding + attributeNode.height / 2; // Position the type attribute
 
-      attributeNode.tn.attr('transform', 'translate(' + widthPadding + ',' + alignY + ')'); // Insert a rectangle for the type
+      attributeNode.tn.attr('transform', 'translate(' + widthPadding + ',' + alignY + ')'); // TODO Handle spareWidth in attr('width')
+      // Insert a rectangle for the type
 
-      var typeRect = groupNode.insert('rect', '#' + attributeNode.tn.node().id).attr('class', "er ".concat(attribStyle)).attr('fill', conf.fill).attr('fill-opacity', '100%').attr('stroke', conf.stroke).attr('x', 0).attr('y', heightOffset).attr('width', maxTypeWidth * 2 + spareWidth / 2).attr('height', attributeNode.tn.node().getBBox().height + heightPadding * 2); // Position the name of the attribute
+      var typeRect = groupNode.insert('rect', '#' + attributeNode.tn.node().id).attr('class', "er ".concat(attribStyle)).attr('fill', conf.fill).attr('fill-opacity', '100%').attr('stroke', conf.stroke).attr('x', 0).attr('y', heightOffset).attr('width', maxTypeWidth + widthPadding * 2 + spareColumnWidth).attr('height', attributeNode.height + heightPadding * 2);
+      var nameXOffset = parseFloat(typeRect.attr('x')) + parseFloat(typeRect.attr('width')); // Position the name attribute
 
-      attributeNode.nn.attr('transform', 'translate(' + (parseFloat(typeRect.attr('width')) + widthPadding) + ',' + alignY + ')'); // Insert a rectangle for the name
+      attributeNode.nn.attr('transform', 'translate(' + (nameXOffset + widthPadding) + ',' + alignY + ')'); // Insert a rectangle for the name
 
-      groupNode.insert('rect', '#' + attributeNode.nn.node().id).attr('class', "er ".concat(attribStyle)).attr('fill', conf.fill).attr('fill-opacity', '100%').attr('stroke', conf.stroke).attr('x', "".concat(typeRect.attr('x') + typeRect.attr('width'))).attr('y', heightOffset).attr('width', maxNameWidth + widthPadding * 2 + spareWidth / 2).attr('height', attributeNode.nn.node().getBBox().height + heightPadding * 2);
+      var nameRect = groupNode.insert('rect', '#' + attributeNode.nn.node().id).attr('class', "er ".concat(attribStyle)).attr('fill', conf.fill).attr('fill-opacity', '100%').attr('stroke', conf.stroke).attr('x', nameXOffset).attr('y', heightOffset).attr('width', maxNameWidth + widthPadding * 2 + spareColumnWidth).attr('height', attributeNode.height + heightPadding * 2);
+      var keyTypeAndCommentXOffset = parseFloat(nameRect.attr('x')) + parseFloat(nameRect.attr('width'));
 
       if (hasKeyType) {
-        // Position the name of the attribute
-        attributeNode.kn.attr('transform', 'translate(' + (parseFloat(typeRect.attr('width')) + widthPadding) + ',' + alignY + ')'); // Insert a rectangle for the name
+        // Position the key type attribute
+        attributeNode.kn.attr('transform', 'translate(' + (keyTypeAndCommentXOffset + widthPadding) + ',' + alignY + ')'); // Insert a rectangle for the key type
 
-        groupNode.insert('rect', '#' + attributeNode.kn.node().id).attr('class', "er ".concat(attribStyle)).attr('fill', conf.fill).attr('fill-opacity', '100%').attr('stroke', conf.stroke).attr('x', "".concat(typeRect.attr('x') + typeRect.attr('width'))).attr('y', heightOffset).attr('width', maxKeyWidth + widthPadding * 2 + spareWidth / 2).attr('height', attributeNode.kn.node().getBBox().height + heightPadding * 2);
+        var keyTypeRect = groupNode.insert('rect', '#' + attributeNode.kn.node().id).attr('class', "er ".concat(attribStyle)).attr('fill', conf.fill).attr('fill-opacity', '100%').attr('stroke', conf.stroke).attr('x', keyTypeAndCommentXOffset).attr('y', heightOffset).attr('width', maxKeyWidth + widthPadding * 2 + spareColumnWidth).attr('height', attributeNode.height + heightPadding * 2);
+        keyTypeAndCommentXOffset = parseFloat(keyTypeRect.attr('x')) + parseFloat(keyTypeRect.attr('width'));
       }
 
       if (hasComment) {
-        // Position the name of the attribute
-        attributeNode.cn.attr('transform', 'translate(' + (parseFloat(typeRect.attr('width')) + widthPadding) + ',' + alignY + ')'); // Insert a rectangle for the name
+        // Position the comment attribute
+        attributeNode.cn.attr('transform', 'translate(' + (keyTypeAndCommentXOffset + widthPadding) + ',' + alignY + ')'); // Insert a rectangle for the comment
 
-        groupNode.insert('rect', '#' + attributeNode.cn.node().id).attr('class', "er ".concat(attribStyle)).attr('fill', conf.fill).attr('fill-opacity', '100%').attr('stroke', conf.stroke).attr('x', "".concat(typeRect.attr('x') + typeRect.attr('width'))).attr('y', heightOffset).attr('width', maxCommentWidth + widthPadding * 2 + spareWidth / 2).attr('height', attributeNode.cn.node().getBBox().height + heightPadding * 2);
+        groupNode.insert('rect', '#' + attributeNode.cn.node().id).attr('class', "er ".concat(attribStyle)).attr('fill', conf.fill).attr('fill-opacity', '100%').attr('stroke', conf.stroke).attr('x', keyTypeAndCommentXOffset).attr('y', heightOffset).attr('width', maxCommentWidth + widthPadding * 2 + spareColumnWidth).attr('height', attributeNode.height + heightPadding * 2);
       } // Increment the height offset to move to the next row
 
 
@@ -15431,7 +15434,17 @@ var draw = function draw(text, id) {
   _logger__WEBPACK_IMPORTED_MODULE_6__.log.info('Drawing ER diagram');
   _erDb__WEBPACK_IMPORTED_MODULE_4__["default"].clear();
   var parser = (_parser_erDiagram__WEBPACK_IMPORTED_MODULE_7___default().parser);
-  parser.yy = _erDb__WEBPACK_IMPORTED_MODULE_4__["default"]; // Parse the text to populate erDb
+  parser.yy = _erDb__WEBPACK_IMPORTED_MODULE_4__["default"];
+  var securityLevel = (0,_config__WEBPACK_IMPORTED_MODULE_3__.getConfig)().securityLevel; // Handle root and ocument for when rendering in sanbox mode
+
+  var sandboxElement;
+
+  if (securityLevel === 'sandbox') {
+    sandboxElement = (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)('#i' + id);
+  }
+
+  var root = securityLevel === 'sandbox' ? (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)(sandboxElement.nodes()[0].contentDocument.body) : (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)('body');
+  var doc = securityLevel === 'sandbox' ? sandboxElement.nodes()[0].contentDocument : document; // Parse the text to populate erDb
 
   try {
     parser.parse(text);
@@ -15440,7 +15453,7 @@ var draw = function draw(text, id) {
   } // Get a reference to the svg node that contains the text
 
 
-  var svg = (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)("[id='".concat(id, "']")); // Add cardinality marker definitions to the svg
+  var svg = root.select("[id='".concat(id, "']")); // Add cardinality marker definitions to the svg
 
   _erMarkers__WEBPACK_IMPORTED_MODULE_5__["default"].insertMarkers(svg, conf); // Now we have to construct the diagram in a specific way:
   // ---
@@ -16960,10 +16973,12 @@ var setConf = function setConf(cnf) {
  * @param vert Object containing the vertices.
  * @param g The graph that is to be drawn.
  * @param svgId
+ * @param root
+ * @param doc
  */
 
-var addVertices = function addVertices(vert, g, svgId) {
-  var svg = (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)("[id=\"".concat(svgId, "\"]"));
+var addVertices = function addVertices(vert, g, svgId, root, doc) {
+  var svg = root.select("[id=\"".concat(svgId, "\"]"));
   var keys = Object.keys(vert); // Iterate through each item in the vertex object (containing all the vertices found) in the graph definition
 
   keys.forEach(function (id) {
@@ -16996,12 +17011,12 @@ var addVertices = function addVertices(vert, g, svgId) {
       vertexNode = dagre_d3_lib_label_add_html_label_js__WEBPACK_IMPORTED_MODULE_2___default()(svg, node).node();
       vertexNode.parentNode.removeChild(vertexNode);
     } else {
-      var svgLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      var svgLabel = doc.createElementNS('http://www.w3.org/2000/svg', 'text');
       svgLabel.setAttribute('style', styles.labelStyle.replace('color:', 'fill:'));
       var rows = vertexText.split(_common_common__WEBPACK_IMPORTED_MODULE_4__["default"].lineBreakRegex);
 
       for (var j = 0; j < rows.length; j++) {
-        var tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+        var tspan = doc.createElementNS('http://www.w3.org/2000/svg', 'tspan');
         tspan.setAttributeNS('http://www.w3.org/XML/1998/namespace', 'xml:space', 'preserve');
         tspan.setAttribute('dy', '1em');
         tspan.setAttribute('x', '1');
@@ -17330,7 +17345,17 @@ var draw = function draw(text, id) {
 
   var conf = (0,_config__WEBPACK_IMPORTED_MODULE_5__.getConfig)().flowchart;
   var nodeSpacing = conf.nodeSpacing || 50;
-  var rankSpacing = conf.rankSpacing || 50; // Create the input mermaid.graph
+  var rankSpacing = conf.rankSpacing || 50;
+  var securityLevel = (0,_config__WEBPACK_IMPORTED_MODULE_5__.getConfig)().securityLevel; // Handle root and ocument for when rendering in sanbox mode
+
+  var sandboxElement;
+
+  if (securityLevel === 'sandbox') {
+    sandboxElement = (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)('#i' + id);
+  }
+
+  var root = securityLevel === 'sandbox' ? (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)(sandboxElement.nodes()[0].contentDocument.body) : (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)('body');
+  var doc = securityLevel === 'sandbox' ? sandboxElement.nodes()[0].contentDocument : document; // Create the input mermaid.graph
 
   var g = new (graphlib__WEBPACK_IMPORTED_MODULE_0___default().Graph)({
     multigraph: true,
@@ -17371,15 +17396,15 @@ var draw = function draw(text, id) {
     }
   }
 
-  addVertices(vert, g, id);
+  addVertices(vert, g, id, root, doc);
   addEdges(edges, g); // Add custom shapes
   // flowChartShapes.addToRenderV2(addShape);
   // Set up an SVG group so that we can translate the final graph.
 
-  var svg = (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)("[id=\"".concat(id, "\"]"));
+  var svg = root.select("[id=\"".concat(id, "\"]"));
   svg.attr('xmlns:xlink', 'http://www.w3.org/1999/xlink'); // Run the renderer. This is what draws the final graph.
 
-  var element = (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)('#' + id + ' g');
+  var element = root.select('#' + id + ' g');
   (0,_dagre_wrapper_index_js__WEBPACK_IMPORTED_MODULE_9__.render)(element, g, ['point', 'circle', 'cross'], 'flowchart', id);
   var padding = conf.diagramPadding;
   var svgBounds = svg.node().getBBox();
@@ -17393,13 +17418,13 @@ var draw = function draw(text, id) {
   _flowDb__WEBPACK_IMPORTED_MODULE_6__["default"].indexNodes('subGraph' + i); // Add label rects for non html labels
 
   if (!conf.htmlLabels) {
-    var labels = document.querySelectorAll('[id="' + id + '"] .edgeLabel .label');
+    var labels = doc.querySelectorAll('[id="' + id + '"] .edgeLabel .label');
 
     for (var k = 0; k < labels.length; k++) {
       var label = labels[k]; // Get dimensions of label
 
       var dim = label.getBBox();
-      var rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      var rect = doc.createElementNS('http://www.w3.org/2000/svg', 'rect');
       rect.setAttribute('rx', 0);
       rect.setAttribute('ry', 0);
       rect.setAttribute('width', dim.width);
@@ -17418,12 +17443,14 @@ var draw = function draw(text, id) {
       var node = (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)('#' + id + ' [id="' + key + '"]');
 
       if (node) {
-        var link = document.createElementNS('http://www.w3.org/2000/svg', 'a');
+        var link = doc.createElementNS('http://www.w3.org/2000/svg', 'a');
         link.setAttributeNS('http://www.w3.org/2000/svg', 'class', vertex.classes.join(' '));
         link.setAttributeNS('http://www.w3.org/2000/svg', 'href', vertex.link);
         link.setAttributeNS('http://www.w3.org/2000/svg', 'rel', 'noopener');
 
-        if (vertex.linkTarget) {
+        if (securityLevel === 'sandbox') {
+          link.setAttributeNS('http://www.w3.org/2000/svg', 'target', '_top');
+        } else if (vertex.linkTarget) {
           link.setAttributeNS('http://www.w3.org/2000/svg', 'target', vertex.linkTarget);
         }
 
@@ -17482,14 +17509,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _flowDb__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./flowDb */ "./src/diagrams/flowchart/flowDb.js");
 /* harmony import */ var _parser_flow__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./parser/flow */ "./src/diagrams/flowchart/parser/flow.jison");
 /* harmony import */ var _parser_flow__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_parser_flow__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../config */ "./src/config.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../config */ "./src/config.js");
 /* harmony import */ var dagre_d3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dagre-d3 */ "dagre-d3");
 /* harmony import */ var dagre_d3__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(dagre_d3__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var dagre_d3_lib_label_add_html_label_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! dagre-d3/lib/label/add-html-label.js */ "dagre-d3/lib/label/add-html-label.js");
 /* harmony import */ var dagre_d3_lib_label_add_html_label_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(dagre_d3_lib_label_add_html_label_js__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../logger */ "./src/logger.js");
-/* harmony import */ var _common_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../common/common */ "./src/diagrams/common/common.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
+/* harmony import */ var _common_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/common */ "./src/diagrams/common/common.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
 /* harmony import */ var _flowChartShapes__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./flowChartShapes */ "./src/diagrams/flowchart/flowChartShapes.js");
 
 
@@ -17516,10 +17543,15 @@ var setConf = function setConf(cnf) {
  * @param vert Object containing the vertices.
  * @param g The graph that is to be drawn.
  * @param svgId
+ * @param root
+ * @param doc
+ * @param _doc
  */
 
-var addVertices = function addVertices(vert, g, svgId) {
-  var svg = (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)("[id=\"".concat(svgId, "\"]"));
+var addVertices = function addVertices(vert, g, svgId, root, _doc) {
+  var securityLevel = (0,_config__WEBPACK_IMPORTED_MODULE_4__.getConfig)().securityLevel;
+  var svg = !root ? (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)("[id=\"".concat(svgId, "\"]")) : root.select("[id=\"".concat(svgId, "\"]"));
+  var doc = !_doc ? document : _doc;
   var keys = Object.keys(vert); // Iterate through each item in the vertex object (containing all the vertices found) in the graph definition
 
   keys.forEach(function (id) {
@@ -17536,13 +17568,13 @@ var addVertices = function addVertices(vert, g, svgId) {
       classStr = vertex.classes.join(' ');
     }
 
-    var styles = (0,_utils__WEBPACK_IMPORTED_MODULE_4__.getStylesFromArray)(vertex.styles); // Use vertex id as text in the box if no text is provided by the graph definition
+    var styles = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.getStylesFromArray)(vertex.styles); // Use vertex id as text in the box if no text is provided by the graph definition
 
     var vertexText = vertex.text !== undefined ? vertex.text : vertex.id; // We create a SVG label, either by delegating to addHtmlLabel or manually
 
     var vertexNode;
 
-    if ((0,_common_common__WEBPACK_IMPORTED_MODULE_5__.evaluate)((0,_config__WEBPACK_IMPORTED_MODULE_6__.getConfig)().flowchart.htmlLabels)) {
+    if ((0,_common_common__WEBPACK_IMPORTED_MODULE_6__.evaluate)((0,_config__WEBPACK_IMPORTED_MODULE_4__.getConfig)().flowchart.htmlLabels)) {
       // TODO: addHtmlLabel accepts a labelStyle. Do we possibly have that?
       var node = {
         label: vertexText.replace(/fa[lrsb]?:fa-[\w-]+/g, function (s) {
@@ -17552,12 +17584,12 @@ var addVertices = function addVertices(vert, g, svgId) {
       vertexNode = dagre_d3_lib_label_add_html_label_js__WEBPACK_IMPORTED_MODULE_3___default()(svg, node).node();
       vertexNode.parentNode.removeChild(vertexNode);
     } else {
-      var svgLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      var svgLabel = doc.createElementNS('http://www.w3.org/2000/svg', 'text');
       svgLabel.setAttribute('style', styles.labelStyle.replace('color:', 'fill:'));
-      var rows = vertexText.split(_common_common__WEBPACK_IMPORTED_MODULE_5__["default"].lineBreakRegex);
+      var rows = vertexText.split(_common_common__WEBPACK_IMPORTED_MODULE_6__["default"].lineBreakRegex);
 
       for (var j = 0; j < rows.length; j++) {
-        var tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+        var tspan = doc.createElementNS('http://www.w3.org/2000/svg', 'tspan');
         tspan.setAttributeNS('http://www.w3.org/XML/1998/namespace', 'xml:space', 'preserve');
         tspan.setAttribute('dy', '1em');
         tspan.setAttribute('x', '1');
@@ -17669,7 +17701,7 @@ var addEdges = function addEdges(edges, g) {
   var defaultLabelStyle;
 
   if (typeof edges.defaultStyle !== 'undefined') {
-    var defaultStyles = (0,_utils__WEBPACK_IMPORTED_MODULE_4__.getStylesFromArray)(edges.defaultStyle);
+    var defaultStyles = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.getStylesFromArray)(edges.defaultStyle);
     defaultStyle = defaultStyles.style;
     defaultLabelStyle = defaultStyles.labelStyle;
   }
@@ -17692,7 +17724,7 @@ var addEdges = function addEdges(edges, g) {
     var labelStyle = '';
 
     if (typeof edge.style !== 'undefined') {
-      var styles = (0,_utils__WEBPACK_IMPORTED_MODULE_4__.getStylesFromArray)(edge.style);
+      var styles = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.getStylesFromArray)(edge.style);
       style = styles.style;
       labelStyle = styles.labelStyle;
     } else {
@@ -17724,11 +17756,11 @@ var addEdges = function addEdges(edges, g) {
     edgeData.labelStyle = labelStyle;
 
     if (typeof edge.interpolate !== 'undefined') {
-      edgeData.curve = (0,_utils__WEBPACK_IMPORTED_MODULE_4__.interpolateToCurve)(edge.interpolate, d3__WEBPACK_IMPORTED_MODULE_1__.curveLinear);
+      edgeData.curve = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.interpolateToCurve)(edge.interpolate, d3__WEBPACK_IMPORTED_MODULE_1__.curveLinear);
     } else if (typeof edges.defaultInterpolate !== 'undefined') {
-      edgeData.curve = (0,_utils__WEBPACK_IMPORTED_MODULE_4__.interpolateToCurve)(edges.defaultInterpolate, d3__WEBPACK_IMPORTED_MODULE_1__.curveLinear);
+      edgeData.curve = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.interpolateToCurve)(edges.defaultInterpolate, d3__WEBPACK_IMPORTED_MODULE_1__.curveLinear);
     } else {
-      edgeData.curve = (0,_utils__WEBPACK_IMPORTED_MODULE_4__.interpolateToCurve)(conf.curve, d3__WEBPACK_IMPORTED_MODULE_1__.curveLinear);
+      edgeData.curve = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.interpolateToCurve)(conf.curve, d3__WEBPACK_IMPORTED_MODULE_1__.curveLinear);
     }
 
     if (typeof edge.text === 'undefined') {
@@ -17739,14 +17771,14 @@ var addEdges = function addEdges(edges, g) {
       edgeData.arrowheadStyle = 'fill: #333';
       edgeData.labelpos = 'c';
 
-      if ((0,_common_common__WEBPACK_IMPORTED_MODULE_5__.evaluate)((0,_config__WEBPACK_IMPORTED_MODULE_6__.getConfig)().flowchart.htmlLabels)) {
+      if ((0,_common_common__WEBPACK_IMPORTED_MODULE_6__.evaluate)((0,_config__WEBPACK_IMPORTED_MODULE_4__.getConfig)().flowchart.htmlLabels)) {
         edgeData.labelType = 'html';
         edgeData.label = "<span id=\"L-".concat(linkId, "\" class=\"edgeLabel L-").concat(linkNameStart, "' L-").concat(linkNameEnd, "\">").concat(edge.text.replace(/fa[lrsb]?:fa-[\w-]+/g, function (s) {
           return "<i class='".concat(s.replace(':', ' '), "'></i>");
         }), "</span>");
       } else {
         edgeData.labelType = 'text';
-        edgeData.label = edge.text.replace(_common_common__WEBPACK_IMPORTED_MODULE_5__["default"].lineBreakRegex, '\n');
+        edgeData.label = edge.text.replace(_common_common__WEBPACK_IMPORTED_MODULE_6__["default"].lineBreakRegex, '\n');
 
         if (typeof edge.style === 'undefined') {
           edgeData.style = edgeData.style || 'stroke: #333; stroke-width: 1.5px;fill:none';
@@ -17796,7 +17828,16 @@ var draw = function draw(text, id) {
   _flowDb__WEBPACK_IMPORTED_MODULE_8__["default"].clear();
   _flowDb__WEBPACK_IMPORTED_MODULE_8__["default"].setGen('gen-1');
   var parser = (_parser_flow__WEBPACK_IMPORTED_MODULE_9___default().parser);
-  parser.yy = _flowDb__WEBPACK_IMPORTED_MODULE_8__["default"]; // Parse the graph definition
+  parser.yy = _flowDb__WEBPACK_IMPORTED_MODULE_8__["default"];
+  var securityLevel = (0,_config__WEBPACK_IMPORTED_MODULE_4__.getConfig)().securityLevel;
+  var sandboxElement;
+
+  if (securityLevel === 'sandbox') {
+    sandboxElement = (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)('#i' + id);
+  }
+
+  var root = securityLevel === 'sandbox' ? (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)(sandboxElement.nodes()[0].contentDocument.body) : (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)('body');
+  var doc = securityLevel === 'sandbox' ? sandboxElement.nodes()[0].contentDocument : document; // Parse the graph definition
   // try {
 
   parser.parse(text); // } catch (err) {
@@ -17810,7 +17851,7 @@ var draw = function draw(text, id) {
     dir = 'TD';
   }
 
-  var conf = (0,_config__WEBPACK_IMPORTED_MODULE_6__.getConfig)().flowchart;
+  var conf = (0,_config__WEBPACK_IMPORTED_MODULE_4__.getConfig)().flowchart;
   var nodeSpacing = conf.nodeSpacing || 50;
   var rankSpacing = conf.rankSpacing || 50; // Create the input mermaid.graph
 
@@ -17850,7 +17891,7 @@ var draw = function draw(text, id) {
     }
   }
 
-  addVertices(vert, g, id);
+  addVertices(vert, g, id, root, doc);
   addEdges(edges, g); // Create the renderer
 
   var Render = (dagre_d3__WEBPACK_IMPORTED_MODULE_2___default().render);
@@ -17871,11 +17912,11 @@ var draw = function draw(text, id) {
   }; // Set up an SVG group so that we can translate the final graph.
 
 
-  var svg = (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)("[id=\"".concat(id, "\"]"));
+  var svg = root.select("[id=\"".concat(id, "\"]"));
   svg.attr('xmlns:xlink', 'http://www.w3.org/1999/xlink');
   _logger__WEBPACK_IMPORTED_MODULE_7__.log.warn(g); // Run the renderer. This is what draws the final graph.
 
-  var element = (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)('#' + id + ' g');
+  var element = root.select('#' + id + ' g');
   render(element, g);
   element.selectAll('g.node').attr('title', function () {
     return _flowDb__WEBPACK_IMPORTED_MODULE_8__["default"].getTooltip(this.id);
@@ -17884,7 +17925,7 @@ var draw = function draw(text, id) {
   var svgBounds = svg.node().getBBox();
   var width = svgBounds.width + padding * 2;
   var height = svgBounds.height + padding * 2;
-  (0,_utils__WEBPACK_IMPORTED_MODULE_4__.configureSvgSize)(svg, height, width, conf.useMaxWidth); // Ensure the viewBox includes the whole svgBounds area with extra space for padding
+  (0,_utils__WEBPACK_IMPORTED_MODULE_5__.configureSvgSize)(svg, height, width, conf.useMaxWidth); // Ensure the viewBox includes the whole svgBounds area with extra space for padding
 
   var vBox = "".concat(svgBounds.x - padding, " ").concat(svgBounds.y - padding, " ").concat(width, " ").concat(height);
   _logger__WEBPACK_IMPORTED_MODULE_7__.log.debug("viewBox ".concat(vBox));
@@ -17896,8 +17937,8 @@ var draw = function draw(text, id) {
     subG = subGraphs[i];
 
     if (subG.title !== 'undefined') {
-      var clusterRects = document.querySelectorAll('#' + id + ' [id="' + _flowDb__WEBPACK_IMPORTED_MODULE_8__["default"].lookUpDomId(subG.id) + '"] rect');
-      var clusterEl = document.querySelectorAll('#' + id + ' [id="' + _flowDb__WEBPACK_IMPORTED_MODULE_8__["default"].lookUpDomId(subG.id) + '"]');
+      var clusterRects = doc.querySelectorAll('#' + id + ' [id="' + _flowDb__WEBPACK_IMPORTED_MODULE_8__["default"].lookUpDomId(subG.id) + '"] rect');
+      var clusterEl = doc.querySelectorAll('#' + id + ' [id="' + _flowDb__WEBPACK_IMPORTED_MODULE_8__["default"].lookUpDomId(subG.id) + '"]');
       var xPos = clusterRects[0].x.baseVal.value;
       var yPos = clusterRects[0].y.baseVal.value;
       var _width = clusterRects[0].width.baseVal.value;
@@ -17913,15 +17954,15 @@ var draw = function draw(text, id) {
   } // Add label rects for non html labels
 
 
-  if (!(0,_common_common__WEBPACK_IMPORTED_MODULE_5__.evaluate)(conf.htmlLabels) || true) {
+  if (!(0,_common_common__WEBPACK_IMPORTED_MODULE_6__.evaluate)(conf.htmlLabels) || true) {
     // eslint-disable-line
-    var labels = document.querySelectorAll('[id="' + id + '"] .edgeLabel .label');
+    var labels = doc.querySelectorAll('[id="' + id + '"] .edgeLabel .label');
 
     for (var k = 0; k < labels.length; k++) {
       var label = labels[k]; // Get dimensions of label
 
       var dim = label.getBBox();
-      var rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      var rect = doc.createElementNS('http://www.w3.org/2000/svg', 'rect');
       rect.setAttribute('rx', 0);
       rect.setAttribute('ry', 0);
       rect.setAttribute('width', dim.width);
@@ -17937,15 +17978,17 @@ var draw = function draw(text, id) {
     var vertex = vert[key];
 
     if (vertex.link) {
-      var node = (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)('#' + id + ' [id="' + _flowDb__WEBPACK_IMPORTED_MODULE_8__["default"].lookUpDomId(key) + '"]');
+      var node = root.select('#' + id + ' [id="' + _flowDb__WEBPACK_IMPORTED_MODULE_8__["default"].lookUpDomId(key) + '"]');
 
       if (node) {
-        var link = document.createElementNS('http://www.w3.org/2000/svg', 'a');
+        var link = doc.createElementNS('http://www.w3.org/2000/svg', 'a');
         link.setAttributeNS('http://www.w3.org/2000/svg', 'class', vertex.classes.join(' '));
         link.setAttributeNS('http://www.w3.org/2000/svg', 'href', vertex.link);
         link.setAttributeNS('http://www.w3.org/2000/svg', 'rel', 'noopener');
 
-        if (vertex.linkTarget) {
+        if (securityLevel === 'sandbox') {
+          link.setAttributeNS('http://www.w3.org/2000/svg', 'target', '_top');
+        } else if (vertex.linkTarget) {
           link.setAttributeNS('http://www.w3.org/2000/svg', 'target', vertex.linkTarget);
         }
 
@@ -18046,6 +18089,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "getIncludes": () => (/* binding */ getIncludes),
 /* harmony export */   "setExcludes": () => (/* binding */ setExcludes),
 /* harmony export */   "getExcludes": () => (/* binding */ getExcludes),
+/* harmony export */   "getLinks": () => (/* binding */ getLinks),
 /* harmony export */   "setTitle": () => (/* binding */ setTitle),
 /* harmony export */   "getTitle": () => (/* binding */ getTitle),
 /* harmony export */   "addSection": () => (/* binding */ addSection),
@@ -18092,6 +18136,7 @@ var axisFormat = '';
 var todayMarker = '';
 var includes = [];
 var excludes = [];
+var links = {};
 var title = '';
 var sections = [];
 var tasks = [];
@@ -18123,6 +18168,7 @@ var clear = function clear() {
   inclusiveEndDates = false;
   topAxis = false;
   lastOrder = 0;
+  links = {};
 };
 var setAxisFormat = function setAxisFormat(txt) {
   axisFormat = txt;
@@ -18165,6 +18211,9 @@ var setExcludes = function setExcludes(txt) {
 };
 var getExcludes = function getExcludes() {
   return excludes;
+};
+var getLinks = function getLinks() {
+  return links;
 };
 var setTitle = function setTitle(txt) {
   title = txt;
@@ -18585,6 +18634,7 @@ var setLink = function setLink(ids, _linkStr) {
       pushFun(id, function () {
         window.open(linkStr, '_self');
       });
+      links[id] = linkStr;
     }
   });
   setClass(ids, 'clickable');
@@ -18736,6 +18786,7 @@ var bindFunctions = function bindFunctions(element) {
   getExcludes: getExcludes,
   setClickEvent: setClickEvent,
   setLink: setLink,
+  getLinks: getLinks,
   bindFunctions: bindFunctions,
   durationToDate: durationToDate,
   isInvalidDate: isInvalidDate
@@ -18807,7 +18858,17 @@ var draw = function draw(text, id) {
   var conf = (0,_config__WEBPACK_IMPORTED_MODULE_4__.getConfig)().gantt;
   _parser_gantt__WEBPACK_IMPORTED_MODULE_2__.parser.yy.clear();
   _parser_gantt__WEBPACK_IMPORTED_MODULE_2__.parser.parse(text);
-  var elem = document.getElementById(id);
+  var securityLevel = (0,_config__WEBPACK_IMPORTED_MODULE_4__.getConfig)().securityLevel; // Handle root and ocument for when rendering in sanbox mode
+
+  var sandboxElement;
+
+  if (securityLevel === 'sandbox') {
+    sandboxElement = (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)('#i' + id);
+  }
+
+  var root = securityLevel === 'sandbox' ? (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)(sandboxElement.nodes()[0].contentDocument.body) : (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)('body');
+  var doc = securityLevel === 'sandbox' ? sandboxElement.nodes()[0].contentDocument : document;
+  var elem = doc.getElementById(id);
   w = elem.parentElement.offsetWidth;
 
   if (typeof w === 'undefined') {
@@ -18823,7 +18884,7 @@ var draw = function draw(text, id) {
   var h = taskArray.length * (conf.barHeight + conf.barGap) + 2 * conf.topPadding; // Set viewBox
 
   elem.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
-  var svg = (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)("[id=\"".concat(id, "\"]")); // Set timescale
+  var svg = root.select("[id=\"".concat(id, "\"]")); // Set timescale
 
   var timeScale = (0,d3__WEBPACK_IMPORTED_MODULE_1__.scaleTime)().domain([(0,d3__WEBPACK_IMPORTED_MODULE_1__.min)(taskArray, function (d) {
     return d.startTime;
@@ -18912,6 +18973,9 @@ var draw = function draw(text, id) {
     }); // Draw the rects representing the tasks
 
     var rectangles = svg.append('g').selectAll('rect').data(theArray).enter();
+    var links = _ganttDb__WEBPACK_IMPORTED_MODULE_3__["default"].getLinks(); // Render the tasks with links
+    // Render the other tasks
+
     rectangles.append('rect').attr('id', function (d) {
       return d.id;
     }).attr('rx', 3).attr('ry', 3).attr('x', function (d) {
@@ -19074,6 +19138,35 @@ var draw = function draw(text, id) {
         return classStr + ' taskText taskText' + secNum + ' ' + taskType + ' width-' + textWidth;
       }
     });
+    var securityLevel = (0,_config__WEBPACK_IMPORTED_MODULE_4__.getConfig)().securityLevel; // Wrap the tasks in an a tag for working links without javascript
+
+    if (securityLevel === 'sandbox') {
+      var _sandboxElement;
+
+      _sandboxElement = (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)('#i' + id);
+
+      var _root = (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)(_sandboxElement.nodes()[0].contentDocument.body);
+
+      var _doc = _sandboxElement.nodes()[0].contentDocument;
+
+      rectangles.filter(function (d) {
+        return typeof links[d.id] !== 'undefined';
+      }).each(function (o) {
+        var taskRect = _doc.querySelector('#' + o.id);
+
+        var taskText = _doc.querySelector('#' + o.id + '-text');
+
+        var oldParent = taskRect.parentNode;
+
+        var Link = _doc.createElement('a');
+
+        Link.setAttribute('xlink:href', links[o.id]);
+        Link.setAttribute('target', '_top');
+        oldParent.appendChild(Link);
+        Link.appendChild(taskRect);
+        Link.appendChild(taskText);
+      });
+    }
   }
   /**
    * @param theGap
@@ -19169,11 +19262,11 @@ var draw = function draw(text, id) {
     .selectAll('text').data(numOccurances).enter().append(function (d) {
       var rows = d[0].split(_common_common__WEBPACK_IMPORTED_MODULE_6__["default"].lineBreakRegex);
       var dy = -(rows.length - 1) / 2;
-      var svgLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      var svgLabel = doc.createElementNS('http://www.w3.org/2000/svg', 'text');
       svgLabel.setAttribute('dy', dy + 'em');
 
       for (var j = 0; j < rows.length; j++) {
-        var tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+        var tspan = doc.createElementNS('http://www.w3.org/2000/svg', 'tspan');
         tspan.setAttribute('alignment-baseline', 'central');
         tspan.setAttribute('x', '10');
         if (j > 0) tspan.setAttribute('dy', '1em');
@@ -19359,9 +19452,11 @@ function getId() {
 
 function isfastforwardable(currentCommit, otherCommit) {
   _logger__WEBPACK_IMPORTED_MODULE_1__.log.debug('Entering isfastforwardable:', currentCommit.id, otherCommit.id);
+  var cnt = 0;
 
-  while (currentCommit.seq <= otherCommit.seq && currentCommit !== otherCommit) {
-    // only if other branch has more commits
+  while (currentCommit.seq <= otherCommit.seq && currentCommit !== otherCommit && cnt < 1000) {
+    cnt++; // only if other branch has more commits
+
     if (otherCommit.parent == null) break;
 
     if (Array.isArray(otherCommit.parent)) {
@@ -19647,6 +19742,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _parser_gitGraph__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_parser_gitGraph__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../logger */ "./src/logger.js");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../config */ "./src/config.js");
+
 
 
 
@@ -19843,7 +19940,10 @@ function renderCommitHistory(svg, commitid, branches, direction) {
   var numCommits = Object.keys(allCommitsDict).length;
 
   if (typeof commitid === 'string') {
+    var cnt = 0;
+
     do {
+      cnt++;
       commit = allCommitsDict[commitid];
       _logger__WEBPACK_IMPORTED_MODULE_2__.log.debug('in renderCommitHistory', commit.id, commit.seq);
 
@@ -19885,7 +19985,7 @@ function renderCommitHistory(svg, commitid, branches, direction) {
       }
 
       commitid = commit.parent;
-    } while (commitid && allCommitsDict[commitid]);
+    } while (commitid && allCommitsDict[commitid] && cnt < 1000);
   }
 
   if (Array.isArray(commitid)) {
@@ -19906,8 +20006,11 @@ function renderCommitHistory(svg, commitid, branches, direction) {
 
 function renderLines(svg, commit, direction, branchColor) {
   branchColor = branchColor || 0;
+  var cnt = 0;
 
-  while (commit.seq > 0 && !commit.lineDrawn) {
+  while (commit.seq > 0 && !commit.lineDrawn && cnt < 1000) {
+    cnt++;
+
     if (typeof commit.parent === 'string') {
       svgDrawLineForCommits(svg, commit.id, commit.parent, direction, branchColor);
       commit.lineDrawn = true;
@@ -19927,6 +20030,16 @@ var draw = function draw(txt, id, ver) {
     var parser = (_parser_gitGraph__WEBPACK_IMPORTED_MODULE_3___default().parser);
     parser.yy = _gitGraphAst__WEBPACK_IMPORTED_MODULE_4__["default"];
     parser.yy.clear();
+    var securityLevel = (0,_config__WEBPACK_IMPORTED_MODULE_5__.getConfig)().securityLevel; // Handle root and ocument for when rendering in sanbox mode
+
+    var sandboxElement;
+
+    if (securityLevel === 'sandbox') {
+      sandboxElement = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('#i' + id);
+    }
+
+    var root = securityLevel === 'sandbox' ? (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(sandboxElement.nodes()[0].contentDocument.body) : (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('body');
+    var doc = securityLevel === 'sandbox' ? sandboxElement.nodes()[0].contentDocument : document;
     _logger__WEBPACK_IMPORTED_MODULE_2__.log.debug('in gitgraph renderer', txt + '\n', 'id:', id, ver); // Parse the graph definition
 
     parser.parse(txt + '\n');
@@ -19942,7 +20055,7 @@ var draw = function draw(txt, id, ver) {
       config.nodeLabel.y = -1 * 2 * config.nodeRadius;
     }
 
-    var svg = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)("[id=\"".concat(id, "\"]"));
+    var svg = root.select("[id=\"".concat(id, "\"]"));
     svgCreateDefs(svg);
     branchNum = 1;
 
@@ -20053,7 +20166,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _parser_info__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./parser/info */ "./src/diagrams/info/parser/info.jison");
 /* harmony import */ var _parser_info__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_parser_info__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../logger */ "./src/logger.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../config */ "./src/config.js");
 /** Created by knut on 14-12-11. */
+
 
 
 
@@ -20077,12 +20192,22 @@ var draw = function draw(text, id, version) {
   try {
     var parser = (_parser_info__WEBPACK_IMPORTED_MODULE_1___default().parser);
     parser.yy = _infoDb__WEBPACK_IMPORTED_MODULE_2__["default"];
-    _logger__WEBPACK_IMPORTED_MODULE_3__.log.debug('Renering info diagram\n' + text); // Parse the graph definition
+    _logger__WEBPACK_IMPORTED_MODULE_3__.log.debug('Renering info diagram\n' + text);
+    var securityLevel = (0,_config__WEBPACK_IMPORTED_MODULE_4__.getConfig)().securityLevel; // Handle root and ocument for when rendering in sanbox mode
+
+    var sandboxElement;
+
+    if (securityLevel === 'sandbox') {
+      sandboxElement = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('#i' + id);
+    }
+
+    var root = securityLevel === 'sandbox' ? (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(sandboxElement.nodes()[0].contentDocument.body) : (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('body');
+    var doc = securityLevel === 'sandbox' ? sandboxElement.nodes()[0].contentDocument : document; // Parse the graph definition
 
     parser.parse(text);
     _logger__WEBPACK_IMPORTED_MODULE_3__.log.debug('Parsed info diagram'); // Fetch the default direction, use TD if none was found
 
-    var svg = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('#' + id);
+    var svg = root.select('#' + id);
     var g = svg.append('g');
     g.append('text') // text label for the x axis
     .attr('x', 100).attr('y', 40).attr('class', 'version').attr('font-size', '32px').style('text-anchor', 'middle').text('v ' + version);
@@ -20249,12 +20374,22 @@ var draw = function draw(txt, id) {
     conf = _config__WEBPACK_IMPORTED_MODULE_1__.getConfig();
     var parser = (_parser_pie__WEBPACK_IMPORTED_MODULE_2___default().parser);
     parser.yy = _pieDb__WEBPACK_IMPORTED_MODULE_3__["default"];
-    _logger__WEBPACK_IMPORTED_MODULE_4__.log.debug('Rendering info diagram\n' + txt); // Parse the Pie Chart definition
+    _logger__WEBPACK_IMPORTED_MODULE_4__.log.debug('Rendering info diagram\n' + txt);
+    var securityLevel = _config__WEBPACK_IMPORTED_MODULE_1__.getConfig().securityLevel; // Handle root and ocument for when rendering in sanbox mode
+
+    var sandboxElement;
+
+    if (securityLevel === 'sandbox') {
+      sandboxElement = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('#i' + id);
+    }
+
+    var root = securityLevel === 'sandbox' ? (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(sandboxElement.nodes()[0].contentDocument.body) : (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('body');
+    var doc = securityLevel === 'sandbox' ? sandboxElement.nodes()[0].contentDocument : document; // Parse the Pie Chart definition
 
     parser.yy.clear();
     parser.parse(txt);
     _logger__WEBPACK_IMPORTED_MODULE_4__.log.debug('Parsed info diagram');
-    var elem = document.getElementById(id);
+    var elem = doc.getElementById(id);
     width = elem.parentElement.offsetWidth;
 
     if (typeof width === 'undefined') {
@@ -20269,7 +20404,7 @@ var draw = function draw(txt, id) {
       width = conf.pie.useWidth;
     }
 
-    var diagram = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('#' + id);
+    var diagram = root.select('#' + id);
     (0,_utils__WEBPACK_IMPORTED_MODULE_5__.configureSvgSize)(diagram, height, width, conf.pie.useMaxWidth); // Set viewBox
 
     elem.setAttribute('viewBox', '0 0 ' + width + ' ' + height); // Fetch the default direction, use TD if none was found
@@ -20585,15 +20720,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graphlib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphlib */ "graphlib");
 /* harmony import */ var graphlib__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphlib__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../logger */ "./src/logger.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
 /* harmony import */ var _common_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/common */ "./src/diagrams/common/common.js");
 /* harmony import */ var _parser_requirementDiagram__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./parser/requirementDiagram */ "./src/diagrams/requirement/parser/requirementDiagram.jison");
 /* harmony import */ var _parser_requirementDiagram__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_parser_requirementDiagram__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _requirementDb__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./requirementDb */ "./src/diagrams/requirement/requirementDb.js");
 /* harmony import */ var _requirementMarkers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./requirementMarkers */ "./src/diagrams/requirement/requirementMarkers.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../config */ "./src/config.js");
 
 
  // import * as configApi from '../../config';
+
 
 
 
@@ -20794,7 +20931,17 @@ var draw = function draw(text, id) {
   _parser_requirementDiagram__WEBPACK_IMPORTED_MODULE_7__.parser.yy = _requirementDb__WEBPACK_IMPORTED_MODULE_3__["default"];
   _parser_requirementDiagram__WEBPACK_IMPORTED_MODULE_7__.parser.yy.clear();
   _parser_requirementDiagram__WEBPACK_IMPORTED_MODULE_7__.parser.parse(text);
-  var svg = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)("[id='".concat(id, "']"));
+  var securityLevel = (0,_config__WEBPACK_IMPORTED_MODULE_8__.getConfig)().securityLevel; // Handle root and ocument for when rendering in sanbox mode
+
+  var sandboxElement;
+
+  if (securityLevel === 'sandbox') {
+    sandboxElement = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('#i' + id);
+  }
+
+  var root = securityLevel === 'sandbox' ? (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(sandboxElement.nodes()[0].contentDocument.body) : (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('body');
+  var doc = securityLevel === 'sandbox' ? sandboxElement.nodes()[0].contentDocument : document;
+  var svg = root.select("[id='".concat(id, "']"));
   _requirementMarkers__WEBPACK_IMPORTED_MODULE_5__["default"].insertLineEndings(svg, conf);
   var g = new (graphlib__WEBPACK_IMPORTED_MODULE_2___default().Graph)({
     multigraph: false,
@@ -20826,7 +20973,7 @@ var draw = function draw(text, id) {
   var svgBounds = svg.node().getBBox();
   var width = svgBounds.width + padding * 2;
   var height = svgBounds.height + padding * 2;
-  (0,_utils__WEBPACK_IMPORTED_MODULE_8__.configureSvgSize)(svg, height, width, conf.useMaxWidth);
+  (0,_utils__WEBPACK_IMPORTED_MODULE_9__.configureSvgSize)(svg, height, width, conf.useMaxWidth);
   svg.attr('viewBox', "".concat(svgBounds.x - padding, " ").concat(svgBounds.y - padding, " ").concat(width, " ").concat(height));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -21814,14 +21961,14 @@ var drawActors = function drawActors(diagram, actors, actorKeys, verticalPos) {
 
   bounds.bumpVerticalPos(maxHeight);
 };
-var drawActorsPopup = function drawActorsPopup(diagram, actors, actorKeys) {
+var drawActorsPopup = function drawActorsPopup(diagram, actors, actorKeys, doc) {
   var maxHeight = 0;
   var maxWidth = 0;
 
   for (var i = 0; i < actorKeys.length; i++) {
     var actor = actors[actorKeys[i]];
     var minMenuWidth = getRequiredPopupWidth(actor);
-    var menuDimensions = _svgDraw__WEBPACK_IMPORTED_MODULE_3__["default"].drawPopup(diagram, actor, minMenuWidth, conf, conf.forceMenus);
+    var menuDimensions = _svgDraw__WEBPACK_IMPORTED_MODULE_3__["default"].drawPopup(diagram, actor, minMenuWidth, conf, conf.forceMenus, doc);
 
     if (menuDimensions.height > maxHeight) {
       maxHeight = menuDimensions.height;
@@ -21910,12 +22057,22 @@ function adjustLoopHeightForWrap(loopWidths, msg, preMargin, postMargin, addLoop
 
 var draw = function draw(text, id) {
   conf = _config__WEBPACK_IMPORTED_MODULE_7__.getConfig().sequence;
+  var securityLevel = _config__WEBPACK_IMPORTED_MODULE_7__.getConfig().securityLevel; // Handle root and ocument for when rendering in sanbox mode
+
+  var sandboxElement;
+
+  if (securityLevel === 'sandbox') {
+    sandboxElement = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('#i' + id);
+  }
+
+  var root = securityLevel === 'sandbox' ? (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(sandboxElement.nodes()[0].contentDocument.body) : (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('body');
+  var doc = securityLevel === 'sandbox' ? sandboxElement.nodes()[0].contentDocument : document;
   _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_1__.parser.yy.clear();
   _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_1__.parser.yy.setWrap(conf.wrap);
   _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_1__.parser.parse(text + '\n');
   bounds.init();
   _logger__WEBPACK_IMPORTED_MODULE_6__.log.debug("C:".concat(JSON.stringify(conf, null, 2)));
-  var diagram = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)("[id=\"".concat(id, "\"]")); // Fetch data from the parsing
+  var diagram = securityLevel === 'sandbox' ? root.select("[id=\"".concat(id, "\"]")) : (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)("[id=\"".concat(id, "\"]")); // Fetch data from the parsing
 
   var actors = _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_1__.parser.yy.getActors();
   var actorKeys = _parser_sequenceDiagram__WEBPACK_IMPORTED_MODULE_1__.parser.yy.getActorKeys();
@@ -22075,7 +22232,7 @@ var draw = function draw(text, id) {
   } // only draw popups for the top row of actors.
 
 
-  var requiredBoxSize = drawActorsPopup(diagram, actors, actorKeys);
+  var requiredBoxSize = drawActorsPopup(diagram, actors, actorKeys, doc);
 
   var _bounds$getBounds = bounds.getBounds(),
       box = _bounds$getBounds.bounds; // Adjust line height of actor lines now that the height of the diagram is known
@@ -22529,7 +22686,9 @@ var drawRect = function drawRect(elem, rectData) {
 
 var addPopupInteraction = function addPopupInteraction(id, actorCnt) {
   (0,_interactionDb__WEBPACK_IMPORTED_MODULE_1__.addFunction)(function () {
-    var arr = document.querySelectorAll(id);
+    var arr = document.querySelectorAll(id); // This will be the case when running in sandboxed mode
+
+    if (arr.length === 0) return;
     arr[0].addEventListener('mouseover', function () {
       popupMenuUpFunc('actor' + actorCnt + '_popup');
     });
@@ -24427,6 +24586,7 @@ var draw = function draw(text, id) {
   var conf = (0,_config__WEBPACK_IMPORTED_MODULE_6__.getConfig)().state;
   var nodeSpacing = conf.nodeSpacing || 50;
   var rankSpacing = conf.rankSpacing || 50;
+  var securityLevel = (0,_config__WEBPACK_IMPORTED_MODULE_6__.getConfig)().securityLevel;
   _logger__WEBPACK_IMPORTED_MODULE_2__.log.info(_stateDb__WEBPACK_IMPORTED_MODULE_3__["default"].getRootDocV2());
   _stateDb__WEBPACK_IMPORTED_MODULE_3__["default"].extract(_stateDb__WEBPACK_IMPORTED_MODULE_3__["default"].getRootDocV2());
   _logger__WEBPACK_IMPORTED_MODULE_2__.log.info(_stateDb__WEBPACK_IMPORTED_MODULE_3__["default"].getRootDocV2()); // Create the input mermaid.graph
@@ -24445,9 +24605,17 @@ var draw = function draw(text, id) {
   });
   setupNode(g, undefined, _stateDb__WEBPACK_IMPORTED_MODULE_3__["default"].getRootDocV2(), true); // Set up an SVG group so that we can translate the final graph.
 
-  var svg = (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)("[id=\"".concat(id, "\"]")); // Run the renderer. This is what draws the final graph.
+  var sandboxElement;
 
-  var element = (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)('#' + id + ' g');
+  if (securityLevel === 'sandbox') {
+    sandboxElement = (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)('#i' + id);
+  }
+
+  var root = securityLevel === 'sandbox' ? (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)(sandboxElement.nodes()[0].contentDocument.body) : (0,d3__WEBPACK_IMPORTED_MODULE_1__.select)('body');
+  var doc = securityLevel === 'sandbox' ? sandboxElement.nodes()[0].contentDocument : document;
+  var svg = root.select("[id=\"".concat(id, "\"]")); // Run the renderer. This is what draws the final graph.
+
+  var element = root.select('#' + id + ' g');
   (0,_dagre_wrapper_index_js__WEBPACK_IMPORTED_MODULE_7__.render)(element, g, ['barb'], 'statediagram', id);
   var padding = 8;
   var bounds = svg.node().getBBox();
@@ -24547,11 +24715,21 @@ var insertMarkers = function insertMarkers(elem) {
 
 var draw = function draw(text, id) {
   conf = (0,_config__WEBPACK_IMPORTED_MODULE_5__.getConfig)().state;
+  var securityLevel = (0,_config__WEBPACK_IMPORTED_MODULE_5__.getConfig)().securityLevel; // Handle root and ocument for when rendering in sanbox mode
+
+  var sandboxElement;
+
+  if (securityLevel === 'sandbox') {
+    sandboxElement = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('#i' + id);
+  }
+
+  var root = securityLevel === 'sandbox' ? (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(sandboxElement.nodes()[0].contentDocument.body) : (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('body');
+  var doc = securityLevel === 'sandbox' ? sandboxElement.nodes()[0].contentDocument : document;
   _parser_stateDiagram__WEBPACK_IMPORTED_MODULE_3__.parser.yy.clear();
   _parser_stateDiagram__WEBPACK_IMPORTED_MODULE_3__.parser.parse(text);
   _logger__WEBPACK_IMPORTED_MODULE_6__.log.debug('Rendering diagram ' + text); // Fetch the default direction, use TD if none was found
 
-  var diagram = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)("[id='".concat(id, "']"));
+  var diagram = root.select("[id='".concat(id, "']"));
   insertMarkers(diagram); // Layout graph, Create a new directed graph
 
   var graph = new (graphlib__WEBPACK_IMPORTED_MODULE_2___default().Graph)({
@@ -24566,7 +24744,7 @@ var draw = function draw(text, id) {
     return {};
   });
   var rootDoc = _stateDb__WEBPACK_IMPORTED_MODULE_4__["default"].getRootDoc();
-  renderDoc(rootDoc, diagram, undefined, false);
+  renderDoc(rootDoc, diagram, undefined, false, root, doc);
   var padding = conf.padding;
   var bounds = diagram.node().getBBox();
   var width = bounds.width + padding * 2;
@@ -24581,7 +24759,7 @@ var getLabelWidth = function getLabelWidth(text) {
   return text ? text.length * conf.fontSizeFactor : 1;
 };
 
-var renderDoc = function renderDoc(doc, diagram, parentId, altBkg) {
+var renderDoc = function renderDoc(doc, diagram, parentId, altBkg, root, domDocument) {
   // Layout graph, Create a new directed graph
   var graph = new (graphlib__WEBPACK_IMPORTED_MODULE_2___default().Graph)({
     compound: true,
@@ -24645,7 +24823,7 @@ var renderDoc = function renderDoc(doc, diagram, parentId, altBkg) {
 
     if (stateDef.doc) {
       var sub = diagram.append('g').attr('id', stateDef.id).attr('class', 'stateGroup');
-      node = renderDoc(stateDef.doc, sub, stateDef.id, !altBkg);
+      node = renderDoc(stateDef.doc, sub, stateDef.id, !altBkg, root, domDocument);
 
       if (first) {
         // first = false;
@@ -24714,9 +24892,9 @@ var renderDoc = function renderDoc(doc, diagram, parentId, altBkg) {
   graph.nodes().forEach(function (v) {
     if (typeof v !== 'undefined' && typeof graph.node(v) !== 'undefined') {
       _logger__WEBPACK_IMPORTED_MODULE_6__.log.warn('Node ' + v + ': ' + JSON.stringify(graph.node(v)));
-      (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('#' + svgElem.id + ' #' + v).attr('transform', 'translate(' + (graph.node(v).x - graph.node(v).width / 2) + ',' + (graph.node(v).y + (transformationLog[v] ? transformationLog[v].y : 0) - graph.node(v).height / 2) + ' )');
-      (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('#' + svgElem.id + ' #' + v).attr('data-x-shift', graph.node(v).x - graph.node(v).width / 2);
-      var dividers = document.querySelectorAll('#' + svgElem.id + ' #' + v + ' .divider');
+      root.select('#' + svgElem.id + ' #' + v).attr('transform', 'translate(' + (graph.node(v).x - graph.node(v).width / 2) + ',' + (graph.node(v).y + (transformationLog[v] ? transformationLog[v].y : 0) - graph.node(v).height / 2) + ' )');
+      root.select('#' + svgElem.id + ' #' + v).attr('data-x-shift', graph.node(v).x - graph.node(v).width / 2);
+      var dividers = domDocument.querySelectorAll('#' + svgElem.id + ' #' + v + ' .divider');
       dividers.forEach(function (divider) {
         var parent = divider.parentElement;
         var pWidth = 0;
@@ -25018,8 +25196,18 @@ var draw = function draw(text, id) {
   var conf = (0,_config__WEBPACK_IMPORTED_MODULE_3__.getConfig)().journey;
   _parser_journey__WEBPACK_IMPORTED_MODULE_1__.parser.yy.clear();
   _parser_journey__WEBPACK_IMPORTED_MODULE_1__.parser.parse(text + '\n');
+  var securityLevel = (0,_config__WEBPACK_IMPORTED_MODULE_3__.getConfig)().securityLevel; // Handle root and ocument for when rendering in sanbox mode
+
+  var sandboxElement;
+
+  if (securityLevel === 'sandbox') {
+    sandboxElement = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('#i' + id);
+  }
+
+  var root = securityLevel === 'sandbox' ? (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(sandboxElement.nodes()[0].contentDocument.body) : (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('body');
+  var doc = securityLevel === 'sandbox' ? sandboxElement.nodes()[0].contentDocument : document;
   bounds.init();
-  var diagram = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('#' + id);
+  var diagram = root.select('#' + id);
   diagram.attr('xmlns:xlink', 'http://www.w3.org/1999/xlink');
   _svgDraw__WEBPACK_IMPORTED_MODULE_4__["default"].initGraphics(diagram);
   var tasks = _parser_journey__WEBPACK_IMPORTED_MODULE_1__.parser.yy.getTasks();
@@ -25871,6 +26059,7 @@ var init = function init() {
   var txt;
 
   var _loop = function _loop(i) {
+    // element is the current div with mermaid class
     var element = nodes[i];
     /*! Check if previously processed */
 
@@ -26306,30 +26495,90 @@ var render = function render(id, _txt, cb, container) {
 
   if (_txt.length > cnf.maxTextSize) {
     txt = 'graph TB;a[Maximum text size in diagram exceeded];style a fill:#faa';
-  }
+  } // let d3Iframe;
+
+
+  var root = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('body'); // In regular execurtion the container will be the div with a mermaid class
 
   if (typeof container !== 'undefined') {
+    if (cnf.securityLevel === 'sandbox') {
+      // IF we are in sandboxed mode, we do everyting mermaid related
+      // in a sandboxed div
+      var iframe = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('body').append('iframe').attr('id', 'i' + id).attr('style', 'width: 100%; height: 100%;').attr('sandbox', ''); // const iframeBody = ;
+
+      root = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(iframe.nodes()[0].contentDocument.body);
+      root.node().style.margin = 0;
+    } // A container was provided by the caller
+
+
     container.innerHTML = '';
-    (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(container).append('div').attr('id', 'd' + id).attr('style', 'font-family: ' + cnf.fontFamily).append('svg').attr('id', id).attr('width', '100%').attr('xmlns', 'http://www.w3.org/2000/svg').append('g');
+
+    if (cnf.securityLevel === 'sandbox') {
+      // IF we are in sandboxed mode, we do everyting mermaid related
+      // in a sandboxed div
+      var _iframe = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(container).append('iframe').attr('id', 'i' + id).attr('style', 'width: 100%; height: 100%;').attr('sandbox', ''); // const iframeBody = ;
+
+
+      root = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(_iframe.nodes()[0].contentDocument.body);
+      root.node().style.margin = 0;
+    } else {
+      root = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(container);
+    }
+
+    root.append('div').attr('id', 'd' + id).attr('style', 'font-family: ' + cnf.fontFamily).append('svg').attr('id', id).attr('width', '100%').attr('xmlns', 'http://www.w3.org/2000/svg').append('g');
   } else {
+    // No container was provided
+    // If there is an existsing element with the id, we remove it
+    // this likley a previously rendered diagram
     var existingSvg = document.getElementById(id);
 
     if (existingSvg) {
       existingSvg.remove();
-    }
+    } // Remove previous tpm element if it exists
 
-    var _element = document.querySelector('#' + 'd' + id);
+
+    var _element;
+
+    if (cnf.securityLevel !== 'sandbox') {
+      _element = document.querySelector('#' + 'd' + id);
+    } else {
+      _element = document.querySelector('#' + 'i' + id);
+    }
 
     if (_element) {
       _element.remove();
-    }
+    } // if (cnf.securityLevel === 'sandbox') {
+    //   const iframe = select('body')
+    //     .append('iframe')
+    //     .attr('id', 'i' + id)
+    //     .attr('sandbox', '');
+    //   // const iframeBody = ;
+    //   root = select(iframe.nodes()[0].contentDocument.body);
+    // }
+    // Add the tmp div used for rendering with the id `d${id}`
+    // d+id it will contain a svg with the id "id"
 
-    (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('body').append('div').attr('id', 'd' + id).append('svg').attr('id', id).attr('width', '100%').attr('xmlns', 'http://www.w3.org/2000/svg').append('g');
+
+    if (cnf.securityLevel === 'sandbox') {
+      // IF we are in sandboxed mode, we do everyting mermaid related
+      // in a sandboxed div
+      var _iframe2 = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('body').append('iframe').attr('id', 'i' + id).attr('style', 'width: 100%; height: 100%;').attr('sandbox', ''); // const iframeBody = ;
+
+
+      root = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(_iframe2.nodes()[0].contentDocument.body);
+      root.node().style.margin = 0;
+    } else {
+      root = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('body');
+    } // This is the temporary div
+
+
+    root.append('div').attr('id', 'd' + id) // this is the seed of the svg to be rendered
+    .append('svg').attr('id', id).attr('width', '100%').attr('xmlns', 'http://www.w3.org/2000/svg').append('g');
   }
 
-  window.txt = txt;
-  txt = encodeEntities(txt);
-  var element = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('#d' + id).node();
+  txt = encodeEntities(txt); // Get the tmp element containing the the svg
+
+  var element = root.select('#d' + id).node();
   var graphType = _utils__WEBPACK_IMPORTED_MODULE_3__["default"].detectType(txt, cnf); // insert inline style into svg
 
   var svg = element.firstChild;
@@ -26489,18 +26738,31 @@ var render = function render(id, _txt, cb, container) {
     throw e;
   }
 
-  (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)("[id=\"".concat(id, "\"]")).selectAll('foreignobject > *').attr('xmlns', 'http://www.w3.org/1999/xhtml'); // Fix for when the base tag is used
+  root.select("[id=\"".concat(id, "\"]")).selectAll('foreignobject > *').attr('xmlns', 'http://www.w3.org/1999/xhtml'); // Fix for when the base tag is used
 
-  var svgCode = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('#d' + id).node().innerHTML;
+  var svgCode = root.select('#d' + id).node().innerHTML;
   _logger__WEBPACK_IMPORTED_MODULE_4__.log.debug('cnf.arrowMarkerAbsolute', cnf.arrowMarkerAbsolute);
 
-  if (!cnf.arrowMarkerAbsolute || cnf.arrowMarkerAbsolute === 'false') {
+  if ((!cnf.arrowMarkerAbsolute || cnf.arrowMarkerAbsolute === 'false') && cnf.arrowMarkerAbsolute !== 'sandbox') {
     svgCode = svgCode.replace(/marker-end="url\(.*?#/g, 'marker-end="url(#', 'g');
   }
 
   svgCode = decodeEntities(svgCode); // Fix for when the br tag is used
 
   svgCode = svgCode.replace(/<br>/g, '<br/>');
+
+  if (cnf.securityLevel === 'sandbox') {
+    var svgEl = root.select('#d' + id + ' svg').node();
+    var width = '100%';
+    var height = '100%';
+
+    if (svgEl) {
+      // width = svgEl.viewBox.baseVal.width + 'px';
+      height = svgEl.viewBox.baseVal.height + 'px';
+    }
+
+    svgCode = "<iframe style=\"width:".concat(width, ";height:").concat(height, ";border:0;margin:0;\" src=\"data:text/html;base64,").concat(btoa('<body style="margin:0">' + svgCode + '</body>'), "\" sandbox=\"allow-top-navigation-by-user-activation allow-popups\">\n  The \u201Ciframe\u201D tag is not supported by your browser.\n</iframe>");
+  }
 
   if (typeof cb !== 'undefined') {
     switch (graphType) {
@@ -26526,10 +26788,11 @@ var render = function render(id, _txt, cb, container) {
   }
 
   (0,_interactionDb__WEBPACK_IMPORTED_MODULE_44__.attachFunctions)();
-  var node = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('#d' + id).node();
+  var tmpElementSelector = cnf.securityLevel === 'sandbox' ? '#i' + id : '#d' + id;
+  var node = (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(tmpElementSelector).node();
 
   if (node !== null && typeof node.remove === 'function') {
-    (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)('#d' + id).node().remove();
+    (0,d3__WEBPACK_IMPORTED_MODULE_0__.select)(tmpElementSelector).node().remove();
   }
 
   return svgCode;
@@ -26634,6 +26897,8 @@ function updateRendererConfigs(conf) {
   _diagrams_requirement_requirementRenderer__WEBPACK_IMPORTED_MODULE_42__["default"].setConf(conf.requirement);
   _errorRenderer__WEBPACK_IMPORTED_MODULE_43__["default"].setConf(conf.class);
 }
+/** To be removed */
+
 
 function reinitialize() {// `mermaidAPI.reinitialize: v${pkg.version}`,
   //   JSON.stringify(options),
@@ -30255,7 +30520,7 @@ module.exports = require("stylis");
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"mermaid","version":"8.13.8","description":"Markdownish syntax for generating flowcharts, sequence diagrams, class diagrams, gantt charts and git graphs.","main":"dist/mermaid.core.js","module":"dist/mermaid.esm.min.mjs","exports":{".":{"require":"./dist/mermaid.core.js","import":"./dist/mermaid.esm.min.mjs"},"./*":"./*"},"keywords":["diagram","markdown","flowchart","sequence diagram","gantt","class diagram","git graph"],"scripts":{"build:development":"webpack --mode development --progress --color","build:production":"webpack --mode production --progress --color","build":"concurrently \\"yarn build:development\\" \\"yarn build:production\\"","postbuild":"documentation build src/mermaidAPI.js src/config.js src/defaultConfig.js --shallow -f md --markdown-toc false > docs/Setup.md","build:watch":"yarn build:development --watch","release":"yarn build","lint":"eslint ./ --ext js,html","lint:fix":"yarn lint --fix","e2e:depr":"yarn lint && jest e2e --config e2e/jest.config.js","cypress":"percy exec -- cypress run","e2e":"start-server-and-test dev http://localhost:9000/ cypress","e2e-upd":"yarn lint && jest e2e -u --config e2e/jest.config.js","dev":"webpack serve --config ./.webpack/webpack.config.e2e.babel.js","test":"yarn lint && jest src/.*","test:watch":"jest --watch src","prepublishOnly":"yarn build && yarn test","prepare":"husky install && yarn build","pre-commit":"lint-staged"},"repository":{"type":"git","url":"https://github.com/knsv/mermaid"},"author":"Knut Sveidqvist","license":"MIT","standard":{"ignore":["**/parser/*.js","dist/**/*.js","cypress/**/*.js"],"globals":["page"]},"dependencies":{"@braintree/sanitize-url":"^3.1.0","d3":"^7.0.0","dagre":"^0.8.5","dagre-d3":"^0.6.4","dompurify":"2.3.4","graphlib":"^2.1.8","khroma":"^1.4.1","moment-mini":"^2.24.0","stylis":"^4.0.10"},"devDependencies":{"@babel/core":"^7.14.6","@babel/eslint-parser":"^7.14.7","@babel/preset-env":"^7.14.7","@babel/register":"^7.14.5","@commitlint/cli":"^15.0.0","@commitlint/config-conventional":"^15.0.0","@percy/cli":"^1.0.0-beta.58","@percy/cypress":"^3.1.0","@percy/migrate":"^0.11.0","babel-jest":"^27.0.6","babel-loader":"^8.2.2","concurrently":"^6.2.2","coveralls":"^3.0.2","css-to-string-loader":"^0.1.3","cypress":"9.1.1","documentation":"13.2.0","eslint":"^8.2.0","eslint-config-prettier":"^8.3.0","eslint-plugin-cypress":"^2.12.1","eslint-plugin-html":"^6.2.0","eslint-plugin-jest":"^25.2.4","eslint-plugin-jsdoc":"^37.0.3","eslint-plugin-markdown":"^2.2.1","eslint-plugin-prettier":"^4.0.0","husky":"^7.0.1","identity-obj-proxy":"^3.0.0","jest":"^27.0.6","jison":"^0.4.18","js-base64":"3.7.2","lint-staged":"^12.1.2","moment":"^2.23.0","path-browserify":"^1.0.1","prettier":"^2.3.2","prettier-plugin-jsdoc":"^0.3.30","start-server-and-test":"^1.12.6","terser-webpack-plugin":"^5.2.4","webpack":"^5.53.0","webpack-cli":"^4.7.2","webpack-dev-server":"^4.3.0","webpack-merge":"^5.8.0","webpack-node-externals":"^3.0.0"},"files":["dist"],"sideEffects":["**/*.css","**/*.scss"]}');
+module.exports = JSON.parse('{"name":"mermaid","version":"8.14.0","description":"Markdownish syntax for generating flowcharts, sequence diagrams, class diagrams, gantt charts and git graphs.","main":"dist/mermaid.core.js","module":"dist/mermaid.esm.min.mjs","exports":{".":{"require":"./dist/mermaid.core.js","import":"./dist/mermaid.esm.min.mjs"},"./*":"./*"},"keywords":["diagram","markdown","flowchart","sequence diagram","gantt","class diagram","git graph"],"scripts":{"build:development":"webpack --mode development --progress --color","build:production":"webpack --mode production --progress --color","build":"concurrently \\"yarn build:development\\" \\"yarn build:production\\"","postbuild":"documentation build src/mermaidAPI.js src/config.js src/defaultConfig.js --shallow -f md --markdown-toc false > docs/Setup.md","build:watch":"yarn build:development --watch","release":"yarn build","lint":"eslint ./ --ext js,html","lint:fix":"yarn lint --fix","e2e:depr":"yarn lint && jest e2e --config e2e/jest.config.js","cypress":"percy exec -- cypress run","e2e":"start-server-and-test dev http://localhost:9000/ cypress","e2e-upd":"yarn lint && jest e2e -u --config e2e/jest.config.js","dev":"webpack serve --config ./.webpack/webpack.config.e2e.babel.js","test":"yarn lint && jest src/.*","test:watch":"jest --watch src","prepublishOnly":"yarn build && yarn test","prepare":"husky install && yarn build","pre-commit":"lint-staged"},"repository":{"type":"git","url":"https://github.com/knsv/mermaid"},"author":"Knut Sveidqvist","license":"MIT","standard":{"ignore":["**/parser/*.js","dist/**/*.js","cypress/**/*.js"],"globals":["page"]},"dependencies":{"@braintree/sanitize-url":"^3.1.0","d3":"^7.0.0","dagre":"^0.8.5","dagre-d3":"^0.6.4","dompurify":"2.3.5","graphlib":"^2.1.8","khroma":"^1.4.1","moment-mini":"^2.24.0","stylis":"^4.0.10"},"devDependencies":{"@babel/core":"^7.14.6","@babel/eslint-parser":"^7.14.7","@babel/preset-env":"^7.14.7","@babel/register":"^7.14.5","@commitlint/cli":"^16.0.0","@commitlint/config-conventional":"^16.0.0","@percy/cli":"^1.0.0-beta.58","@percy/cypress":"^3.1.0","@percy/migrate":"^0.11.0","babel-jest":"^27.0.6","babel-loader":"^8.2.2","concurrently":"^7.0.0","coveralls":"^3.0.2","css-to-string-loader":"^0.1.3","cypress":"9.4.1","documentation":"13.2.0","eslint":"^8.2.0","eslint-config-prettier":"^8.3.0","eslint-plugin-cypress":"^2.12.1","eslint-plugin-html":"^6.2.0","eslint-plugin-jest":"^26.0.0","eslint-plugin-jsdoc":"^37.0.3","eslint-plugin-markdown":"^2.2.1","eslint-plugin-prettier":"^4.0.0","husky":"^7.0.1","identity-obj-proxy":"^3.0.0","jest":"^27.0.6","jison":"^0.4.18","js-base64":"3.7.2","lint-staged":"^12.1.2","moment":"^2.23.0","path-browserify":"^1.0.1","prettier":"^2.3.2","prettier-plugin-jsdoc":"^0.3.30","start-server-and-test":"^1.12.6","terser-webpack-plugin":"^5.2.4","webpack":"^5.53.0","webpack-cli":"^4.7.2","webpack-dev-server":"^4.3.0","webpack-merge":"^5.8.0","webpack-node-externals":"^3.0.0"},"files":["dist"],"sideEffects":["**/*.css","**/*.scss"]}');
 
 /***/ })
 
