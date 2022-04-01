@@ -119,11 +119,10 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
         return Misc.getFormattedHtml(
             `<script src="${jsSrc}"></script>
             <script type="text/javascript">mermaid.initialize({startOnLoad:true});</script>`,
-            `<div style="color:transparent; background-color:${this._configMermaid.fixedBackgroundColor}">
-                <div class="mermaid">${payLoad}</div>
-                <style>.mermaid svg{height:auto !important;}</style>
-            </div>
-            <div><a href="https://mermaid-js.github.io/mermaid-live-editor/" style="color:#999999;">mermaid Official site.</a></div>`,
+            `<div style="color:transparent;">
+                <div class="mermaid psd-svg-container" style="background-color:${this._configMermaid.fixedBackgroundColor}">${payLoad}</div>
+                <style>.psd-svg-container svg{height:auto !important;}</style>
+            </div>`,
             webview);
     }
 }
