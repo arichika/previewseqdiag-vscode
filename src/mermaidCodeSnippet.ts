@@ -121,6 +121,7 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
             <script type="text/javascript">mermaid.initialize({startOnLoad:true});</script>`,
             `<div style="color:transparent; background-color:${this._configMermaid.fixedBackgroundColor}">
                 <div class="mermaid">${payLoad}</div>
+                <style>.mermaid svg{height:auto !important;}</style>
             </div>
             <div><a href="https://mermaid-js.github.io/mermaid-live-editor/" style="color:#999999;">mermaid Official site.</a></div>`,
             webview);
