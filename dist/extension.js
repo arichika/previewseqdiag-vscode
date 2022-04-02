@@ -5,14 +5,14 @@
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("vscode");
+module.exports = require("vscode");;
 
 /***/ }),
 /* 2 */
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("path");
+module.exports = require("path");;
 
 /***/ }),
 /* 3 */
@@ -13230,7 +13230,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Copyright (c)
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("events");
+module.exports = require("events");;
 
 /***/ }),
 /* 17 */
@@ -13279,8 +13279,8 @@ class Misc {
             + `</head><body>`
             + `<div style="margin:1px 0 3px 0; padding:0;user-select: none;">
             <a class="psd-button" onclick="SaveImageAs('png', 0, false);" title="Save image as PNG. (Raw data)">PNG</a>
-            <a class="psd-button" onclick="SaveImageAs('png', 1, false);" title="Save image as PNG. As you see it.">PNG*</a>
-            <a class="psd-button" onclick="SaveImageAs('jpg', 0, false);" title="Save image as JPEG. (Raw data)">JPEG</a>
+            <a class="psd-button" onclick="SaveImageAs('png', 1, false);" title="Save image as PNG. (As you see it)">PNG*</a>
+            <a class="psd-button" onclick="SaveImageAs('jpg', 1, false);" title="Save image as JPEG. (As you see it)">JPEG</a>
             <a class="psd-button" onclick="SaveImageAs('svg', 0, false);" title="Save image as PNG. (Raw data)">SVG</a>
             <a class="psd-button" onclick="SaveImageAs('png', 0, true);" title="Save image to Clipboard. (PNG/Raw data)">Clipboard</a>
             </div>`
@@ -13695,7 +13695,7 @@ exports.MermaidCodeSnippet = MermaidCodeSnippet;
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("fs");
+module.exports = require("fs");;
 
 /***/ })
 /******/ 	]);
