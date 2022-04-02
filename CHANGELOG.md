@@ -10,6 +10,7 @@
 * Update dependencies.
   * mermaid `8.14.0` from `8.13.8`
   * mscgenjs-inpage `4.0.4` from `3.0.3`
+  * etc.
 
 ## 0.3.2
 
