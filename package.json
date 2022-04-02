@@ -1,7 +1,7 @@
 {
     "name": "previewseqdiag-vscode",
     "displayName": "Preview Sequence Diagrams",
-    "description": "An extension for vscode specialized for the preview function of mermaid, mscgen and other.",
+    "description": "An extension for the previewing and saving as PNG/JPG/SVG function of mermaid, mscgen and other",
     "version": "0.4.0",
     "publisher": "arichika",
     "author": "arichika.taniguchi @arichika",
