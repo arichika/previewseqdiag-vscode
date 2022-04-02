@@ -13265,16 +13265,27 @@ class Misc {
                 text-align:center;
                 margin-right: 4px;
             }
+            .clipping{
+                animation-name:fadeInAnime;
+                animation-duration:0.4s;
+                animation-fill-mode:forwards;
+                opacity:0;
+            }
+            @keyframes fadeInAnime{
+                from {opacity: 0;}
+                to {opacity: 1;}
+            }
             </style>`
             + `</head><body>`
-            + `<div style="margin:1px 0 3px 0; padding:0;">
-            <a class="psd-button" onclick="SaveImageAs('png',0);" title="Save image as PNG. (Raw data)">PNG</a>
-            <a class="psd-button" onclick="SaveImageAs('png',1);" title="Save image as PNG. As you see it.">PNG*</a>
-            <a class="psd-button" onclick="SaveImageAs('jpg',0);" title="Save image as JPEG. (Raw data)">JPEG</a>
-            <a class="psd-button" onclick="SaveImageAs('svg',0);" title="Save image as PNG. (Raw data)">SVG</a>
+            + `<div style="margin:1px 0 3px 0; padding:0;user-select: none;">
+            <a class="psd-button" onclick="SaveImageAs('png', 0, false);" title="Save image as PNG. (Raw data)">PNG</a>
+            <a class="psd-button" onclick="SaveImageAs('png', 1, false);" title="Save image as PNG. As you see it.">PNG*</a>
+            <a class="psd-button" onclick="SaveImageAs('jpg', 0, false);" title="Save image as JPEG. (Raw data)">JPEG</a>
+            <a class="psd-button" onclick="SaveImageAs('svg', 0, false);" title="Save image as PNG. (Raw data)">SVG</a>
+            <a class="psd-button" onclick="SaveImageAs('png', 0, true);" title="Save image to Clipboard. (PNG/Raw data)">Clipboard</a>
             </div>`
             + `<script>
-            function SaveImageAs(fileType, mode){
+            function SaveImageAs(fileType, mode, isClip){
                 var svg = document.querySelector("svg");
                 var svgData = new XMLSerializer().serializeToString(svg);
                 if(fileType==="svg")
@@ -13301,6 +13312,12 @@ class Misc {
                         ctx.closePath();
                     }
                     ctx.drawImage( image, 0, 0 );
+                    if(isClip){
+                        psdSvgContainer.classList.add("clipping");
+                        canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({'image/png': blob})]));
+                        setTimeout(function(){psdSvgContainer.classList.remove("clipping")},600);
+                        return;
+                    }
                     var a = document.createElement("a");
                     a.href = canvas.toDataURL("image/" + fileType);
                     a.setAttribute("download", "` + fileName + `." + fileType);
