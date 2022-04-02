@@ -109,15 +109,16 @@ export class MscgenCodeSnippet implements CodeSnippetInterface
             <script src="${jsSrc}" defer></script>`
             + ((this._configMscgen.horizontalAlignment === Alignment.stretch) ? `<style type="text/css"> svg {width:100%;} </style>` : ``)
             ,
-            `<div><script
+            `<div class="psd-svg-container"><script
                     style="color:transparent;" 
                     type="text/x-${languageId}" 
                     data-named-style="${this._configMscgen.fixedNamedStyle}" 
                     data-regular-arc-text-vertical-alignment="above">
                     ${payLoad}
                 </script>
+                <style>.psd-svg-container svg{height:auto !important;}</style>
             </div>
-            <div><a href="https://mscgen.js.org/" style="color:#999999;">mscgen.js Official site.</a></div>`,
+            `,
             webview);
     }
 }
