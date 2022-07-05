@@ -181,7 +181,7 @@
         "copy-webpack-plugin": "^10.2.4",
         "@types/write-file-webpack-plugin": "^4.5.2",
         "write-file-webpack-plugin": "^4.5.1",
-        "mermaid": "^8.14.0",
+        "mermaid": "^9.1.2",
         "mscgenjs": "^6.0.1",
         "mscgenjs-inpage": "^4.0.4",
         "rx": "^4.1.0"
