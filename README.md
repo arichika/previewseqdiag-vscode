@@ -36,6 +36,11 @@ This is usefull to avoid multipicate the same code on many files.
 
 [CHANGELOG.md](CHANGELOG.md)
 
+## 0.4.1
+
+* Update dependencies.
+  * mermaid `8.14.0` from `9.1.3`
+
 ## 0.4.0
 
 * Add new features.
