@@ -36,10 +36,16 @@ This is usefull to avoid multipicate the same code on many files.
 
 [CHANGELOG.md](CHANGELOG.md)
 
+## 0.4.2
+
+* Update dependencies.
+  * mermaid `9.2.2` from `9.1.3`
+  * and more...(webpack, typescript and for devs)
+
 ## 0.4.1
 
 * Update dependencies.
-  * mermaid `8.14.0` from `9.1.3`
+  * mermaid `9.1.3` from `8.14.0`
 
 ## 0.4.0
 
