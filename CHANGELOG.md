@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.4.3
+
+* Update dependencies.
+  * mermaid `9.3.0` from `9.2.2`
+
 ## 0.4.2
 
 * Update dependencies.
