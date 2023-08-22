@@ -1,6 +1,6 @@
 # Change Log
 
-## 0.5.0-beta2
+## 0.5.0
 
 * Support for Mermaid v10 syntax.
 * Update dependencies.
