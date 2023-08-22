@@ -40,7 +40,7 @@ This is usefull to avoid multipicate the same code on many files.
 
 [CHANGELOG.md](CHANGELOG.md)
 
-## 0.5.0-beta2
+## 0.5.0
 
 * Support for Mermaid v10 syntax.
 * Update dependencies.
