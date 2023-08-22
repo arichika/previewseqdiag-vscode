@@ -114,10 +114,10 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
 
     private async previewSnippet(languageId: string, extentiponPath:string, payLoad: string, webview: vscode.Webview): Promise<string>
     {
-        var jsPath = vscode.Uri.file(Path.join(extentiponPath, 'dist','mermaid', 'mermaid.min.js'));
+        var jsPath = vscode.Uri.file(Path.join(extentiponPath, 'dist','mermaid', 'mermaid.esm.min.mjs'));
         const jsSrc = webview.asWebviewUri(jsPath);
         return Misc.getFormattedHtml(
-            `<script src="${jsSrc}"></script>
+            `<script type="module" src="${jsSrc}"></script>
             <script type="text/javascript">mermaid.initialize({startOnLoad:true});</script>`,
             `<div style="color:transparent;">
                 <div class="mermaid psd-svg-container" style="background-color:${this._configMermaid.fixedBackgroundColor}">${payLoad}</div>
