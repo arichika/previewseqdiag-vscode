@@ -48,7 +48,7 @@ const config = {
           context: 'node_modules/mscgenjs-inpage/dist/'
         },
         {
-          from: '**/*.*',
+          from: '*.min.{js,map}',
           to: path.resolve(__dirname, 'dist/mermaid'),
           context: 'node_modules/mermaid/dist/'
         }
