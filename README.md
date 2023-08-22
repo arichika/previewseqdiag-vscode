@@ -40,11 +40,11 @@ This is usefull to avoid multipicate the same code on many files.
 
 [CHANGELOG.md](CHANGELOG.md)
 
-## 0.5.0-beta1
+## 0.5.0-beta2
 
+* Support for Mermaid v10 syntax.
 * Update dependencies.
   * mermaid `10.3.1` from `9.3.0`
-    * Support for Mermaid v10 syntax.
   * Update for NPM package vulnerabilities.
 
 ## 0.4.3

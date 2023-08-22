@@ -114,7 +114,7 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
 
     private async previewSnippet(languageId: string, extentiponPath:string, payLoad: string, webview: vscode.Webview): Promise<string>
     {
-        var jsPath = vscode.Uri.file(Path.join(extentiponPath, 'dist','mermaid', 'mermaid.esm.min.mjs'));
+        var jsPath = vscode.Uri.file(Path.join(extentiponPath, 'dist','mermaid', 'mermaid.min.js'));
         const jsSrc = webview.asWebviewUri(jsPath);
         return Misc.getFormattedHtml(
             `<script type="module" src="${jsSrc}"></script>
