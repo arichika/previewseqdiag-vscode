@@ -40,6 +40,13 @@ This is usefull to avoid multipicate the same code on many files.
 
 [CHANGELOG.md](CHANGELOG.md)
 
+## 0.5.1
+
+* Update dependencies.
+  * mermaid `10.3.1` from `10.9.1`
+  * mscgenjs `6.0.2` from `7.0.0`
+  * Update for NPM package vulnerabilities.
+
 ## 0.5.0
 
 * Support for Mermaid v10 syntax.
