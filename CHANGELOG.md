@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.5.2
+
+* Support for Mermaid v11 syntax.
+* Update dependencies.
+  * mermaid `10.9.1` from `11.2.1`
+  * mscgenjs `7.0.0` from `7.0.2`
+  * mscgenjs-inpage `4.0.5` from `5.0.1`
+  * Update for NPM package vulnerabilities.
+
 ## 0.5.1
 
 * Update dependencies.
