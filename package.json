@@ -169,7 +169,7 @@
         "@typescript-eslint/eslint-plugin": "^5.46.1",
         "@typescript-eslint/parser": "^5.46.1",
         "glob": "^8.0.3",
-        "mocha": "^10.2.0",
+        "mocha": "^10.8.2",
         "typescript": "^4.9.4",
         "vscode-test": "^1.6.1",
         "ts-loader": "^9.4.2",
