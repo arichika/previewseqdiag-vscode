@@ -4,7 +4,6 @@
 
 const path = require('path');
 const copyPlugin = require('copy-webpack-plugin');
-const writeFilePlugin  = require('write-file-webpack-plugin');
 
 /**@type {import('webpack').Configuration}*/
 const config = {
@@ -53,9 +52,7 @@ const config = {
           context: 'node_modules/mermaid/dist/'
         }
       ]
-    }),
-    // @ts-ignore
-    new writeFilePlugin()
+    })
   ],
 };
 module.exports = config;
