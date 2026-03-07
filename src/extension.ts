@@ -1,16 +1,24 @@
 'use strict';
 
 import * as vscode from 'vscode';
-import { workspace, window, commands, ExtensionContext } from 'vscode';
 import * as path from 'path';
-import * as Rx from 'rx';
-import { EventEmitter } from 'events';
-import { Misc } from './misc';
-import { PreviewSeqDiagDocumentContentProvider } from './previewSeqDiagDocumentContentProvider';
+import { PreviewSeqDiagPanel } from './previewSeqDiagPanel';
 
 export function activate(context: vscode.ExtensionContext) {
 
-	const provider = new PreviewSeqDiagDocumentContentProvider();
+	const previewPanel = new PreviewSeqDiagPanel();
+	previewPanel.setExtensionPath(context.extensionPath);
+	let updateTimer: ReturnType<typeof setTimeout> | undefined;
+
+	const scheduleUpdate = () => {
+		if (updateTimer) {
+			clearTimeout(updateTimer);
+		}
+
+		updateTimer = setTimeout(() => {
+			void previewPanel.update();
+		}, 500);
+	};
 
 	let showPreview = vscode.commands.registerCommand('previewSeqDiag.showPreview', () => {
 		const panel = vscode.window.createWebviewPanel(
@@ -25,41 +33,37 @@ export function activate(context: vscode.ExtensionContext) {
 				]
 			}
 		);
-		provider.getExtensionPath(context.extensionPath);
-		provider.setCurrentWebViewPanel(panel);
-		provider.update(Misc.previewUri);
+		previewPanel.setCurrentWebViewPanel(panel);
+		panel.onDidDispose(() => {
+			previewPanel.setCurrentWebViewPanel(null);
+		}, null, context.subscriptions);
+		void previewPanel.update();
 	});
 
 	context.subscriptions.push(showPreview);
-
-	const emitter = new EventEmitter();
-	const _ = Rx.Observable
-		.fromEvent(emitter, 'update')
-		.debounce(500 /* ms */)
-		.subscribe(
-			(_) => {
-				provider.update(Misc.previewUri);
-			}
-		);
 	
-	window.onDidChangeActiveTextEditor(
-		(e) => {
-			if (!!e && !!e.document && (e === window.activeTextEditor)) {
-				provider.update(Misc.previewUri);
+	context.subscriptions.push(
+		vscode.window.onDidChangeActiveTextEditor((editor) => {
+			if (editor === vscode.window.activeTextEditor) {
+				void previewPanel.update(editor);
 			}
-		}
-	);
-
-	workspace.onDidChangeTextDocument(
-		(e) => {
-			if (e.document === vscode.window.activeTextEditor?.document) {
-				emitter.emit('update', e);
-			}
-		}
+		})
 	);
 
 	context.subscriptions.push(
-		vscode.workspace.registerTextDocumentContentProvider(Misc.previewUri.scheme, provider)
+		vscode.workspace.onDidChangeTextDocument((e) => {
+			if (e.document === vscode.window.activeTextEditor?.document) {
+				scheduleUpdate();
+			}
+		})
+	);
+
+	context.subscriptions.push(
+		new vscode.Disposable(() => {
+			if (updateTimer) {
+				clearTimeout(updateTimer);
+			}
+		})
 	);
 }
 

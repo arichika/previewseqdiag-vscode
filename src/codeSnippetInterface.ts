@@ -2,7 +2,14 @@
 
 import * as vscode from 'vscode';
 
+export interface PreviewRenderContext
+{
+    document: vscode.TextDocument;
+    extensionPath: string;
+    webview: vscode.Webview;
+}
+
 export interface CodeSnippetInterface
 {
-    createCodeSnippet(languageId:string, extentiponPath:string, webview: vscode.Webview): Promise<string>;
+    createCodeSnippet(context: PreviewRenderContext): Promise<string>;
 }

@@ -3,63 +3,17 @@
 import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as Path from 'path';
-import { workspace, window, commands, ExtensionContext } from 'vscode';
-import { CodeSnippetInterface } from './codeSnippetInterface';
+import { CodeSnippetInterface, PreviewRenderContext } from './codeSnippetInterface';
 import { Misc } from './misc';
-
-
-type StyleName = "dark" | "forest" | "neutral";
-namespace StyleName{
-    export const dark = "dark";
-    export const forest = "forest";
-    export const neutral = "neutral";
-}
+import { MermaidPreviewConfig, resolveMermaidImports, resolveMermaidPreviewConfig } from './previewLogic';
 
 const backgroundColorDefault = "#fafaf6";
-
-class ConfigMermaid
-{
-    public fixedStyle: StyleName = StyleName.forest;
-    public fixedBackgroundColor: string = backgroundColorDefault;
-}
-
 
 export class MermaidCodeSnippet implements CodeSnippetInterface
 {
     private static _instance:MermaidCodeSnippet;
 
-    private _configMermaid: ConfigMermaid;
-
-    private constructor()
-    { 
-        this._configMermaid = new ConfigMermaid();
-
-        // defaults
-        this._configMermaid.fixedStyle = StyleName.forest;
-        this._configMermaid.fixedBackgroundColor = backgroundColorDefault;
-
-        var config = vscode.workspace.getConfiguration('previewSeqDiag');
-        if(!!config && !!config.mermaid)
-        {
-            // fixedStyle
-            switch(config.mermaid.fixedStyle)
-            {
-                case StyleName.dark:
-                case StyleName.forest:
-                case StyleName.neutral:
-                    this._configMermaid.fixedStyle = config.mscgen.fixedNamedStyle;
-                    break;
-
-                default:
-                    break;
-            }
-
-            // fixedBackgroundColor
-            if(config.mermaid.fixedBackgroundColor !== null){
-                this._configMermaid.fixedBackgroundColor = config.mermaid.fixedBackgroundColor;
-            }
-        }
-    }
+    private constructor() {}
 
     public static get instance():MermaidCodeSnippet
     {
@@ -70,59 +24,49 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
         return this._instance;
     }
     
-    public async createCodeSnippet(languageId: string, extentiponPath:string, webview: vscode.Webview): Promise<string>
+    public async createCodeSnippet(context: PreviewRenderContext): Promise<string>
     {
-        return this.extractSnippet(languageId, extentiponPath, webview);
+        const text = this.resolveImports(context.document, context.document.getText());
+        return this.previewSnippet(context, text, this.getConfig());
     }
 
-    private async extractSnippet(languageId: string, extentiponPath:string, webview: vscode.Webview): Promise<string>
+    private getConfig(): MermaidPreviewConfig
     {
-        let editor = vscode.window.activeTextEditor;
-        let text = editor?.document.getText() || "";
+        const previewConfig = vscode.workspace.getConfiguration('previewSeqDiag');
+        return resolveMermaidPreviewConfig(
+            previewConfig.get<string>('mermaid.fixedStyle'),
+            previewConfig.get<string>('mermaid.fixedBackgroundColor'),
+            backgroundColorDefault,
+        );
+    }
 
+    private resolveImports(document: vscode.TextDocument, text: string): string
+    {
         try {
-            text = text.replace(/%%[ \t]+import[ \t]?:[ \t]?(.+)/g, (match, subsequenceFile) => {
-
-                if(!editor){
-                    return "";
-                }
-
-                let dirname = editor.document.uri.fsPath
-                    .toString()
-                    .split(Path.sep);
-
-                dirname.pop();
-
-                const fileName = dirname.join(Path.sep) + Path.sep + subsequenceFile.trim();
-                const importSequence = fs
-                    .readFileSync(fileName, 'utf8')
-                    .replace(/sequenceDiagram/g, '');
-                return importSequence;
-            });
+            return resolveMermaidImports(
+                text,
+                document.uri.fsPath,
+                (fileName) => fs.readFileSync(fileName, 'utf8'),
+            );
         }
         catch (err) {
             console.error(err);
+            return text;
         }
-
-        return this.previewSnippet(languageId, extentiponPath, text, webview);
     }
 
-    private async errorSnippet(error: string, webview: vscode.Webview): Promise<string>
+    private async previewSnippet(context: PreviewRenderContext, payLoad: string, config: MermaidPreviewConfig): Promise<string>
     {
-        return Misc.getFormattedHtml("",error, webview);
-    }
-
-    private async previewSnippet(languageId: string, extentiponPath:string, payLoad: string, webview: vscode.Webview): Promise<string>
-    {
-        var jsPath = vscode.Uri.file(Path.join(extentiponPath, 'dist','mermaid', 'mermaid.min.js'));
-        const jsSrc = webview.asWebviewUri(jsPath);
+        const jsPath = vscode.Uri.file(Path.join(context.extensionPath, 'dist', 'mermaid', 'mermaid.min.js'));
+        const jsSrc = context.webview.asWebviewUri(jsPath);
         return Misc.getFormattedHtml(
             `<script type="module" src="${jsSrc}"></script>
-            <script type="text/javascript">mermaid.initialize({startOnLoad:true});</script>`,
+            <script type="text/javascript">mermaid.initialize({startOnLoad:true, theme:"${config.fixedStyle}"});</script>`,
             `<div style="color:transparent;">
-                <div class="mermaid psd-svg-container" style="background-color:${this._configMermaid.fixedBackgroundColor}">${payLoad}</div>
+                <div class="mermaid psd-svg-container" style="background-color:${config.fixedBackgroundColor}">${payLoad}</div>
                 <style>.psd-svg-container svg{height:auto !important;}</style>
             </div>`,
-            webview);
+            context.webview,
+            context.document.fileName);
     }
 }

@@ -1,6 +1,6 @@
 # Change Log
 
-## Unreleased
+## 0.6.0
 
 * Update dependencies.
   * mermaid `11.2.1` to `11.12.3`
@@ -9,6 +9,14 @@
   * Update build toolchain dependencies to current secure versions.
   * Remove unused test and build-only packages that were pulling vulnerable transitive modules.
   * Migrate ESLint configuration to `eslint.config.js` for ESLint v9.
+* Simplify structure for maintenance.
+  * Replace `TextDocumentContentProvider`-style indirection with direct webview rendering.
+  * Remove shared hidden state from snippet generation and pass preview context explicitly.
+  * Replace `Rx`-based debounce with a native timer-based implementation.
+  * Apply Mermaid fixed theme configuration during initialization.
+* Add maintainable unit tests.
+  * Add `node:test` coverage for preview logic and Mermaid import expansion.
+  * Add `npm test` script and align TypeScript compiler libs for test compilation.
 
 ## 0.5.2
 
