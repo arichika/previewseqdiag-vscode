@@ -5,15 +5,7 @@ import { CodeSnippetInterface, PreviewRenderContext } from './codeSnippetInterfa
 import { DefaultCodeSnippet } from './defaultCodeSnippet';
 import { MermaidCodeSnippet } from './mermaidCodeSnippet';
 import { MscgenCodeSnippet } from './mscgenCodeSnippet';
-
-const previewableLanguageIds = new Set(['mermaid', 'mmd', 'mscgen', 'msgenny', 'xu']);
-const snippetByLanguage = new Map<string, CodeSnippetInterface>([
-    ['mermaid', MermaidCodeSnippet.instance],
-    ['mmd', MermaidCodeSnippet.instance],
-    ['mscgen', MscgenCodeSnippet.instance],
-    ['msgenny', MscgenCodeSnippet.instance],
-    ['xu', MscgenCodeSnippet.instance],
-]);
+import { getSnippetKind, isPreviewableLanguage } from './previewLogic';
 
 export class PreviewSeqDiagPanel
 {
@@ -32,7 +24,7 @@ export class PreviewSeqDiagPanel
 
     public canPreview(editor: vscode.TextEditor | undefined = vscode.window.activeTextEditor): editor is vscode.TextEditor
     {
-        return !!editor && previewableLanguageIds.has(editor.document.languageId);
+        return !!editor && isPreviewableLanguage(editor.document.languageId);
     }
 
     public async update(editor: vscode.TextEditor | undefined = vscode.window.activeTextEditor): Promise<void>
@@ -41,7 +33,7 @@ export class PreviewSeqDiagPanel
             return;
         }
 
-        const snippet = snippetByLanguage.get(editor.document.languageId) ?? DefaultCodeSnippet.instance;
+        const snippet = this.getSnippet(editor.document.languageId);
         const context: PreviewRenderContext = {
             document: editor.document,
             extensionPath: this.extensionPath,
@@ -51,6 +43,20 @@ export class PreviewSeqDiagPanel
         const html = await snippet.createCodeSnippet(context);
         if (this.webViewPanel) {
             this.webViewPanel.webview.html = html;
+        }
+    }
+
+    private getSnippet(languageId: string): CodeSnippetInterface
+    {
+        switch (getSnippetKind(languageId)) {
+            case 'mermaid':
+                return MermaidCodeSnippet.instance;
+
+            case 'mscgen':
+                return MscgenCodeSnippet.instance;
+
+            default:
+                return DefaultCodeSnippet.instance;
         }
     }
 }

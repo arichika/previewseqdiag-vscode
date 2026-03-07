@@ -1,13 +1,13 @@
 'use strict';
 
 import * as vscode from 'vscode';
-import * as Path from 'path';
+import { getDownloadBaseName } from './previewLogic';
 
 export class Misc
 {
     public static getFormattedHtml(head: string, body: string, webview: vscode.Webview, sourceFileName: string): string
     {
-        const fileName = Path.parse(sourceFileName || 'PreviewSeqDiagImage').name || 'PreviewSeqDiagImage';
+        const fileName = getDownloadBaseName(sourceFileName);
 
         return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">`
             + `<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data: blob: ${webview.cspSource} https:; script-src 'self' 'unsafe-inline' ${webview.cspSource} vscode-resource:; style-src 'self' 'unsafe-inline' ${webview.cspSource} vscode-resource: https:;" />`

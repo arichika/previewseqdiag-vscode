@@ -14,6 +14,9 @@
   * Remove shared hidden state from snippet generation and pass preview context explicitly.
   * Replace `Rx`-based debounce with a native timer-based implementation.
   * Apply Mermaid fixed theme configuration during initialization.
+* Add maintainable unit tests.
+  * Add `node:test` coverage for preview logic and Mermaid import expansion.
+  * Add `npm test` script and align TypeScript compiler libs for test compilation.
 
 ## 0.5.2
 

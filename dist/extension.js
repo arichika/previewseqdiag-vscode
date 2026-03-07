@@ -31,16 +31,9 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PreviewSeqDiagPanel = void 0;
 const vscode = __webpack_require__(1);
 const defaultCodeSnippet_1 = __webpack_require__(4);
-const mermaidCodeSnippet_1 = __webpack_require__(6);
-const mscgenCodeSnippet_1 = __webpack_require__(8);
-const previewableLanguageIds = new Set(['mermaid', 'mmd', 'mscgen', 'msgenny', 'xu']);
-const snippetByLanguage = new Map([
-    ['mermaid', mermaidCodeSnippet_1.MermaidCodeSnippet.instance],
-    ['mmd', mermaidCodeSnippet_1.MermaidCodeSnippet.instance],
-    ['mscgen', mscgenCodeSnippet_1.MscgenCodeSnippet.instance],
-    ['msgenny', mscgenCodeSnippet_1.MscgenCodeSnippet.instance],
-    ['xu', mscgenCodeSnippet_1.MscgenCodeSnippet.instance],
-]);
+const mermaidCodeSnippet_1 = __webpack_require__(7);
+const mscgenCodeSnippet_1 = __webpack_require__(9);
+const previewLogic_1 = __webpack_require__(6);
 class PreviewSeqDiagPanel {
     constructor() {
         this.webViewPanel = null;
@@ -53,15 +46,14 @@ class PreviewSeqDiagPanel {
         this.extensionPath = path;
     }
     canPreview(editor = vscode.window.activeTextEditor) {
-        return !!editor && previewableLanguageIds.has(editor.document.languageId);
+        return !!editor && (0, previewLogic_1.isPreviewableLanguage)(editor.document.languageId);
     }
     update() {
         return __awaiter(this, arguments, void 0, function* (editor = vscode.window.activeTextEditor) {
-            var _a;
             if (!this.webViewPanel || !this.canPreview(editor)) {
                 return;
             }
-            const snippet = (_a = snippetByLanguage.get(editor.document.languageId)) !== null && _a !== void 0 ? _a : defaultCodeSnippet_1.DefaultCodeSnippet.instance;
+            const snippet = this.getSnippet(editor.document.languageId);
             const context = {
                 document: editor.document,
                 extensionPath: this.extensionPath,
@@ -72,6 +64,16 @@ class PreviewSeqDiagPanel {
                 this.webViewPanel.webview.html = html;
             }
         });
+    }
+    getSnippet(languageId) {
+        switch ((0, previewLogic_1.getSnippetKind)(languageId)) {
+            case 'mermaid':
+                return mermaidCodeSnippet_1.MermaidCodeSnippet.instance;
+            case 'mscgen':
+                return mscgenCodeSnippet_1.MscgenCodeSnippet.instance;
+            default:
+                return defaultCodeSnippet_1.DefaultCodeSnippet.instance;
+        }
     }
 }
 exports.PreviewSeqDiagPanel = PreviewSeqDiagPanel;
@@ -118,10 +120,10 @@ exports.DefaultCodeSnippet = DefaultCodeSnippet;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Misc = void 0;
-const Path = __webpack_require__(2);
+const previewLogic_1 = __webpack_require__(6);
 class Misc {
     static getFormattedHtml(head, body, webview, sourceFileName) {
-        const fileName = Path.parse(sourceFileName || 'PreviewSeqDiagImage').name || 'PreviewSeqDiagImage';
+        const fileName = (0, previewLogic_1.getDownloadBaseName)(sourceFileName);
         return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">`
             + `<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data: blob: ${webview.cspSource} https:; script-src 'self' 'unsafe-inline' ${webview.cspSource} vscode-resource:; style-src 'self' 'unsafe-inline' ${webview.cspSource} vscode-resource: https:;" />`
             + head
@@ -211,6 +213,66 @@ exports.Misc = Misc;
 
 /***/ }),
 /* 6 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.isPreviewableLanguage = isPreviewableLanguage;
+exports.getSnippetKind = getSnippetKind;
+exports.resolveMermaidPreviewConfig = resolveMermaidPreviewConfig;
+exports.resolveMscgenPreviewConfig = resolveMscgenPreviewConfig;
+exports.resolveMermaidImports = resolveMermaidImports;
+exports.getDownloadBaseName = getDownloadBaseName;
+const path = __webpack_require__(2);
+const previewableLanguageIds = new Set(['mermaid', 'mmd', 'mscgen', 'msgenny', 'xu']);
+const mermaidLanguageIds = new Set(['mermaid', 'mmd']);
+const mscgenLanguageIds = new Set(['mscgen', 'msgenny', 'xu']);
+const mermaidStyles = new Set(['dark', 'forest', 'neutral']);
+const mscgenStyles = new Set(['classic', 'cygne', 'fountainpen', 'lazy', 'pegasse']);
+function isPreviewableLanguage(languageId) {
+    return previewableLanguageIds.has(languageId);
+}
+function getSnippetKind(languageId) {
+    if (mermaidLanguageIds.has(languageId)) {
+        return 'mermaid';
+    }
+    if (mscgenLanguageIds.has(languageId)) {
+        return 'mscgen';
+    }
+    return 'default';
+}
+function resolveMermaidPreviewConfig(configuredStyle, configuredBackgroundColor, fallbackBackgroundColor) {
+    return {
+        fixedStyle: mermaidStyles.has(configuredStyle)
+            ? configuredStyle
+            : 'forest',
+        fixedBackgroundColor: configuredBackgroundColor !== null && configuredBackgroundColor !== void 0 ? configuredBackgroundColor : fallbackBackgroundColor,
+    };
+}
+function resolveMscgenPreviewConfig(configuredStyle, configuredAlignment) {
+    return {
+        fixedNamedStyle: mscgenStyles.has(configuredStyle)
+            ? configuredStyle
+            : 'cygne',
+        horizontalAlignment: configuredAlignment === 'fixed'
+            ? 'fixed'
+            : 'stretch',
+    };
+}
+function resolveMermaidImports(text, sourceFilePath, readFile) {
+    const directory = path.dirname(sourceFilePath);
+    return text.replace(/%%[ \t]+import[ \t]?:[ \t]?(.+)/g, (_, subsequenceFile) => {
+        const fileName = path.join(directory, subsequenceFile.trim());
+        return readFile(fileName).replace(/sequenceDiagram/g, '');
+    });
+}
+function getDownloadBaseName(sourceFileName) {
+    return path.parse(sourceFileName || 'PreviewSeqDiagImage').name || 'PreviewSeqDiagImage';
+}
+
+
+/***/ }),
+/* 7 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -226,21 +288,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.MermaidCodeSnippet = void 0;
 const vscode = __webpack_require__(1);
-const fs = __webpack_require__(7);
+const fs = __webpack_require__(8);
 const Path = __webpack_require__(2);
 const misc_1 = __webpack_require__(5);
-var StyleName;
-(function (StyleName) {
-    StyleName.dark = "dark";
-    StyleName.forest = "forest";
-    StyleName.neutral = "neutral";
-})(StyleName || (StyleName = {}));
+const previewLogic_1 = __webpack_require__(6);
 const backgroundColorDefault = "#fafaf6";
-const mermaidStyles = new Set([
-    StyleName.dark,
-    StyleName.forest,
-    StyleName.neutral,
-]);
 class MermaidCodeSnippet {
     constructor() { }
     static get instance() {
@@ -257,24 +309,11 @@ class MermaidCodeSnippet {
     }
     getConfig() {
         const previewConfig = vscode.workspace.getConfiguration('previewSeqDiag');
-        const configuredStyle = previewConfig.get('mermaid.fixedStyle');
-        const configuredBackgroundColor = previewConfig.get('mermaid.fixedBackgroundColor');
-        return {
-            fixedStyle: mermaidStyles.has(configuredStyle)
-                ? configuredStyle
-                : StyleName.forest,
-            fixedBackgroundColor: configuredBackgroundColor !== null && configuredBackgroundColor !== void 0 ? configuredBackgroundColor : backgroundColorDefault,
-        };
+        return (0, previewLogic_1.resolveMermaidPreviewConfig)(previewConfig.get('mermaid.fixedStyle'), previewConfig.get('mermaid.fixedBackgroundColor'), backgroundColorDefault);
     }
     resolveImports(document, text) {
-        const directory = Path.dirname(document.uri.fsPath);
         try {
-            return text.replace(/%%[ \t]+import[ \t]?:[ \t]?(.+)/g, (_, subsequenceFile) => {
-                const fileName = Path.join(directory, subsequenceFile.trim());
-                return fs
-                    .readFileSync(fileName, 'utf8')
-                    .replace(/sequenceDiagram/g, '');
-            });
+            return (0, previewLogic_1.resolveMermaidImports)(text, document.uri.fsPath, (fileName) => fs.readFileSync(fileName, 'utf8'));
         }
         catch (err) {
             console.error(err);
@@ -297,13 +336,13 @@ exports.MermaidCodeSnippet = MermaidCodeSnippet;
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ ((module) => {
 
 module.exports = require("fs");
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -321,26 +360,7 @@ exports.MscgenCodeSnippet = void 0;
 const vscode = __webpack_require__(1);
 const misc_1 = __webpack_require__(5);
 const Path = __webpack_require__(2);
-var StyleName;
-(function (StyleName) {
-    StyleName.classic = "classic";
-    StyleName.cygne = "cygne";
-    StyleName.fountainpen = "fountainpen";
-    StyleName.lazy = "lazy";
-    StyleName.pegasse = "pegasse";
-})(StyleName || (StyleName = {}));
-var Alignment;
-(function (Alignment) {
-    Alignment.fixed = "fixed";
-    Alignment.stretch = "stretch";
-})(Alignment || (Alignment = {}));
-const mscgenStyles = new Set([
-    StyleName.classic,
-    StyleName.cygne,
-    StyleName.fountainpen,
-    StyleName.lazy,
-    StyleName.pegasse,
-]);
+const previewLogic_1 = __webpack_require__(6);
 class MscgenCodeSnippet {
     constructor() { }
     static get instance() {
@@ -356,16 +376,7 @@ class MscgenCodeSnippet {
     }
     getConfig() {
         const previewConfig = vscode.workspace.getConfiguration('previewSeqDiag');
-        const configuredStyle = previewConfig.get('mscgen.fixedNamedStyle');
-        const configuredAlignment = previewConfig.get('mscgen.horizontalAlignment');
-        return {
-            fixedNamedStyle: mscgenStyles.has(configuredStyle)
-                ? configuredStyle
-                : StyleName.cygne,
-            horizontalAlignment: configuredAlignment === Alignment.fixed
-                ? Alignment.fixed
-                : Alignment.stretch,
-        };
+        return (0, previewLogic_1.resolveMscgenPreviewConfig)(previewConfig.get('mscgen.fixedNamedStyle'), previewConfig.get('mscgen.horizontalAlignment'));
     }
     previewSnippet(context, payLoad, config) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -373,7 +384,7 @@ class MscgenCodeSnippet {
             const jsSrc = context.webview.asWebviewUri(jsPath);
             return misc_1.Misc.getFormattedHtml(`<script type="text/javascript">var mscgen_js_config = {};</script>
             <script src="${jsSrc}" defer></script>`
-                + ((config.horizontalAlignment === Alignment.stretch) ? `<style type="text/css"> svg {width:100%;} </style>` : ``), `<div class="psd-svg-container"><script
+                + ((config.horizontalAlignment === 'stretch') ? `<style type="text/css"> svg {width:100%;} </style>` : ``), `<div class="psd-svg-container"><script
                     style="color:transparent;" 
                     type="text/x-${context.document.languageId}" 
                     data-named-style="${config.fixedNamedStyle}" 

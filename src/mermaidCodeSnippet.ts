@@ -5,28 +5,9 @@ import * as fs from 'fs';
 import * as Path from 'path';
 import { CodeSnippetInterface, PreviewRenderContext } from './codeSnippetInterface';
 import { Misc } from './misc';
-
-
-type StyleName = "dark" | "forest" | "neutral";
-namespace StyleName{
-    export const dark = "dark";
-    export const forest = "forest";
-    export const neutral = "neutral";
-}
+import { MermaidPreviewConfig, resolveMermaidImports, resolveMermaidPreviewConfig } from './previewLogic';
 
 const backgroundColorDefault = "#fafaf6";
-
-interface ConfigMermaid
-{
-    fixedStyle: StyleName;
-    fixedBackgroundColor: string;
-}
-
-const mermaidStyles = new Set<StyleName>([
-    StyleName.dark,
-    StyleName.forest,
-    StyleName.neutral,
-]);
 
 export class MermaidCodeSnippet implements CodeSnippetInterface
 {
@@ -49,31 +30,24 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
         return this.previewSnippet(context, text, this.getConfig());
     }
 
-    private getConfig(): ConfigMermaid
+    private getConfig(): MermaidPreviewConfig
     {
         const previewConfig = vscode.workspace.getConfiguration('previewSeqDiag');
-        const configuredStyle = previewConfig.get<string>('mermaid.fixedStyle');
-        const configuredBackgroundColor = previewConfig.get<string>('mermaid.fixedBackgroundColor');
-
-        return {
-            fixedStyle: mermaidStyles.has(configuredStyle as StyleName)
-                ? configuredStyle as StyleName
-                : StyleName.forest,
-            fixedBackgroundColor: configuredBackgroundColor ?? backgroundColorDefault,
-        };
+        return resolveMermaidPreviewConfig(
+            previewConfig.get<string>('mermaid.fixedStyle'),
+            previewConfig.get<string>('mermaid.fixedBackgroundColor'),
+            backgroundColorDefault,
+        );
     }
 
     private resolveImports(document: vscode.TextDocument, text: string): string
     {
-        const directory = Path.dirname(document.uri.fsPath);
-
         try {
-            return text.replace(/%%[ \t]+import[ \t]?:[ \t]?(.+)/g, (_, subsequenceFile) => {
-                const fileName = Path.join(directory, subsequenceFile.trim());
-                return fs
-                    .readFileSync(fileName, 'utf8')
-                    .replace(/sequenceDiagram/g, '');
-            });
+            return resolveMermaidImports(
+                text,
+                document.uri.fsPath,
+                (fileName) => fs.readFileSync(fileName, 'utf8'),
+            );
         }
         catch (err) {
             console.error(err);
@@ -81,7 +55,7 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
         }
     }
 
-    private async previewSnippet(context: PreviewRenderContext, payLoad: string, config: ConfigMermaid): Promise<string>
+    private async previewSnippet(context: PreviewRenderContext, payLoad: string, config: MermaidPreviewConfig): Promise<string>
     {
         const jsPath = vscode.Uri.file(Path.join(context.extensionPath, 'dist', 'mermaid', 'mermaid.min.js'));
         const jsSrc = context.webview.asWebviewUri(jsPath);

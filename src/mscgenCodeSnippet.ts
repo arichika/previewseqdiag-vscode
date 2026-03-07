@@ -4,36 +4,7 @@ import * as vscode from 'vscode';
 import { CodeSnippetInterface, PreviewRenderContext } from './codeSnippetInterface';
 import { Misc } from './misc';
 import * as Path from 'path';
-
-
-type StyleName = "classic" | "cygne" | "fountainpen" | "lazy" | "pegasse";
-namespace StyleName{
-    export const classic = "classic";
-    export const cygne = "cygne";
-    export const fountainpen = "fountainpen";
-    export const lazy = "lazy";
-    export const pegasse = "pegasse";
-}
-
-type Alignment = "fixed" | "stretch";
-namespace Alignment{
-    export const fixed = "fixed";
-    export const stretch = "stretch";
-}
-
-interface ConfigMscgen
-{
-    fixedNamedStyle: StyleName;
-    horizontalAlignment: Alignment;
-}
-
-const mscgenStyles = new Set<StyleName>([
-    StyleName.classic,
-    StyleName.cygne,
-    StyleName.fountainpen,
-    StyleName.lazy,
-    StyleName.pegasse,
-]);
+import { MscgenPreviewConfig, resolveMscgenPreviewConfig } from './previewLogic';
 
 
 export class MscgenCodeSnippet implements CodeSnippetInterface
@@ -56,30 +27,23 @@ export class MscgenCodeSnippet implements CodeSnippetInterface
         return this.previewSnippet(context, context.document.getText(), this.getConfig());
     }
 
-    private getConfig(): ConfigMscgen
+    private getConfig(): MscgenPreviewConfig
     {
         const previewConfig = vscode.workspace.getConfiguration('previewSeqDiag');
-        const configuredStyle = previewConfig.get<string>('mscgen.fixedNamedStyle');
-        const configuredAlignment = previewConfig.get<string>('mscgen.horizontalAlignment');
-
-        return {
-            fixedNamedStyle: mscgenStyles.has(configuredStyle as StyleName)
-                ? configuredStyle as StyleName
-                : StyleName.cygne,
-            horizontalAlignment: configuredAlignment === Alignment.fixed
-                ? Alignment.fixed
-                : Alignment.stretch,
-        };
+        return resolveMscgenPreviewConfig(
+            previewConfig.get<string>('mscgen.fixedNamedStyle'),
+            previewConfig.get<string>('mscgen.horizontalAlignment'),
+        );
     }
 
-    private async previewSnippet(context: PreviewRenderContext, payLoad: string, config: ConfigMscgen): Promise<string>
+    private async previewSnippet(context: PreviewRenderContext, payLoad: string, config: MscgenPreviewConfig): Promise<string>
     {
         const jsPath = vscode.Uri.file(Path.join(context.extensionPath, 'dist', 'mscgenjs-inpage', 'mscgen-inpage.js'));
         const jsSrc = context.webview.asWebviewUri(jsPath);
         return Misc.getFormattedHtml(
             `<script type="text/javascript">var mscgen_js_config = {};</script>
             <script src="${jsSrc}" defer></script>`
-            + ((config.horizontalAlignment === Alignment.stretch) ? `<style type="text/css"> svg {width:100%;} </style>` : ``)
+            + ((config.horizontalAlignment === 'stretch') ? `<style type="text/css"> svg {width:100%;} </style>` : ``)
             ,
             `<div class="psd-svg-container"><script
                     style="color:transparent;" 
