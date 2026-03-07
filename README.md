@@ -6,6 +6,11 @@ Preview Sequence Diagrams (previewseqdiag-vscode) is an extension for vscode spe
 
 <img src="https://github.com/arichika/previewseqdiag-vscode/raw/main/assets/eye-catch.png" alt="eye-catch" width="480" />
 
+## New Features on 0.6.0
+
+* Simplify preview update flow and reduce structural duplication.
+* Remove obsolete document-provider indirection and `rx` dependency.
+
 ## New Features on 0.5.2
 
 * Support for Mermaid v11 syntax.
@@ -44,7 +49,7 @@ This is usefull to avoid multipicate the same code on many files.
 
 [CHANGELOG.md](CHANGELOG.md)
 
-## Unreleased
+## 0.6.0
 
 * Update dependencies.
   * mermaid `11.2.1` to `11.12.3`
@@ -53,6 +58,11 @@ This is usefull to avoid multipicate the same code on many files.
   * Update build toolchain dependencies to current secure versions.
   * Remove unused test and build-only packages that were pulling vulnerable transitive modules.
   * Migrate ESLint configuration to `eslint.config.js` for ESLint v9.
+* Simplify structure for maintenance.
+  * Replace `TextDocumentContentProvider`-style indirection with direct webview rendering.
+  * Remove shared hidden state from snippet generation and pass preview context explicitly.
+  * Replace `Rx`-based debounce with a native timer-based implementation.
+  * Apply Mermaid fixed theme configuration during initialization.
 
 ## 0.5.2
 

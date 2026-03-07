@@ -1,8 +1,7 @@
 'use strict';
 
 import * as vscode from 'vscode';
-import { workspace, window, commands, ExtensionContext } from 'vscode';
-import { CodeSnippetInterface } from './codeSnippetInterface';
+import { CodeSnippetInterface, PreviewRenderContext } from './codeSnippetInterface';
 import { Misc } from './misc';
 import * as Path from 'path';
 
@@ -22,57 +21,26 @@ namespace Alignment{
     export const stretch = "stretch";
 }
 
-class ConfigMscgen
+interface ConfigMscgen
 {
-    public fixedNamedStyle: StyleName = StyleName.classic;
-    public horizontalAlignment: Alignment = Alignment.stretch;
+    fixedNamedStyle: StyleName;
+    horizontalAlignment: Alignment;
 }
+
+const mscgenStyles = new Set<StyleName>([
+    StyleName.classic,
+    StyleName.cygne,
+    StyleName.fountainpen,
+    StyleName.lazy,
+    StyleName.pegasse,
+]);
 
 
 export class MscgenCodeSnippet implements CodeSnippetInterface
 {
     private static _instance:MscgenCodeSnippet;
 
-    private _configMscgen: ConfigMscgen;
-
-    private constructor()
-    {
-        this._configMscgen = new ConfigMscgen();
-
-        // defaults
-        this._configMscgen.fixedNamedStyle = StyleName.cygne;
-        this._configMscgen.horizontalAlignment = Alignment.stretch;
-
-        var config = vscode.workspace.getConfiguration('previewSeqDiag');
-        if(!!config && !!config.mscgen)
-        {
-            // fixedNamedStyle
-            switch(config.mscgen.fixedNamedStyle)
-            {
-                case StyleName.classic:
-                case StyleName.cygne:
-                case StyleName.fountainpen:
-                case StyleName.lazy:
-                case StyleName.pegasse:
-                    this._configMscgen.fixedNamedStyle = config.mscgen.fixedNamedStyle;
-                    break;
-
-                default:
-                    break;
-            }
-
-            // horizontalAlignment
-            switch(config.mscgen.horizontalAlignment)
-            {
-                case Alignment.fixed:
-                    this._configMscgen.horizontalAlignment = Alignment.fixed;
-                    break;
-
-                default:
-                    break;
-            }
-        }
-    }
+    private constructor() {}
 
     public static get instance():MscgenCodeSnippet
     {
@@ -83,42 +51,47 @@ export class MscgenCodeSnippet implements CodeSnippetInterface
         return this._instance;
     }
     
-    public async createCodeSnippet(languageId: string, extentiponPath:string, webview: vscode.Webview): Promise<string>
+    public async createCodeSnippet(context: PreviewRenderContext): Promise<string>
     {
-        return this.extractSnippet(languageId, extentiponPath, webview);
+        return this.previewSnippet(context, context.document.getText(), this.getConfig());
     }
 
-    private async extractSnippet(languageId: string, extentiponPath:string, webview: vscode.Webview): Promise<string>
+    private getConfig(): ConfigMscgen
     {
-        let editor = vscode.window.activeTextEditor;
-        let text = editor?.document.getText() || "";
-        return this.previewSnippet(languageId,extentiponPath, text, webview);
+        const previewConfig = vscode.workspace.getConfiguration('previewSeqDiag');
+        const configuredStyle = previewConfig.get<string>('mscgen.fixedNamedStyle');
+        const configuredAlignment = previewConfig.get<string>('mscgen.horizontalAlignment');
+
+        return {
+            fixedNamedStyle: mscgenStyles.has(configuredStyle as StyleName)
+                ? configuredStyle as StyleName
+                : StyleName.cygne,
+            horizontalAlignment: configuredAlignment === Alignment.fixed
+                ? Alignment.fixed
+                : Alignment.stretch,
+        };
     }
 
-    private async errorSnippet(error: string, webview: vscode.Webview): Promise<string>
+    private async previewSnippet(context: PreviewRenderContext, payLoad: string, config: ConfigMscgen): Promise<string>
     {
-        return Misc.getFormattedHtml("",error, webview);
-    }
-
-    private async previewSnippet(languageId: string, extentiponPath:string, payLoad: string, webview: vscode.Webview): Promise<string>
-    {
-        var jsPath = vscode.Uri.file(Path.join(extentiponPath, 'dist','mscgenjs-inpage', 'mscgen-inpage.js'));
-        const jsSrc = webview.asWebviewUri(jsPath);
+        const jsPath = vscode.Uri.file(Path.join(context.extensionPath, 'dist', 'mscgenjs-inpage', 'mscgen-inpage.js'));
+        const jsSrc = context.webview.asWebviewUri(jsPath);
         return Misc.getFormattedHtml(
             `<script type="text/javascript">var mscgen_js_config = {};</script>
             <script src="${jsSrc}" defer></script>`
-            + ((this._configMscgen.horizontalAlignment === Alignment.stretch) ? `<style type="text/css"> svg {width:100%;} </style>` : ``)
+            + ((config.horizontalAlignment === Alignment.stretch) ? `<style type="text/css"> svg {width:100%;} </style>` : ``)
             ,
             `<div class="psd-svg-container"><script
                     style="color:transparent;" 
-                    type="text/x-${languageId}" 
-                    data-named-style="${this._configMscgen.fixedNamedStyle}" 
+                    type="text/x-${context.document.languageId}" 
+                    data-named-style="${config.fixedNamedStyle}" 
                     data-regular-arc-text-vertical-alignment="above">
                     ${payLoad}
                 </script>
                 <style>.psd-svg-container svg{height:auto !important;}</style>
             </div>
             `,
-            webview);
+            context.webview,
+            context.document.fileName);
     }
 }

@@ -5,12 +5,9 @@ import * as Path from 'path';
 
 export class Misc
 {
-    public static previewUri = vscode.Uri.parse('previewSeqDiag://authority/previewSeqDiag');
-
-    public static getFormattedHtml(head: string, body: string, webview: vscode.Webview): string
+    public static getFormattedHtml(head: string, body: string, webview: vscode.Webview, sourceFileName: string): string
     {
-        var fileName = vscode.window.activeTextEditor?.document.fileName || "PreviewSeqDiagImage";
-        fileName = fileName.substring(fileName.lastIndexOf("\\")+1).substring(fileName.lastIndexOf("/")+1);
+        const fileName = Path.parse(sourceFileName || 'PreviewSeqDiagImage').name || 'PreviewSeqDiagImage';
 
         return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">`
             + `<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data: blob: ${webview.cspSource} https:; script-src 'self' 'unsafe-inline' ${webview.cspSource} vscode-resource:; style-src 'self' 'unsafe-inline' ${webview.cspSource} vscode-resource: https:;" />`

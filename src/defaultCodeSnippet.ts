@@ -1,7 +1,6 @@
 'use strict';
 
-import * as vscode from 'vscode';
-import { CodeSnippetInterface } from './codeSnippetInterface';
+import { CodeSnippetInterface, PreviewRenderContext } from './codeSnippetInterface';
 import { Misc } from './misc';
 
 
@@ -21,28 +20,12 @@ export class DefaultCodeSnippet implements CodeSnippetInterface
         return this._instance;
     }
 
-    public async createCodeSnippet(languageId: string, extentiponPath:string, webview: vscode.Webview): Promise<string>
-    {
-        return this.extractSnippet(languageId, extentiponPath,webview);
-    }
-
-    private async extractSnippet(languageId: string, extentiponPath:string, webview: vscode.Webview): Promise<string>
-    {
-        let editor = vscode.window.activeTextEditor;
-        let text = editor?.document.getText();
-        return this.previewSnippet(languageId, extentiponPath, text||"",webview);
-    }
-
-    private async errorSnippet(error: string, webview: vscode.Webview): Promise<string>
-    {
-        return Misc.getFormattedHtml("",error,webview);
-    }
-
-    private async previewSnippet(languageId: string, extentiponPath:string, payLoad: string, webview: vscode.Webview): Promise<string>
+    public async createCodeSnippet(context: PreviewRenderContext): Promise<string>
     {
         return Misc.getFormattedHtml(
-            ``
-            ,`${payLoad}`,
-            webview);
+            '',
+            context.document.getText(),
+            context.webview,
+            context.document.fileName);
     }
 }
