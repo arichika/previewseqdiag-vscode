@@ -44,6 +44,16 @@ This is usefull to avoid multipicate the same code on many files.
 
 [CHANGELOG.md](CHANGELOG.md)
 
+## Unreleased
+
+* Update dependencies.
+  * mermaid `11.2.1` to `11.12.3`
+  * typescript `4.9.4` to `5.9.3`
+* Fix dependency vulnerabilities.
+  * Update build toolchain dependencies to current secure versions.
+  * Remove unused test and build-only packages that were pulling vulnerable transitive modules.
+  * Migrate ESLint configuration to `eslint.config.js` for ESLint v9.
+
 ## 0.5.2
 
 * Support for Mermaid v11 syntax.
