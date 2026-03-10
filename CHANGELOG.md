@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.6.1
+
+* Update dependencies.
+  * mermaid `11.12.3` to `11.13.0`
+
 ## 0.6.0
 
 * Update dependencies.
