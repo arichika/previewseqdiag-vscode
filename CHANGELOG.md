@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.2
+
+* Fix dependency vulnerabilities.
+  * flatted `3.3.4` to `3.4.2`
+  * picomatch `2.3.1` to `2.3.2`, `4.0.3` to `4.0.4`
+
 ## 0.6.1
 
 * Update dependencies.
