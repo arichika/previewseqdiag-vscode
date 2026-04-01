@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.6.3
+
+* Update dependencies.
+  * mermaid `11.13.0` to `11.14.0`
+  * @typescript-eslint/eslint-plugin `8.56.1` to `8.58.0`
+  * @typescript-eslint/parser `8.56.1` to `8.58.0`
+* Fix dependency vulnerabilities.
+  * serialize-javascript `7.0.4` to `7.0.5`
+  * brace-expansion `1.1.12` to `1.1.13`, `5.0.4` to `5.0.5`
+* Package release artifact.
+  * Generate `previewseqdiag-vscode-0.6.3.vsix`
+
 ## 0.6.2
 
 * Fix dependency vulnerabilities.
