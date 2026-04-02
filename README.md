@@ -6,6 +6,10 @@ Preview Sequence Diagrams (previewseqdiag-vscode) is an extension for vscode spe
 
 <img src="https://github.com/arichika/previewseqdiag-vscode/raw/main/assets/eye-catch.png" alt="eye-catch" width="480" />
 
+## New Features on 0.6.3
+
+* Update Mermaid to the latest v11 release.
+
 ## New Features on 0.6.0
 
 * Simplify preview update flow and reduce structural duplication.
@@ -48,6 +52,18 @@ This is usefull to avoid multipicate the same code on many files.
 ## Release Notes
 
 [CHANGELOG.md](CHANGELOG.md)
+
+## 0.6.3
+
+* Update dependencies.
+  * mermaid `11.13.0` to `11.14.0`
+  * @typescript-eslint/eslint-plugin `8.56.1` to `8.58.0`
+  * @typescript-eslint/parser `8.56.1` to `8.58.0`
+* Fix dependency vulnerabilities.
+  * serialize-javascript `7.0.4` to `7.0.5`
+  * brace-expansion `1.1.12` to `1.1.13`, `5.0.4` to `5.0.5`
+* Package release artifact.
+  * Generate `previewseqdiag-vscode-0.6.3.vsix`
 
 ## 0.6.2
 
