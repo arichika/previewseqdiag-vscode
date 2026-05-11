@@ -6,6 +6,11 @@ Preview Sequence Diagrams (previewseqdiag-vscode) is an extension for vscode spe
 
 <img src="https://github.com/arichika/previewseqdiag-vscode/raw/main/assets/eye-catch.png" alt="eye-catch" width="480" />
 
+## New Features on 0.6.5
+
+* Update Mermaid to the latest v11 release.
+* Fix dependency vulnerabilities.
+
 ## New Features on 0.6.4
 
 * Fix dependency vulnerabilities.
@@ -56,6 +61,15 @@ This is usefull to avoid multipicate the same code on many files.
 ## Release Notes
 
 [CHANGELOG.md](CHANGELOG.md)
+
+## 0.6.5
+
+* Update dependencies.
+  * Confirm mermaid is up to date at `11.14.0`
+* Fix dependency vulnerabilities.
+  * fast-uri `3.1.0` to `3.1.2`
+* Package release artifact.
+  * Generate `previewseqdiag-vscode-0.6.5.vsix`
 
 ## 0.6.4
 

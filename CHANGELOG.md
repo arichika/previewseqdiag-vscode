@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.6.5
+
+* Update dependencies.
+  * Confirm mermaid is up to date at `11.14.0`
+* Fix dependency vulnerabilities.
+  * fast-uri `3.1.0` to `3.1.2`
+* Package release artifact.
+  * Generate `previewseqdiag-vscode-0.6.5.vsix`
+
 ## 0.6.4
 
 * Fix dependency vulnerabilities.
