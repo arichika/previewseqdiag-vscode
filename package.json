@@ -168,7 +168,7 @@
         "@typescript-eslint/parser": "^8.58.0",
         "copy-webpack-plugin": "^14.0.0",
         "eslint": "^9.39.4",
-        "mermaid": "^11.14.0",
+        "mermaid": "^11.15.0",
         "mscgenjs": "^7.0.2",
         "mscgenjs-inpage": "^5.0.1",
         "ts-loader": "^9.5.4",
