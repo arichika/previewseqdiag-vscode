@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.7.0
+
+* Update dependencies.
+  * mermaid `11.14.0` to `11.15.0`
+  * @mermaid-js/parser `1.1.0` to `1.1.1`
+* Resolve dependency vulnerabilities.
+  * Confirm `npm audit` reports 0 vulnerabilities.
+* Package release artifact.
+  * Generate `previewseqdiag-vscode-0.7.0.vsix`
+
 ## 0.6.5
 
 * Update dependencies.
