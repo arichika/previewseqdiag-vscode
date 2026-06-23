@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.7.1
+
+* Update dependencies.
+  * Confirm mermaid is up to date at `11.15.0`
+* Resolve dependency vulnerabilities.
+  * dompurify `3.4.1` to `3.4.11`
+  * brace-expansion `5.0.5` to `5.0.6`
+  * js-yaml `4.1.1` to `4.2.0`
+  * Confirm `npm audit` reports 0 vulnerabilities.
+* Package release artifact.
+  * Generate `previewseqdiag-vscode-0.7.1.vsix`
+
 ## 0.7.0
 
 * Update dependencies.
