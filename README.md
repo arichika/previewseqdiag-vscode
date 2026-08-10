@@ -6,6 +6,11 @@ Preview Sequence Diagrams (previewseqdiag-vscode) is an extension for vscode spe
 
 <img src="https://github.com/arichika/previewseqdiag-vscode/raw/main/assets/eye-catch.png" alt="eye-catch" width="480" />
 
+## New Features on 0.8.1
+
+* Update Mermaid to the latest v11 release.
+* Fix dependency vulnerabilities.
+
 ## New Features on 0.8.0
 
 * Update Mermaid to the latest v11 release.
@@ -77,6 +82,23 @@ This is usefull to avoid multipicate the same code on many files.
 ## Release Notes
 
 [CHANGELOG.md](CHANGELOG.md)
+
+## 0.8.1
+
+* Update dependencies.
+  * mermaid `11.16.0` to `11.16.1`
+  * eslint `9.39.4` to `9.39.5`
+  * @eslint/eslintrc `3.3.5` to `3.3.6`
+  * @eslint/js `9.39.4` to `9.39.5`
+  * ajv `6.14.0` to `6.15.0`
+* Resolve dependency vulnerabilities.
+  * brace-expansion `1.1.13` to `1.1.18`, `5.0.6` to `5.0.9`
+  * dompurify `3.4.11` to `3.4.13`
+  * fast-uri `3.1.2` to `3.1.5`
+  * js-yaml `4.2.0` to `4.3.1`
+  * Confirm `npm audit` reports 0 vulnerabilities.
+* Package release artifact.
+  * Generate `previewseqdiag-vscode-0.8.1.vsix`
 
 ## 0.8.0
 
