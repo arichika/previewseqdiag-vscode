@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.8.2
+
+* Confirm Mermaid is up to date.
+  * mermaid remains at `11.16.1`
+* Confirm dependency security status.
+  * Confirm `npm audit` reports 0 vulnerabilities.
+* Package release artifact.
+  * Generate `previewseqdiag-vscode-0.8.2.vsix`
+
 ## 0.8.1
 
 * Update dependencies.
