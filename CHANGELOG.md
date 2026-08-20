@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.8.3
+
+* Update dependencies.
+  * mermaid `11.16.1` to `11.17.0`
+  * @mermaid-js/parser `1.2.0` to `1.2.1`
+  * Add fastdom `1.0.12` and strictdom `1.0.1` as Mermaid dependencies.
+* Confirm dependency security status.
+  * Confirm `npm audit` reports 0 vulnerabilities.
+* Package release artifact.
+  * Generate `previewseqdiag-vscode-0.8.3.vsix`
+
 ## 0.8.2
 
 * Confirm Mermaid is up to date.
