@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.8.4
+
+* Update dependencies.
+  * mermaid `11.17.0` to `11.17.2`
+* Confirm dependency security status.
+  * Confirm `npm audit` reports 0 vulnerabilities.
+* Package release artifact.
+  * Generate `previewseqdiag-vscode-0.8.4.vsix`
+
 ## 0.8.3
 
 * Update dependencies.
