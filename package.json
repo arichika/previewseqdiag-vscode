@@ -2,7 +2,7 @@
     "name": "previewseqdiag-vscode",
     "displayName": "Preview Sequence Diagrams",
     "description": "An extension for the previewing and saving as PNG/JPG/SVG function of mermaid, mscgen and other",
-    "version": "0.8.5",
+    "version": "0.9.0",
     "publisher": "arichika",
     "author": "arichika.taniguchi @arichika",
     "license": "GPL-3.0",
@@ -27,7 +27,7 @@
         "Xù"
     ],
     "engines": {
-        "vscode": "^1.54.0"
+        "vscode": "^1.100.0"
     },
     "categories": [
         "Other"
@@ -154,7 +154,7 @@
         "compile": "webpack",
         "watch": "webpack --watch",
         "package": "webpack --mode production --devtool hidden-source-map",
-        "test": "npm run test-compile && node --test test/previewLogic.test.js",
+        "test": "npm run test-compile && node --test test/*.test.js",
         "test-compile": "tsc -p ./",
         "test-watch": "tsc -watch -p ./",
         "pretest": "npm run test-compile && npm run lint",
@@ -168,7 +168,7 @@
         "@typescript-eslint/parser": "^8.58.0",
         "copy-webpack-plugin": "^14.0.0",
         "eslint": "^9.39.4",
-        "mermaid": "^11.17.2",
+        "mermaid": "^12.2.0",
         "mscgenjs": "^7.0.2",
         "mscgenjs-inpage": "^5.0.1",
         "ts-loader": "^9.6.2",
@@ -182,7 +182,7 @@
     "overrides": {
         "uuid": "14.0.0",
         "copy-webpack-plugin": {
-            "serialize-javascript": "7.0.5"
+            "serialize-javascript": "7.1.4"
         },
         "eslint": {
             "brace-expansion": "1.1.21"
