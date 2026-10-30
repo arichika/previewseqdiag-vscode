@@ -5,7 +5,7 @@ import * as fs from 'fs';
 import * as Path from 'path';
 import { CodeSnippetInterface, PreviewRenderContext } from './codeSnippetInterface';
 import { Misc } from './misc';
-import { MermaidPreviewConfig, resolveMermaidImports, resolveMermaidPreviewConfig } from './previewLogic';
+import { MermaidPreviewConfig, resolveMermaidImports, resolveMermaidPreviewConfig, serializeForInlineScript } from './previewLogic';
 
 const backgroundColorDefault = "#fafaf6";
 
@@ -60,12 +60,29 @@ export class MermaidCodeSnippet implements CodeSnippetInterface
         const jsPath = vscode.Uri.file(Path.join(context.extensionPath, 'dist', 'mermaid', 'mermaid.min.js'));
         const jsSrc = context.webview.asWebviewUri(jsPath);
         return Misc.getFormattedHtml(
-            `<script type="module" src="${jsSrc}"></script>
-            <script type="text/javascript">mermaid.initialize({startOnLoad:true, theme:"${config.fixedStyle}"});</script>`,
-            `<div style="color:transparent;">
-                <div class="mermaid psd-svg-container" style="background-color:${config.fixedBackgroundColor}">${payLoad}</div>
+            `<script src="${jsSrc}"></script>`,
+            `<div>
+                <div id="mermaid-preview" class="mermaid psd-svg-container" style="visibility:hidden;"></div>
                 <style>.psd-svg-container svg{height:auto !important;}</style>
-            </div>`,
+            </div>
+            <script>
+                const preview = document.getElementById('mermaid-preview');
+                const config = ${serializeForInlineScript(config)};
+                preview.textContent = ${serializeForInlineScript(payLoad)};
+                preview.style.backgroundColor = config.fixedBackgroundColor;
+                mermaid.initialize({
+                    startOnLoad: false,
+                    securityLevel: 'strict',
+                    theme: config.fixedStyle,
+                    layout: 'dagre',
+                    look: 'classic'
+                });
+                mermaid.run({nodes: [preview]}).catch(error => {
+                    preview.textContent = String(error);
+                }).finally(() => {
+                    preview.style.visibility = 'visible';
+                });
+            </script>`,
             context.webview,
             context.document.fileName);
     }

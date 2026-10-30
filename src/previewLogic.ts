@@ -91,3 +91,15 @@ export function getDownloadBaseName(sourceFileName: string | undefined): string
 {
     return path.parse(sourceFileName || 'PreviewSeqDiagImage').name || 'PreviewSeqDiagImage';
 }
+
+// JSON strings in an HTML script element must not contain a literal closing
+// script tag, even when that text appears inside a JavaScript string.
+export function serializeForInlineScript(value: unknown): string
+{
+    return JSON.stringify(value)
+        .replace(/&/g, '\\u0026')
+        .replace(/</g, '\\u003c')
+        .replace(/>/g, '\\u003e')
+        .replace(/\u2028/g, '\\u2028')
+        .replace(/\u2029/g, '\\u2029');
+}

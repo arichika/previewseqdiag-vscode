@@ -1,5 +1,28 @@
 # Change Log
 
+## 0.9.0
+
+* Migrate to Mermaid v12.
+  * mermaid `11.17.2` to `12.2.0`
+  * Require VS Code `1.100.0` or later for the ES2024 renderer. Development builds require Node.js `22.12.0` or later.
+  * Preserve the classic appearance, Dagre layout, and configured preview theme by default.
+* Fix renderer security and initialization.
+  * Build the offline Mermaid browser bundle from the audited dependencies instead of copying the upstream prebuilt bundle.
+  * Include patched DOMPurify `3.4.17` and KaTeX `0.18.10` in the shipped renderer.
+  * Load Mermaid before initialization and render explicitly with strict security settings.
+  * Keep Mermaid/Mscgen source, preview settings, and download filenames from breaking out into executable HTML or JavaScript.
+  * Add webview security regression tests.
+* Resolve dependency vulnerabilities.
+  * dompurify `3.4.16` to `3.4.17`
+  * katex `0.16.47` to `0.18.10`
+  * fast-uri `3.1.8` to `3.1.9`
+  * serialize-javascript `7.0.5` to `7.1.4`
+  * Confirm `npm audit` reports 0 vulnerabilities.
+* Package release artifact.
+  * Generate `previewseqdiag-vscode-0.9.0.vsix`
+* Prune obsolete root-level release artifacts.
+  * Remove `previewseqdiag-vscode-0.8.0.vsix` through `previewseqdiag-vscode-0.8.4.vsix`, retaining `0.8.5` for the 0.8 release line.
+
 ## 0.8.5
 
 * Update dependencies.

@@ -1,13 +1,13 @@
 'use strict';
 
 import * as vscode from 'vscode';
-import { getDownloadBaseName } from './previewLogic';
+import { getDownloadBaseName, serializeForInlineScript } from './previewLogic';
 
 export class Misc
 {
     public static getFormattedHtml(head: string, body: string, webview: vscode.Webview, sourceFileName: string): string
     {
-        const fileName = getDownloadBaseName(sourceFileName);
+        const fileName = serializeForInlineScript(getDownloadBaseName(sourceFileName));
 
         return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">`
             + `<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data: blob: ${webview.cspSource} https:; script-src 'self' 'unsafe-inline' ${webview.cspSource} vscode-resource:; style-src 'self' 'unsafe-inline' ${webview.cspSource} vscode-resource: https:;" />`
@@ -55,7 +55,7 @@ export class Misc
                 {
                     var a = document.createElement("a");
                     a.href = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svgData);
-                    a.setAttribute("download", "` + fileName + `." + fileType);
+                    a.setAttribute("download", ` + fileName + ` + "." + fileType);
                     a.dispatchEvent(new MouseEvent("click"));
                     return;
                 }
@@ -83,7 +83,7 @@ export class Misc
                     }
                     var a = document.createElement("a");
                     a.href = canvas.toDataURL("image/" + fileType);
-                    a.setAttribute("download", "` + fileName + `." + fileType);
+                    a.setAttribute("download", ` + fileName + ` + "." + fileType);
                     a.dispatchEvent(new MouseEvent("click"));
                 }
                 image.src = "data:image/svg+xml;charset=utf-8;base64," + btoa(unescape(encodeURIComponent(svgData))); 

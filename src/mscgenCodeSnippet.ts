@@ -4,7 +4,7 @@ import * as vscode from 'vscode';
 import { CodeSnippetInterface, PreviewRenderContext } from './codeSnippetInterface';
 import { Misc } from './misc';
 import * as Path from 'path';
-import { MscgenPreviewConfig, resolveMscgenPreviewConfig } from './previewLogic';
+import { MscgenPreviewConfig, resolveMscgenPreviewConfig, serializeForInlineScript } from './previewLogic';
 
 
 export class MscgenCodeSnippet implements CodeSnippetInterface
@@ -46,11 +46,14 @@ export class MscgenCodeSnippet implements CodeSnippetInterface
             + ((config.horizontalAlignment === 'stretch') ? `<style type="text/css"> svg {width:100%;} </style>` : ``)
             ,
             `<div class="psd-svg-container"><script
+                    id="mscgen-source"
                     style="color:transparent;" 
                     type="text/x-${context.document.languageId}" 
                     data-named-style="${config.fixedNamedStyle}" 
                     data-regular-arc-text-vertical-alignment="above">
-                    ${payLoad}
+                </script>
+                <script>
+                    document.getElementById('mscgen-source').textContent = ${serializeForInlineScript(payLoad)};
                 </script>
                 <style>.psd-svg-container svg{height:auto !important;}</style>
             </div>
