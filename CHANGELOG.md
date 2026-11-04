@@ -1,5 +1,19 @@
 # Change Log
 
+## 0.9.1
+
+* Update dependencies.
+  * mermaid `12.2.0` to `12.3.0`
+  * elkjs `0.9.3` to `0.12.1` as a Mermaid dependency.
+* Resolve the minimatch development-tooling vulnerability.
+  * Replace minimatch `3.1.5` and `10.2.5` with patched `11.0.4` through a private, development-only compatibility package.
+  * Forward matching to the audited upstream package while preserving the callable default and named exports required by CommonJS and ESM lint consumers.
+  * Remove the obsolete brace-expansion overrides and exclude the compatibility package from the VSIX.
+  * Add regression tests for lint file selection, ignore rules, Windows paths, legacy config matching, and bounded pattern expansion.
+  * Confirm `npm audit` reports 0 vulnerabilities.
+* Package release artifact.
+  * Generate `previewseqdiag-vscode-0.9.1.vsix`
+
 ## 0.9.0
 
 * Migrate to Mermaid v12.

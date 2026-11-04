@@ -2,7 +2,7 @@
     "name": "previewseqdiag-vscode",
     "displayName": "Preview Sequence Diagrams",
     "description": "An extension for the previewing and saving as PNG/JPG/SVG function of mermaid, mscgen and other",
-    "version": "0.9.0",
+    "version": "0.9.1",
     "publisher": "arichika",
     "author": "arichika.taniguchi @arichika",
     "license": "GPL-3.0",
@@ -168,7 +168,8 @@
         "@typescript-eslint/parser": "^8.58.0",
         "copy-webpack-plugin": "^14.0.0",
         "eslint": "^9.39.4",
-        "mermaid": "^12.2.0",
+        "mermaid": "^12.3.0",
+        "minimatch": "file:tools/minimatch-compat",
         "mscgenjs": "^7.0.2",
         "mscgenjs-inpage": "^5.0.1",
         "ts-loader": "^9.6.2",
@@ -184,18 +185,7 @@
         "copy-webpack-plugin": {
             "serialize-javascript": "7.1.4"
         },
-        "eslint": {
-            "brace-expansion": "1.1.21"
-        },
-        "@eslint/config-array": {
-            "brace-expansion": "1.1.21"
-        },
-        "@eslint/eslintrc": {
-            "brace-expansion": "1.1.21"
-        },
-        "minimatch@^10": {
-            "brace-expansion": "5.0.12"
-        }
+        "minimatch": "$minimatch"
     },
     "extensionDependencies": [
         "mscgenjs.vscode-mscgen"
